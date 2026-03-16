@@ -2407,34 +2407,39 @@ object-fit:cover;
   
   /* ----- HERO SECTION ----- */
   .hero {
-    flex-direction: column;
-    padding: 60px 20px;
-    text-align: center;
-    min-height: auto;
-  }
-  
-  .hero-left {
-    margin-left: 0;
-    align-items: center;
-    max-width: 100%;
-  }
-  
-  .hero-logo {
-    width: 180px;
-    margin: 0 auto 20px auto;
-  }
-  
-  .hero-headline {
-    font-size: 32px;
-  }
-  
-  .hero-subheadline {
-    font-size: 16px;
-  }
-  
-  .hero-right {
-    display: none; /* ocultamos la imagen decorativa en móvil para ahorrar espacio */
-  }
+  flex-direction: column;
+  padding: 40px 20px;
+}
+
+.hero-left {
+  margin: 0;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-logo {
+  width: 150px;
+  margin: 0 auto 20px;
+}
+
+.hero-headline {
+  font-size: 28px;
+}
+
+.hero-subheadline {
+  font-size: 16px;
+}
+
+.hero-right {
+  display: block;
+  width: 100%;
+  height: 300px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 30px;
+}
   
   /* ----- PROBLEM SECTION ----- */
   .problem-wrapper {
@@ -2754,6 +2759,61 @@ img, video, iframe, .book, .testimonial-post, .bonus-card, .guarantee-container,
   width: 100% !important;
   max-width: 350px !important; /* controlamos el tamaño máximo */
   margin: 0 auto !important;
+}
+
+@media (max-width: 768px) {
+  /* ... tus otras reglas ... */
+
+  /* === STORY SECTION (POR FIN, ALGUIEN QUE TRADUCE...) === */
+  .story-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 30px !important;
+    padding: 0 15px !important; /* importante: padding lateral */
+  }
+
+  .story-left {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    padding: 0 !important;
+    text-align: left !important; /* o center si prefieres */
+  }
+
+  .story-left .story-title {
+    font-size: 28px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 15px !important;
+    word-wrap: break-word !important;
+  }
+
+  .story-left .story-text {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 15px !important;
+    word-wrap: break-word !important;
+    hyphens: auto !important; /* para que corte palabras largas si es necesario */
+  }
+
+  .story-left .cta-button {
+    width: 100% !important;
+    max-width: 350px !important;
+    margin: 0 auto !important;
+    display: block !important;
+    font-size: 16px !important;
+    padding: 14px 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .story-right {
+    width: 100% !important;
+    min-width: auto !important;
+    height: 300px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: 12px !important;
+    margin-top: 10px !important;
+  }
 }
 </style>
 
