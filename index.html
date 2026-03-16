@@ -2434,7 +2434,7 @@ object-fit:cover;
     width: 100%;
     height: 350px;
     background-size: cover;
-    background-position: center;
+    background-position: left center !important; /* antes era center */
     background-repeat: no-repeat;
     margin-top: 30px;
     border-radius: 20px;
@@ -2446,10 +2446,11 @@ object-fit:cover;
     gap: 30px;
   }
   .problem-image {
-    width: 100%;
-    height: 280px;
-    background-size: cover;
-    background-position: center;
+  background-image: url('problem-section-cat.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  min-height: 280px !important;
+  display: block !important;
   }
   .problem-title {
     font-size: 28px;
@@ -2495,13 +2496,11 @@ object-fit:cover;
     box-sizing: border-box !important;
   }
   .story-right {
-    width: 100% !important;
-    min-width: auto !important;
-    height: 300px !important;
-    background-size: cover !important;
-    background-position: center !important;
-    border-radius: 12px !important;
-    margin-top: 20px !important;
+  background-image: url('perro1.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  min-height: 300px !important;
+  display: block !important;
   }
   
   /* ----- BOOK SECTION ----- */
