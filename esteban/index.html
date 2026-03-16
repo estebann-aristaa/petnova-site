@@ -1,0 +1,3699 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Petnova</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins', sans-serif;
+background:#f8fafc;
+overflow:hidden;
+cursor:url('paw-cursor.png'), auto;
+}
+
+*{
+cursor:url('paw-cursor.png'), auto;
+}
+
+/* INTRO */
+
+.intro{
+position:fixed;
+width:100%;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#f8fafc;
+z-index:999;
+transition:opacity 0.8s ease;
+}
+
+/* MARCA */
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+animation:appear 0.8s ease forwards;
+opacity:0;
+transform:scale(0.9);
+}
+
+/* LOGO */
+
+.logo{
+width:80px;
+height:80px;
+border-radius:50%;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.logo img{
+width:55px;
+height:55px;
+object-fit:contain;
+}
+
+/* TEXTO */
+
+.name{
+font-size:40px;
+font-weight:900;
+color:#0f172a;
+}
+
+/* HUELLAS */
+
+.paw{
+position:absolute;
+font-size:22px;
+opacity:0;
+animation:pawPop 1.2s ease forwards;
+}
+
+/* posiciones */
+
+.p1{top:20%;left:15%;animation-delay:0.3s;}
+.p2{top:30%;left:70%;animation-delay:0.4s;}
+.p3{top:60%;left:25%;animation-delay:0.5s;}
+.p4{top:75%;left:65%;animation-delay:0.6s;}
+.p5{top:40%;left:50%;animation-delay:0.7s;}
+.p6{top:55%;left:80%;animation-delay:0.8s;}
+.p7{top:15%;left:45%;animation-delay:0.9s;}
+.p8{top:70%;left:10%;animation-delay:1s;}
+.p9{top:35%;left:85%;animation-delay:1.1s;}
+.p10{top:50%;left:35%;animation-delay:1.2s;}
+.p11{top:25%;left:60%;animation-delay:1.3s;}
+.p12{top:80%;left:40%;animation-delay:1.4s;}
+
+/* ANIMACIONES */
+
+@keyframes appear{
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+@keyframes pawPop{
+
+0%{
+opacity:0;
+transform:scale(0.5);
+}
+
+50%{
+opacity:1;
+transform:scale(1);
+}
+
+100%{
+opacity:0;
+transform:scale(1.3);
+}
+
+}
+
+/* FADE INTRO */
+
+.fade{
+opacity:0;
+pointer-events:none;
+}
+
+/* CONTENIDO */
+
+.main-content{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+color:white;
+background:#0f172a;
+}
+
+
+.launch-timer{
+opacity:0;
+transition:opacity 0.6s ease;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#0f172a;
+color:white;
+padding:14px 20px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+z-index:10000;
+flex-wrap:wrap;
+}
+
+.cat-icon{
+width:28px;
+height:28px;
+object-fit:contain;
+}
+
+.timer-bar {
+  width: 220px;
+  height: 6px;
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative; /* ← esto es clave */
+}
+
+.timer-progress{
+height:100%;
+width:100%;
+background:linear-gradient(90deg,#14b8a6,#f59e0b,#ef4444);
+transition:width 1s linear;
+}
+
+.timer-text{
+font-size:14px;
+font-weight:500;
+}
+
+.timer-smoke {
+  position: absolute;
+  top: -12px;
+  left: 100%; /* comienza al final de la barra */
+  transform: translateX(-50%);
+  font-size: 16px;
+  transition: left 1s linear;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.purchase-popup{
+
+position:fixed;
+bottom:20px;
+left:20px;
+
+background:white;
+padding:12px 18px;
+
+border-radius:10px;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+
+font-size:14px;
+
+opacity:0;
+transform:translateY(20px);
+
+transition:all 0.5s ease;
+
+z-index:9999;
+
+}
+
+.purchase-popup.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Hero section */
+.hero{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:80px 60px;
+  background:#ffffff;
+  min-height:80vh;
+  gap:40px;
+}
+
+.hero-left{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  text-align:left;
+
+  max-width:650px;
+  margin-left:80px;
+}
+
+.hero-logo{
+  width:260px;
+  margin:0 auto 25px 120px;
+  display:block;
+}
+
+.hero{
+  min-height:100vh;
+
+  background-image:url("fondo-mascota.jpg");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+
+  padding:80px 20px;
+}
+
+.hero-headline{
+  font-size:44px;
+  font-weight:800;
+  color:teal;
+  line-height:1.2;
+  text-shadow:0 4px 18px rgba(0,0,0,0.7);
+  max-width:700px;
+  letter-spacing:-0.5px;
+}
+
+.hero-subheadline{
+  font-size:18px;
+  color:white;
+  line-height:1.6;
+  margin-bottom:30px;
+  font-weight:400;
+  max-width:650px;
+}
+
+.hero-right{
+  flex:1;
+  height:500px;
+  background-image:url('fondo-mascotaaa.jpg'); /* reemplaza con tu imagen de fondo */
+  background-size:contain;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+/* CTA GLOBAL */
+
+.cta-button{
+display:inline-block;
+background:#14b8a6;
+color:white;
+font-weight:700;
+font-size:18px;
+padding:16px 34px;
+border-radius:12px;
+text-decoration:none;
+transition:all 0.3s ease;
+box-shadow:0 0 18px rgba(20,184,166,0.6);
+animation:pulse 2s infinite;
+position:relative;
+}
+
+.cta-button:hover{
+transform:scale(1.08) translateY(-3px);
+background:#0d9488;
+box-shadow:0 0 28px rgba(20,184,166,0.9);
+}
+
+@keyframes pulse{
+0% { box-shadow:0 0 18px rgba(20,184,166,0.6); }
+50% { box-shadow:0 0 28px rgba(20,184,166,0.9); }
+100% { box-shadow:0 0 18px rgba(20,184,166,0.6); }
+}
+
+.trust-badges{
+  margin-top:12px;
+  font-size:14px;
+  color:#e2e8f0;
+  opacity:0.9;
+}
+
+/* ===== PROBLEM SECTION 2 COLUMN ===== */
+
+.problem-section {
+  padding: 80px 20px;
+  background: #0f172a;
+  color: white;
+}
+
+.problem-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: stretch; /* estira para igualar la altura del texto */
+  gap: 60px;
+}
+
+.problem-image {
+  flex: 1;
+  min-height: auto;  /* quita el min-height fijo */
+  background-image: url("problem-section-cat.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+.problem-text {
+  flex: 1;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.problem-title {
+  font-size: 36px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.problem-highlight {
+  font-weight: 600;
+  color: #14b8a6;
+  margin: 20px 0;
+}
+
+.problem-end {
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .problem-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .problem-image {
+    width: 100%;
+    height: 320px;
+  }
+
+  .problem-text {
+    width: 100%;
+  }
+
+  .problem-title {
+    font-size: 28px;
+  }
+}
+
+/* STORY SECTION */
+.story-section {
+  background: #0f172a; /* color de fondo */
+  padding: 80px 20px;
+}
+
+.story-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.story-left {
+  flex: 1;
+  min-width: 320px;
+}
+
+.story-left .story-title {
+  font-size: 36px;
+  color: white;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.story-left .story-text {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #e2e8f0;
+  margin-bottom: 15px;
+}
+
+.story-left .story-cta {
+  display: inline-block;
+  background: #14b8a6;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 15px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.story-left .story-cta:hover {
+  background: #0d9488;
+  transform: scale(1.05);
+}
+
+.story-right {
+  flex: 1;
+  min-width: 530px;
+  height: 630px;
+  background-image: url('perro1.jpg');
+  background-size: 90%; /* aquí >100% hace zoom-in, <100% hace zoom-out */
+  background-position: center;
+  border-radius: 12px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .story-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .story-right {
+    width: 100%;
+    height: 320px;
+  }
+}
+
+.testimonials-section{
+  background:#0f172a;
+  padding:100px 20px;
+  color:white;
+  text-align:center;
+}
+
+.testimonials-header h2{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+.testimonials-header p{
+  font-size:18px;
+  opacity:0.8;
+  margin-bottom:60px;
+}
+
+.testimonials-container{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  max-width:1200px;
+  margin:auto;
+}
+
+.testimonial-card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  border-radius:20px;
+  padding:30px;
+  width:280px;
+  height:220px;
+  overflow:hidden;
+  transition:all 0.4s ease;
+  cursor:pointer;
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+  position:relative;
+}
+
+.testimonial-card:hover{
+  height:360px;
+  transform:translateY(-8px);
+}
+
+.pet-avatar{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.testimonial-name{
+  font-weight:700;
+  font-size:18px;
+}
+
+.testimonial-city{
+  font-size:14px;
+  opacity:0.7;
+  margin-bottom:8px;
+}
+
+.stars{
+  color:#facc15;
+  margin-bottom:15px;
+}
+
+.testimonial-text{
+  opacity:0;
+  transform:translateY(10px);
+  transition:all 0.3s ease;
+  font-size:15px;
+  line-height:1.6;
+}
+
+.testimonial-card:hover .testimonial-text{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* responsive */
+
+@media(max-width:900px){
+
+  .testimonials-container{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .testimonial-card{
+    width:90%;
+  }
+
+}
+
+.bonus-section{
+
+background:#0f172a;
+padding:100px 20px;
+color:white;
+
+}
+
+.bonus-header{
+
+text-align:center;
+max-width:700px;
+margin:auto;
+margin-bottom:70px;
+
+}
+
+.bonus-header h2{
+
+font-size:36px;
+margin-bottom:10px;
+
+}
+
+.bonus-header p{
+
+opacity:0.8;
+
+}
+
+.bonus-grid{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+max-width:1100px;
+margin:auto;
+
+}
+
+.bonus-card{
+
+position:relative;
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+padding:30px;
+text-align:center;
+overflow:hidden;
+transition:all .3s ease;
+box-shadow:0 20px 40px rgba(0,0,0,0.35);
+
+}
+
+.bonus-card:hover{
+
+transform:translateY(-8px);
+box-shadow:0 30px 60px rgba(20,184,166,0.25);
+
+}
+
+.bonus-img {
+  width: 160px;
+  height: 160px;
+  margin-bottom: 25px;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.bonus-card:hover .bonus-img {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(20, 184, 166, 0.4);
+}
+
+.bonus-card h3{
+
+font-size:20px;
+margin-bottom:10px;
+
+}
+
+.bonus-card p{
+
+font-size:15px;
+opacity:.85;
+line-height:1.6;
+margin-bottom:15px;
+
+}
+
+.bonus-value{
+
+font-weight:bold;
+color:#14b8a6;
+
+}
+
+.bonus-badge{
+
+position:absolute;
+top:15px;
+right:15px;
+background:#14b8a6;
+color:white;
+font-weight:bold;
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+
+}
+
+.bonus-card::before{
+
+content:"";
+position:absolute;
+width:200px;
+height:200px;
+background:radial-gradient(circle, rgba(20,184,166,0.35), transparent 70%);
+top:-50px;
+left:-50px;
+opacity:.4;
+
+}
+
+.bonus-card::after{
+
+content:"";
+position:absolute;
+width:150px;
+height:150px;
+background:radial-gradient(circle, rgba(20,184,166,0.35), transparent 70%);
+bottom:-40px;
+right:-40px;
+opacity:.3;
+
+}
+
+/* responsive */
+
+@media(max-width:900px){
+
+.bonus-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+.guarantee-section{
+
+background:#0f172a;
+padding:100px 20px;
+display:flex;
+justify-content:center;
+
+}
+
+.guarantee-container{
+
+max-width:700px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+padding:50px;
+border-radius:20px;
+text-align:center;
+color:white;
+box-shadow:0 25px 60px rgba(0,0,0,0.4);
+
+}
+
+.guarantee-badge{
+
+font-size:50px;
+margin-bottom:15px;
+
+}
+
+.guarantee-container h2{
+
+font-size:32px;
+margin-bottom:20px;
+
+}
+
+.guarantee-text{
+
+font-size:16px;
+line-height:1.7;
+opacity:.9;
+margin-bottom:30px;
+
+}
+
+.guarantee-points {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 0 30px 0;  /* Cambiado: '0 auto' → '0 0 30px 0' */
+  position: relative;
+  z-index: 1;
+}
+
+.guarantee-point {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.03);
+  padding: 12px 20px;
+  border-radius: 60px;
+  font-size: 17px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+  text-align: left;  /* ← Agrega esta línea */
+}
+
+.guarantee-footer{
+
+font-size:15px;
+line-height:1.7;
+opacity:.9;
+
+}
+
+/* responsive */
+
+@media(max-width:700px){
+
+.guarantee-container{
+
+padding:35px 25px;
+
+}
+
+.guarantee-container h2{
+
+font-size:26px;
+
+}
+
+}
+
+.final-cta-section{
+
+background:#0f172a;
+padding:120px 20px;
+text-align:center;
+
+}
+
+.final-cta-container{
+
+max-width:700px;
+margin:auto;
+color:white;
+
+}
+
+.final-cta-container h2{
+
+font-size:34px;
+margin-bottom:20px;
+line-height:1.3;
+
+}
+
+.final-cta-container p{
+
+font-size:18px;
+opacity:.85;
+margin-bottom:40px;
+line-height:1.6;
+
+}
+
+.final-cta-button{
+
+display:inline-block;
+background:#14b8a6;
+color:white;
+padding:18px 40px;
+border-radius:40px;
+font-size:18px;
+font-weight:bold;
+text-decoration:none;
+transition:all .3s ease;
+box-shadow:0 15px 35px rgba(20,184,166,0.4);
+
+}
+
+.final-cta-button:hover{
+
+background:#0d9488;
+transform:translateY(-3px);
+
+}
+
+.cta-trust{
+
+margin-top:25px;
+display:flex;
+justify-content:center;
+gap:20px;
+font-size:14px;
+opacity:.8;
+
+}
+
+@media(max-width:700px){
+
+.final-cta-container h2{
+
+font-size:26px;
+
+}
+
+.cta-trust{
+
+flex-direction:column;
+gap:8px;
+
+}
+
+}
+
+.faq-section{
+
+background:#0f172a;
+padding:100px 20px;
+color:white;
+
+}
+
+.faq-header{
+
+text-align:center;
+margin-bottom:60px;
+
+}
+
+.faq-header h2{
+
+font-size:36px;
+margin-bottom:10px;
+
+}
+
+.faq-header p{
+
+opacity:.8;
+
+}
+
+.faq-container{
+
+max-width:800px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:20px;
+
+}
+
+.faq-item{
+
+background:rgba(255,255,255,0.05);
+border-radius:15px;
+overflow:hidden;
+backdrop-filter:blur(10px);
+
+}
+
+.faq-question{
+
+width:100%;
+background:none;
+border:none;
+color:white;
+font-size:18px;
+text-align:left;
+padding:20px 25px;
+cursor:pointer;
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+
+.faq-question:hover{
+
+background:rgba(255,255,255,0.05);
+
+}
+
+.faq-icon{
+
+font-size:22px;
+color:#14b8a6;
+
+}
+
+.faq-answer{
+
+max-height:0;
+overflow:hidden;
+transition:max-height .3s ease;
+padding:0 25px;
+opacity:.9;
+line-height:1.6;
+
+}
+
+.faq-item.active .faq-answer{
+
+max-height:200px;
+padding:0 25px 20px 25px;
+
+}
+
+.faq-item.active .faq-icon{
+
+transform:rotate(45deg);
+
+}
+
+.site-footer{
+
+background:#020617;
+padding:60px 20px 40px 20px;
+border-top:1px solid rgba(255,255,255,0.08);
+
+}
+
+.footer-container{
+
+max-width:900px;
+margin:auto;
+text-align:center;
+color:white;
+
+}
+
+.footer-brand h3{
+
+font-size:22px;
+margin-bottom:5px;
+
+}
+
+.footer-brand p{
+
+opacity:.7;
+font-size:14px;
+margin-bottom:25px;
+
+}
+
+.footer-links{
+
+display:flex;
+justify-content:center;
+gap:30px;
+margin-bottom:25px;
+flex-wrap:wrap;
+
+}
+
+.footer-links a{
+
+color:#94a3b8;
+text-decoration:none;
+font-size:14px;
+transition:all .2s;
+
+}
+
+.footer-links a:hover{
+
+color:#14b8a6;
+
+}
+
+.footer-disclaimer{
+
+font-size:13px;
+opacity:.65;
+max-width:700px;
+margin:auto;
+margin-bottom:20px;
+line-height:1.6;
+
+}
+
+.footer-copy{
+
+font-size:13px;
+opacity:.5;
+
+}
+
+.book-section {
+  padding: 80px 20px;  /* antes 120px, ahora 80px arriba/abajo */
+  text-align: center;
+  background: #0f172a;
+  color: white;
+}
+
+.book-title h2{
+
+font-size:42px;
+font-weight:800;
+margin-bottom:10px;
+letter-spacing:-0.5px;
+
+}
+
+.book-title p{
+
+font-size:20px;
+opacity:.85;
+margin-bottom:20px;
+
+}
+
+.book-stage{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+width:100%;
+margin-top:60px;
+
+}
+
+/* LIBRO */
+
+.book{
+
+position:relative;
+width:760px;
+height:960px;
+
+margin:auto;
+
+perspective:2000px;
+
+transition:transform 0.2s ease;
+
+transform-style:preserve-3d;
+
+}
+
+/* PORTADA */
+
+.cover{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+transform-origin:left;
+
+transition:1s ease;
+
+z-index:5;
+
+}
+
+.cover img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+border-radius:8px;
+
+box-shadow:0 40px 80px rgba(0,0,0,0.35);
+
+}
+
+/* PÁGINAS */
+
+.pages{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+}
+
+/* SPREAD */
+
+.spread{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+display:flex;
+
+opacity:0;
+
+transition:.8s;
+
+}
+
+.spread.active{
+
+opacity:1;
+
+}
+
+/* PÁGINAS */
+
+.page{
+
+width:50%;
+
+padding:70px;
+
+background:linear-gradient(#ffffff,#f5f5f5);
+
+text-align:left;
+
+box-shadow:0 25px 60px rgba(0,0,0,0.2);
+
+}
+
+.page:first-child{
+
+border-right:1px solid #eaeaea;
+
+}
+
+/* TEXTO */
+
+.page h3{
+
+color:#14b8a6;
+font-size:22px;
+margin-bottom:6px;
+font-weight:700;
+
+}
+
+.page h4{
+
+font-size:18px;
+margin-bottom:15px;
+color:#0f172a;
+
+}
+
+.page ul{
+
+padding-left:18px;
+
+}
+
+.page li{
+margin-bottom:8px;
+color:#000000;
+}
+
+/* ABRIR LIBRO */
+
+.book.open .cover{
+
+transform:rotateY(-170deg);
+
+opacity:0;
+
+}
+
+.book-more{
+text-align:center;
+margin-top:60px;
+padding:40px 20px;
+font-size:20px;
+font-weight:600;
+color:white;
+background:#0f172a;
+}
+
+.testimonials-section {
+  padding: 80px 0;  /* antes 100px, ahora 80px arriba/abajo */
+  background: #0f172a;
+  overflow: hidden;
+}
+
+.testimonials-title{
+  text-align:center;
+  font-size:42px;
+  font-weight:800;  /* opcional, más negrita */
+  margin-bottom:60px;
+}
+
+.testimonial-carousel{
+overflow:hidden;
+width:100%;
+}
+
+.testimonial-track{
+display:flex;
+gap:40px;
+will-change:transform;
+}
+
+.testimonial-post{
+width:320px;
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+flex-shrink:0;
+position:relative;   /* ← ESTA LINEA ARREGLA TODO */
+}
+
+
+.post-header{
+display:flex;
+align-items:flex-start;
+gap:10px;
+padding:12px;
+text-align:left;
+}
+
+.post-header img{
+width:36px;
+height:36px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.username{
+font-weight:700;
+font-size:14px;
+}
+
+.location{
+font-size:12px;
+opacity:0.6;
+}
+
+.post-image{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.post-likes{
+padding:10px 12px;
+font-weight:600;
+font-size:14px;
+}
+
+.post-caption{
+padding:0 12px 14px 12px;
+font-size:14px;
+line-height:1.5;
+}
+
+
+/* GLOW TEAL CUANDO EL POST ESTA EN EL CENTRO */
+
+.testimonial-post{
+transition: all .5s ease;
+}
+
+.testimonial-post.active-glow{
+box-shadow:
+0 0 0 2px rgba(20,184,166,0.4),
+0 20px 60px rgba(20,184,166,0.35),
+0 10px 40px rgba(0,0,0,0.25);
+
+transform:scale(1.05);
+}
+
+/* COLOR TEXTO TESTIMONIOS */
+
+.testimonial-post{
+color:#111; 
+}
+
+.username{
+font-weight:700;
+font-size:14px;
+color:#000;
+text-align:left;
+display:block;
+}
+
+.location{
+font-size:12px;
+color:#000;
+opacity:.7;
+text-align:left;
+display:block;
+}
+
+.post-likes{
+color:#000;
+}
+
+.post-caption{
+padding:8px 12px 16px 12px;
+font-size:14px;
+line-height:1.6;
+color:#000;
+text-align:left;
+}
+
+/* --- ESTILOS LIKES INSTAGRAM --- */
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  box-sizing: border-box;
+}
+
+.left-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  stroke: #111;
+  stroke-width: 1.8;
+  fill: none;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover .icon {
+  opacity: 0.6;
+  transform: scale(1.05);
+}
+
+.like-btn.liked .icon {
+  fill: #ff3040;
+  stroke: #ff3040;
+}
+
+.post-likes {
+  padding: 0 12px 12px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* BURBUJAS DE LIKE - CON ESPACIO ENTRE ELLAS */
+.like-bubbles {
+  position: absolute;
+  left: 12px;
+  bottom: 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px; /* Espacio entre burbujas */
+  z-index: 5;
+  pointer-events: none;
+}
+
+.like-bubble {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: visible;           /* Permite que el corazón sobresalga */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  animation: floatSoft 4s ease-in-out infinite;
+  background: white;
+}
+
+.like-bubble img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* CORAZÓN AÚN MÁS PEQUEÑO (8px) */
+.bubble-heart {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background: #ff3040;
+  transform: rotate(-45deg);
+  border-radius: 1px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  border: 1.5px solid white;
+  animation: heartBeat 1.8s infinite;
+  z-index: 6;
+}
+
+.bubble-heart::before,
+.bubble-heart::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ff3040;
+  border-radius: 50%;
+}
+
+.bubble-heart::before {
+  top: -4px;
+  left: 0;
+}
+
+.bubble-heart::after {
+  left: 4px;
+  top: 0;
+}
+
+@keyframes floatSoft {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1) rotate(-45deg); }
+  50% { transform: scale(1.1) rotate(-45deg); }
+}
+
+.post-media{
+position:relative;
+width:100%;
+height:260px;
+overflow:hidden;
+}
+
+.post-image{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* Efecto hover en la imagen del post */
+.testimonial-post .post-media {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.testimonial-post .post-media:hover {
+  filter: brightness(1.05); /* ligero brillo */
+}
+
+.testimonial-post .post-media:hover .post-image {
+  transform: scale(1.02); /* sutil zoom */
+  transition: transform 0.4s ease;
+}
+
+/* Botón CTA de testimonios */
+.testimonials-footer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.testimonial-cta {
+  display: inline-block;
+  background: transparent;
+  color: #14b8a6;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  border: 1.5px solid rgba(20, 184, 166, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.testimonial-cta:hover {
+  background: rgba(20, 184, 166, 0.05);
+  border-color: #14b8a6;
+  transform: translateY(-2px);
+}
+
+.testimonials-footer .cta-button {
+  padding: 18px 38px;
+  font-size: 20px;
+}
+
+.testimonials-description {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 900px;        /* antes 700px */
+  margin: 0 auto 60px auto;
+  padding: 0 30px;         /* un poco más de padding lateral para que no quede pegado */
+  text-align: center;
+}
+
+.testimonials-description .highlight {
+  color: #14b8a6;
+  font-weight: 500;
+  display: inline-block;
+}
+
+/* Si quieres un pequeño separador decorativo */
+.testimonials-description::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: rgba(20, 184, 166, 0.3);
+  margin: 25px auto 0;
+}
+
+/* --- MEJORAS SECCIÓN DEL LIBRO --- */
+.book-description {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.book {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.book:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.book-cta {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.book-cta .cta-button {
+  padding: 18px 38px;
+  font-size: 20px;
+}
+
+.book-more {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: white;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* --- RESPONSIVE PARA EL LIBRO --- */
+@media (max-width: 900px) {
+  .book {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 760 / 960; /* mantiene la proporción */
+    max-width: 500px;
+  }
+  
+  .page {
+    padding: 30px 20px;
+  }
+  
+  .page ul {
+    padding-left: 15px;
+    font-size: 14px;
+  }
+  
+  .page h3 {
+    font-size: 18px;
+  }
+  
+  .page h4 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .book {
+    max-width: 350px;
+  }
+  
+  .page {
+    padding: 20px 15px;
+  }
+  
+  .page ul {
+    font-size: 12px;
+  }
+  
+  .page h3 {
+    font-size: 16px;
+  }
+  
+  .page h4 {
+    font-size: 14px;
+  }
+}
+
+/* Mejoras responsive para la sección de bonos */
+@media (max-width: 600px) {
+  .bonus-card {
+    padding: 20px 15px;
+  }
+  
+  .bonus-card h3 {
+    font-size: 18px;
+  }
+  
+  .bonus-img {
+  width: 130px;
+  height: 130px;
+}
+  
+  /* Ajustes para la caja de valor total */
+  .bonus-section > div[style*="max-width: 700px"] {
+    max-width: 90% !important;
+    padding: 20px 15px !important;
+  }
+  
+  .bonus-section > div[style*="max-width: 700px"] p:first-child {
+    font-size: 18px !important;
+  }
+  
+  .bonus-section > div[style*="max-width: 700px"] p:last-child {
+    font-size: 20px !important;
+  }
+  
+  /* Botón CTA más cómodo en móvil */
+  .bonus-section .cta-button {
+    font-size: 18px !important;
+    padding: 16px 30px !important;
+    width: 90%;
+    max-width: 350px;
+    box-sizing: border-box;
+  }
+}
+
+/* Ajuste para pantallas muy pequeñas */
+@media (max-width: 400px) {
+  .bonus-img {
+  width: 110px;
+  height: 110px;
+}
+  
+  .bonus-card p {
+    font-size: 14px;
+  }
+  
+  .bonus-card p[style*="font-size: 14px"] {
+    font-size: 13px !important;
+  }
+}
+
+/* === BADGES DE CONFIANZA UNIFICADOS === */
+.trust-badges {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.95;
+  letter-spacing: 0.3px;
+}
+
+.trust-badges span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trust-badges .icon {
+  font-size: 18px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Versión para fondos claros (si alguna vez la necesitas) */
+.trust-badges.light {
+  color: #1e293b;
+  opacity: 0.8;
+}
+
+/* Responsive: en móvil se apilan */
+@media (max-width: 600px) {
+  .trust-badges {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .trust-badges span {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* === SECCIÓN DE GARANTÍA MEJORADA === */
+.guarantee-section {
+  background: #0f172a;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.guarantee-container {
+  max-width: 750px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  border-radius: 40px;
+  padding: 50px 40px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(20,184,166,0.2) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+.guarantee-container::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(20,184,166,0.15), transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.guarantee-container::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(20,184,166,0.1), transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.guarantee-badge {
+  font-size: 70px;
+  line-height: 1;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 10px 15px rgba(20,184,166,0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.guarantee-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+}
+
+.guarantee-highlight {
+  font-size: 18px;
+  color: #14b8a6;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+.guarantee-text {
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.9;
+  max-width: 550px;
+  margin: 0 auto 30px auto;
+  position: relative;
+  z-index: 1;
+}
+
+.guarantee-points {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto 30px auto;
+  position: relative;
+  z-index: 1;
+}
+
+.guarantee-point {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.03);
+  padding: 12px 20px;
+  border-radius: 60px;
+  font-size: 17px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+}
+
+.guarantee-point:hover {
+  background: rgba(20,184,166,0.1);
+  border-color: rgba(20,184,166,0.3);
+  transform: translateX(5px);
+}
+
+.check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #14b8a6;
+  color: white;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.guarantee-footer {
+  font-size: 16px;
+  opacity: 0.8;
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.guarantee-strong {
+  font-size: 20px;
+  font-weight: 700;
+  color: #14b8a6;
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+}
+
+@media (max-width: 700px) {
+  .guarantee-container {
+    padding: 35px 25px;
+    border-radius: 30px;
+  }
+  .guarantee-title {
+    font-size: 28px;
+  }
+  .guarantee-highlight {
+    font-size: 16px;
+  }
+  .guarantee-text {
+    font-size: 16px;
+  }
+  .guarantee-point {
+    font-size: 15px;
+    padding: 10px 16px;
+  }
+}
+
+.guarantee-list {
+  list-style-type: disc;
+  margin: 0 0 30px 0;
+  padding-left: 20px;
+  text-align: left;
+  color: white;
+  font-size: 17px;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+.guarantee-list li {
+  margin-bottom: 8px;
+}
+
+/* Asegurar que en móvil también se vea bien */
+@media (max-width: 700px) {
+  .guarantee-list {
+    font-size: 16px;
+    padding-left: 18px;
+  }
+}
+
+/* === CTA FINAL MEJORADO === */
+.final-cta-section {
+  background: linear-gradient(135deg, #0f172a 0%, #1a2639 100%);
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de luz de fondo */
+.final-cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(20,184,166,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.final-cta-section::after {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  left: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(20,184,166,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.final-cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.urgency-badge {
+  display: inline-block;
+  background: rgba(20,184,166,0.15);
+  color: #14b8a6;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 40px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(20,184,166,0.3);
+  backdrop-filter: blur(5px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.final-title {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.final-title .highlight {
+  color: #14b8a6;
+  position: relative;
+  display: inline-block;
+}
+
+.final-title .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(20,184,166,0.2);
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.final-description {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+  max-width: 600px;
+  margin: 0 auto 35px auto;
+}
+
+.price-box {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(20,184,166,0.3);
+  border-radius: 30px;
+  padding: 30px 20px;
+  max-width: 400px;
+  margin: 0 auto 35px auto;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.price-old {
+  font-size: 18px;
+  color: rgba(255,255,255,0.6);
+  text-decoration: line-through;
+  margin-bottom: 10px;
+}
+
+.price-old-label {
+  text-decoration: none;
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  margin-left: 5px;
+}
+
+.price-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.price-currency {
+  font-size: 18px;
+  color: white;
+  opacity: 0.7;
+}
+
+.price-number {
+  font-size: 58px;
+  font-weight: 800;
+  color: #14b8a6;
+  line-height: 1;
+}
+
+.price-includes {
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+}
+
+.final-cta {
+  font-size: 22px !important;
+  padding: 20px 45px !important;
+  margin-bottom: 25px;
+  width: auto;
+  display: inline-block;
+  box-shadow: 0 20px 40px rgba(20,184,166,0.4) !important;
+}
+
+.final-trust {
+  margin-top: 0 !important;
+  margin-bottom: 30px;
+  opacity: 1;
+}
+
+.payment-methods {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+}
+
+.payment-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+.payment-icons span {
+  filter: grayscale(1) brightness(1.5);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.payment-icons span:hover {
+  opacity: 1;
+  filter: none;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .final-title {
+    font-size: 32px;
+  }
+  
+  .final-description {
+    font-size: 16px;
+  }
+  
+  .price-number {
+    font-size: 48px;
+  }
+  
+  .final-cta {
+    font-size: 18px !important;
+    padding: 16px 30px !important;
+    width: 90%;
+  }
+  
+  .urgency-badge {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+}
+
+/* === SECCIÓN FAQ MEJORADA (SOLO GATOS) === */
+.faq-section {
+  background: #0f172a;
+  padding: 100px 20px;
+  color: white;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.faq-header h2 {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.faq-header p {
+  font-size: 18px;
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.faq-item:hover {
+  border-color: rgba(20, 184, 166, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+  padding: 20px 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+  letter-spacing: 0.2px;
+}
+
+.faq-question:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.faq-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(20, 184, 166, 0.15);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(20, 184, 166, 0.3);
+}
+
+.faq-item.active .faq-icon-container {
+  background: rgba(20, 184, 166, 0.25);
+  border-color: #14b8a6;
+}
+
+.faq-icon {
+  font-size: 20px;
+  color: #14b8a6;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background: rgba(0, 0, 0, 0.15);
+  border-top: 0px solid rgba(20, 184, 166, 0.2);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 400px; /* Altura suficiente para respuestas largas */
+  padding: 0 25px 20px 25px;
+  border-top-width: 1px;
+}
+
+.faq-answer p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  opacity: 0.85;
+  color: #e2e8f0;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .faq-header h2 {
+    font-size: 32px;
+  }
+  .faq-header p {
+    font-size: 16px;
+  }
+  .faq-question {
+    font-size: 16px;
+    padding: 18px 20px;
+  }
+  .faq-answer p {
+    font-size: 15px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="launch-timer">
+  <img src="gatocounter.png" class="cat-icon">
+  <div class="timer-bar">
+    <div class="timer-progress" id="timerProgress"></div>
+    <div class="timer-smoke" id="timerSmoke">💨</div>
+  </div>
+  <div class="timer-text">
+    Oferta de lanzamiento 90% OFF — termina en 
+    <span id="launchCountdown"></span>
+  </div>
+</div>
+
+<div class="purchase-popup" id="purchasePopup">
+<span id="buyerName"></span>
+</div>
+
+<div class="intro" id="intro">
+
+<div class="brand">
+
+<div class="logo">
+<img src="logo.jpg">
+</div>
+
+<div class="name">
+PETNOVA
+</div>
+
+</div>
+
+<div class="paw p1">🐾</div>
+<div class="paw p2">🐾</div>
+<div class="paw p3">🐾</div>
+<div class="paw p4">🐾</div>
+<div class="paw p5">🐾</div>
+<div class="paw p6">🐾</div>
+<div class="paw p7">🐾</div>
+<div class="paw p8">🐾</div>
+<div class="paw p9">🐾</div>
+<div class="paw p10">🐾</div>
+<div class="paw p11">🐾</div>
+<div class="paw p12">🐾</div>
+
+</div>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-left">
+    <img src="imagenherodef.png" class="hero-logo" alt="Petnova Logo">
+    <h1 class="hero-headline">
+      El error que el 90% de los dueños comete con su mascota
+    </h1>
+    <p class="hero-subheadline">
+      Descubre el método simple que está ayudando a miles de dueños
+      a mejorar la salud y comportamiento de sus mascotas.
+    </p>
+    <a href="https://pay.hotmart.com/G104635037L?checkoutMode=10" class="cta-button">
+      QUIERO AYUDAR A MI MASCOTA AHORA
+    </a>
+    <div class="trust-badges">
+      🔒 Compra Segura &nbsp;&nbsp;•&nbsp;&nbsp;
+      ✅ Garantía de Satisfacción &nbsp;&nbsp;•&nbsp;&nbsp;
+      🛡 Privacidad Protegida
+    </div>
+  </div>
+  <div class="hero-right"></div>
+</section>
+
+<section class="problem-section">
+  <div class="problem-wrapper">
+
+    <div class="problem-image"></div>
+
+    <div class="problem-text">
+      <h2 class="problem-title">
+        ¿Sientes que hablas idiomas distintos con tu mascota?
+      </h2>
+
+      <p>
+        Seguro que has vivido esto. Llegas a casa y encuentras tu zapato favorito hecho trizas o un "regalito" en la alfombra.
+      </p>
+
+      <p>
+        Tu perro te recibe con la cabeza gacha y las orejas hacia atrás. Crees que <strong>"sabe que se portó mal"</strong> y le regañas.
+      </p>
+
+      <p class="problem-highlight">
+        Pero la verdad es mucho más sencilla… y a la vez más compleja.
+      </p>
+
+      <p>
+        No está mostrando culpa. Está mostrando <strong>miedo</strong>.
+      </p>
+
+      <p>
+        No entiende tu enfado. Solo percibe que su líder, su fuente de seguridad, se ha convertido en una amenaza impredecible.
+      </p>
+
+      <p>
+        No hay conexión en su mente entre el zapato destrozado hace horas y tu grito ahora.
+      </p>
+
+      <p>
+        O quizá es tu gato el que te tiene desconcertado.
+      </p>
+
+      <p>
+        Le has comprado el arenero más caro, con filtros y de color lavanda, y lo has colocado en un rincón “discreto”.
+      </p>
+
+      <p>
+        Y aun así… prefiere la pila de ropa limpia recién doblada.
+      </p>
+
+      <p class="problem-highlight">
+        No es venganza. No es terquedad.
+      </p>
+
+      <p>
+        Es un gato intentando sobrevivir en un entorno que no satisface sus necesidades básicas.
+      </p>
+
+      <p class="problem-end">
+        Vivimos frustrados aplicando lógica humana a mentes caninas y felinas.
+      </p>
+
+      <p class="problem-end">
+        Intentamos dominar cuando deberíamos guiar… y castigamos cuando deberíamos redirigir.
+      </p>
+
+      <p class="problem-end">
+        El resultado siempre es el mismo: una relación llena de malentendidos y la sensación de que ya hemos probado de todo.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STORY SECTION -->
+<section class="story-section">
+  <div class="story-grid">
+    <!-- Lado izquierdo: texto + CTA -->
+    <div class="story-left">
+      <h2 class="story-title">
+        Por fin, alguien que traduce el "idioma" de tu mascota
+      </h2>
+      <p class="story-text">
+        "Lo que haces mal con tu perro y tu gato sin saberlo" no es un libro de adiestramiento al uso. 
+        Es una guía práctica que reúne el conocimiento de los mejores etólogos y educadores del mundo 
+        para ofrecerte un marco de acción claro y respetuoso.
+      </p>
+      <p class="story-text">
+        Descubrirás por qué el error no es tu mascota, sino la mentalidad con la que te relacionas con ella. 
+        Aprenderás a dejar de humanizar para empezar a guiar, y a crear un entorno donde la confianza 
+        sea la base de todo.
+      </p>
+      <p class="story-text">
+        Este libro te da las herramientas para, por fin, entender su lógica y actuar en consecuencia.
+      </p>
+      <a href="https://pay.hotmart.com/G104635037L?checkoutMode=10" class="cta-button">
+        👉 QUIERO APRENDER A HABLAR EL IDIOMA DE MI MASCOTA
+      </a>
+    </div>
+
+    <!-- Lado derecho: imagen -->
+    <div class="story-right"></div>
+  </div>
+</section>
+
+<section class="book-section">
+  <div class="book-title">
+    <h2>Lo que descubrirás en sus páginas</h2>
+    <p class="book-description">
+      Más de 200 páginas con técnicas prácticas, ejercicios paso a paso y conocimientos de etología que cambiarán la forma en que te comunicas con tu perro o gato. Desde cómo interpretar sus señales hasta cómo crear un entorno que fomente su bienestar emocional.
+    </p>
+
+  <div class="book-stage">
+    <div class="book" id="petnovaBook">
+      <div class="cover" id="bookCover">
+        <img src="logogatosebook.png" alt="Portada del libro">
+      </div>
+      <div class="pages">
+        <div class="spread active">
+          <div class="page">
+            <h3>Capítulo 1</h3>
+            <h4>La mentalidad del dueño moderno</h4>
+            <ul>
+              <li>El concepto de "jerarquía ambiental": por qué para un gato, la altura es mucho más que un gusto, es una necesidad de supervivencia.</li>
+              <li>Por qué la altura equivale a seguridad (y cómo un estudio de la USP demuestra su preferencia por los lugares elevados).</li>
+              <li>El error común de condenar a tu gato a la "vida solo a nivel del suelo".</li>
+              <li>Marco de acción: Cómo crear capas verticales (estantes, árboles, repisas) para convertir tu casa en un paraíso felino.</li>
+              <li>Ejercicio práctico: Añadir tu primera zona segura elevada y observar cómo transforma el comportamiento de tu gato.</li>
+            </ul>
+          </div>
+          <div class="page">
+            <h3>Capítulo 2</h3>
+            <h4>Comunicación con la correa</h4>
+            <ul>
+              <li>La importancia de la limpieza y la ubicación. Por qué estos dos factores son los responsables del 95% de los problemas de eliminación.</li>
+              <li>Por qué la mayoría de los problemas de "pipí" fuera del arenero no son del gato, sino del arenero (y cómo solucionarlo).</li>
+              <li>Los errores más comunes: tipo o ubicación incorrectos (arenas perfumadas, bandejas con tapa, sitios de mucho tránsito).</li>
+              <li>El marco de acción de oro: la Regla N+1. Aprende a calcular cuántos areneros necesitas REALMENTE en tu hogar.</li>
+              <li>Ejercicio práctico: Auditar la ubicación de tus areneros para garantizar la privacidad y seguridad que tu gato necesita.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="spread">
+          <div class="page">
+            <h3>Capítulo 3</h3>
+            <h4>Ansiedad por separación</h4>
+            <ul>
+              <li>El ciclo biológico que todo dueño debe conocer: Cazar → Atrapar → Matar → Comer. Por qué tu gato no juega por "diversión", sino por instinto.</li>
+              <li>Por qué este ciclo es esencial para regular el estrés y la ansiedad felina.</li>
+              <li>El error común y silencioso: el juego exclusivo con puntero láser (sin captura final). Por qué puede crear obsesiones y frustración crónica.</li>
+              <li>Marco de acción: La clave para un juego saludable: terminar las sesiones con una captura física (y cómo lograrlo incluso con el láser).</li>
+              <li>Ejercicio práctico: 10 minutos diarios de simulación de caza estructurada. Un microdrama en tres actos que tu gato te agradecerá.</li>
+            </ul>
+          </div>
+          <div class="page">
+            <h3>Capítulo 4</h3>
+            <h4>Corregir sin castigo</h4>
+            <ul>
+              <li>El fundamento de la integración: basada en el olor primero. Por qué el olfato es la identidad de tu gato.</li>
+              <li>Por qué las introducciones repentinas (cara a cara) disparan guerras territoriales que pueden durar años.</li>
+              <li>El error más costoso: el cara a cara demasiado pronto. Por qué ese primer encuentro lo es todo.</li>
+              <li>El marco de acción infalible: Olor → Visual → Supervisado. El protocolo respaldado por la Universidad Estatal de Ohio y la San Diego Humane Society.</li>
+              <li>Ejercicio práctico: El simple pero crucial paso de intercambiar mantas durante 3 días antes del primer encuentro visual.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="book-description" style="margin-top: 40px;">
+  Y esto es solo el comienzo. El libro incluye capítulos exclusivos sobre ansiedad por separación, enriquecimiento ambiental, comunicación avanzada y mucho más. Todo explicado de forma clara, sin tecnicismos innecesarios, para que cualquier dueño pueda aplicarlo.
+</p>
+
+  <div class="book-cta">
+    <a href="https://pay.hotmart.com/G104635037L?checkoutMode=10" class="cta-button">
+      👉 QUIERO EL LIBRO AHORA
+    </a>
+  </div>
+</section>
+
+<section class="testimonials-section">
+  <h2 class="testimonials-title">Historias reales de dueños de mascotas</h2>
+<p class="testimonials-description">
+  Detrás de cada testimonio hay un dueño que, como tú, quería entender a su mascota y no sabía cómo. 
+  Hoy, sus fotos y palabras son el reflejo de un cambio real. 
+  <span class="highlight">Lee sus historias y descubre lo que ellos ya saben:</span> 
+  hay una forma mejor de conectar.
+</p>
+  <div class="testimonial-carousel">
+    <div class="testimonial-track">
+      <!-- POST 1 (con likes) -->
+      <div class="testimonial-post">
+        <div class="post-header">
+          <img src="avatar1.jpg" alt="avatar">
+          <div>
+            <div class="username">mariana.om</div>
+            <div class="location">Valencia, España</div>
+          </div>
+        </div>
+        <div class="post-media">
+  <img class="post-image" src="post1.jpg" alt="post">
+  <div class="like-bubbles"></div>
+</div>
+
+        <div class="post-actions">
+          <div class="left-actions">
+            <button class="icon-btn like-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+</svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+              </svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+              </svg>
+            </button>
+          </div>
+          <button class="icon-btn">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="post-caption">
+<span class="username">@mariana.om</span> Mi gata orinaba en mi cama. Resulta que la arena perfumada era el problema. Volví a la arena sin olor y los accidentes cesaron inmediatamente.
+</div>
+      </div>
+
+      <!-- POST 2 -->
+      <div class="testimonial-post">
+        <div class="post-header">
+          <img src="avatar2.jpg" alt="avatar">
+          <div>
+            <div class="username">ana.m</div>
+            <div class="location">Barcelona</div>
+          </div>
+        </div>
+        <div class="post-media">
+  <img class="post-image" src="post2.jpg" alt="post">
+  <div class="like-bubbles"></div>
+</div>
+        <div class="post-actions">
+          <div class="left-actions">
+            <button class="icon-btn like-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+</svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+              </svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+              </svg>
+            </button>
+          </div>
+          <button class="icon-btn">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+          </button>
+        </div>
+       <div class="post-caption">
+<span class="username">@ana.m</span> Mi gato se obsesionaba con el puntero láser. El libro me enseñó a terminar el juego con una captura física. Ahora se relaja y duerme después de jugar.
+</div>
+      </div>
+
+      <!-- POST 3 -->
+      <div class="testimonial-post">
+        <div class="post-header">
+          <img src="avatar3.jpg" alt="avatar">
+          <div>
+            <div class="username">javier.l</div>
+            <div class="location">Bogotá, Colombia</div>
+          </div>
+        </div>
+        <div class="post-media">
+  <img class="post-image" src="post3.jpg" alt="post">
+  <div class="like-bubbles"></div>
+</div>
+        <div class="post-actions">
+          <div class="left-actions">
+            <button class="icon-btn like-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+</svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+              </svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+              </svg>
+            </button>
+          </div>
+          <button class="icon-btn">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+          </button>
+        </div>
+       <div class="post-caption">
+<span class="username">@javier.l</span> Mis dos gatos no paraban de pelearse. Instalé estantes altos y un árbol junto a la ventana. Ahora cada uno tiene su espacio y las peleas terminaron.
+</div>
+      </div>
+
+      <!-- POST 4 -->
+      <div class="testimonial-post">
+        <div class="post-header">
+          <img src="avatar4.jpg" alt="avatar">
+          <div>
+            <div class="username">laura_sforero19</div>
+            <div class="location">Lima, Perú</div>
+          </div>
+        </div>
+        <div class="post-media">
+  <img class="post-image" src="post4.jpg" alt="post">
+  <div class="like-bubbles"></div>
+</div>
+        <div class="post-actions">
+          <div class="left-actions">
+            <button class="icon-btn like-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+</svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+              </svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+              </svg>
+            </button>
+          </div>
+          <button class="icon-btn">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+          </button>
+        </div>
+       <div class="post-caption">
+<span class="username">@laura_sforero19</span> Cambiaba todo a la vez y mi gato se estresaba más. Aprendí a introducir un solo cambio por semana. Funciona.
+</div>
+      </div>
+
+      <!-- POST 5 -->
+      <div class="testimonial-post">
+        <div class="post-header">
+          <img src="avatar5.jpg" alt="avatar">
+          <div>
+            <div class="username">carlos.p</div>
+            <div class="location">Buenos Aires, Argentina</div>
+          </div>
+        </div>
+        <div class="post-media">
+  <img class="post-image" src="post5.jpg" alt="post">
+  <div class="like-bubbles"></div>
+</div>
+        <div class="post-actions">
+          <div class="left-actions">
+            <button class="icon-btn like-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+</svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+              </svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+              </svg>
+            </button>
+          </div>
+          <button class="icon-btn">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+          </button>
+        </div>
+       <div class="post-caption">
+<span class="username">@carlos.p</span> Esperaba que mi gato fuera obediente como un perro y me frustraba. Ahora entiendo su lenguaje y respeto su independencia. Confía más en mí.
+</div>
+      </div>
+
+      <!-- POST 6 -->
+      <div class="testimonial-post">
+        <div class="post-header">
+          <img src="avatar6.jpg" alt="avatar">
+          <div>
+            <div class="username">danna.bp</div>
+            <div class="location">Santiago, Chile</div>
+          </div>
+        </div>
+        <div class="post-media">
+  <img class="post-image" src="post6.jpg" alt="post">
+  <div class="like-bubbles"></div>
+</div>
+        <div class="post-actions">
+          <div class="left-actions">
+            <button class="icon-btn like-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+</svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+              </svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+              </svg>
+            </button>
+          </div>
+          <button class="icon-btn">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="post-caption">
+<span class="username">@danna.bp</span> Intentaba forzar a mi gato a ser cariñoso cuando yo quería. Solo conseguía que me evitara. Aprendí a respetar sus momentos y a leer cuándo busca contacto. Ahora él se acerca primero y confía plenamente.
+</div>
+      </div>
+
+      <!-- POST 7 -->
+      <div class="testimonial-post">
+        <div class="post-header">
+          <img src="avatar7.jpg" alt="avatar">
+          <div>
+            <div class="username">sofia.gonzalezt</div>
+            <div class="location">Bogotá, Colombia</div>
+          </div>
+        </div>
+        <div class="post-media">
+  <img class="post-image" src="post7.jpg" alt="post">
+  <div class="like-bubbles"></div>
+</div>
+        <div class="post-actions">
+          <div class="left-actions">
+            <button class="icon-btn like-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+</svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+              </svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+              </svg>
+            </button>
+          </div>
+          <button class="icon-btn">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+          </button>
+        </div>
+       <div class="post-caption">
+<span class="username">@sofia.gonzalezt</span> Me sentía culpable cuando dejaba solo a mi gato, y le hacía despedidas dramáticas. Descubrí que eso lo estresaba más. Ahora salgo y entro con naturalidad. Él está más tranquilo y yo también.
+</div>
+      </div>
+
+      <!-- POST 8 -->
+      <div class="testimonial-post">
+        <div class="post-header">
+          <img src="avatar8.jpg" alt="avatar">
+          <div>
+            <div class="username">salome_ap02</div>
+            <div class="location">Ciudad de México, México</div>
+          </div>
+        </div>
+        <div class="post-media">
+  <img class="post-image" src="post8.jpg" alt="post">
+  <div class="like-bubbles"></div>
+</div>
+        <div class="post-actions">
+          <div class="left-actions">
+            <button class="icon-btn like-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+</svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+              </svg>
+            </button>
+            <button class="icon-btn">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+              </svg>
+            </button>
+          </div>
+          <button class="icon-btn">
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+          </button>
+        </div>
+       <div class="post-caption">
+<span class="username">@salome_ap02</span> Quería resultados rápidos y cambiaba todo constantemente. Mi gato se escondía. Aprendí a ir paso a paso, un cambio por semana. La paciencia me dio un gato más seguro y confiado.
+</div>
+      </div>
+    </div>
+  </div>
+<div class="testimonials-footer">
+  <a href="https://pay.hotmart.com/G104635037L?checkoutMode=10" class="cta-button">
+    👉 CREA TU PROPIA HISTORIA
+  </a>
+</div>
+</section>
+
+<section class="bonus-section">
+
+  <div class="bonus-header">
+    <h2>🧰 4 Sistemas Profesionales para Gatos — Incluidos GRATIS</h2>
+    <p>Herramientas diseñadas específicamente para felinos que multiplicarán el valor del libro y te ayudarán a aplicar todo desde el día 1.</p>
+  </div>
+
+  <div class="bonus-grid">
+
+    <!-- SISTEMA 1: Instinto vs Entorno -->
+    <div class="bonus-card">
+      <span class="bonus-badge">GRATIS</span>
+      <img src="IMAGEN_BONO1.png" class="bonus-img" alt="Sistema Instinto vs Entorno">
+      <h3>🧠 Sistema Instinto vs Entorno</h3>
+      <p>
+        <strong>Plantilla profesional del Capítulo 11.</strong> Aprende a analizar cualquier conducta de tu gato con el método exacto que usan expertos en comportamiento felino.
+      </p>
+      <p style="font-size: 14px; opacity: 0.9; text-align: left; margin-top: 10px;">
+        ✅ Identificación objetiva de la conducta<br>
+        ✅ Análisis instintivo (biología real, no suposiciones)<br>
+        ✅ Análisis ambiental (qué estás reforzando sin saberlo)<br>
+        ✅ Enfoque estratégico correcto<br>
+        ✅ Plan de acción semanal paso a paso
+      </p>
+      <div class="bonus-value">Valor real: $27 — Hoy GRATIS</div>
+    </div>
+
+    <!-- SISTEMA 2: Protocolo Anti Errores Cotidianos -->
+    <div class="bonus-card">
+      <span class="bonus-badge">GRATIS</span>
+      <img src="IMAGEN_BONO2.png" class="bonus-img" alt="Protocolo Anti Errores">
+      <h3>🚫 Protocolo Anti Errores Cotidianos</h3>
+      <p>
+        <strong>Checklist práctica del Capítulo 4 y 7.</strong> Deja de sabotear la relación con tu gato sin darte cuenta.
+      </p>
+      <p style="font-size: 14px; opacity: 0.9; text-align: left; margin-top: 10px;">
+        ✘ Humanizar en vez de guiar<br>
+        ✘ Castigar en lugar de redirigir<br>
+        ✘ Refuerzo accidental de malas conductas<br>
+        ✘ Cambios bruscos que generan ansiedad<br>
+        ✅ Recordatorio del modelo Calma-Claridad-Consistencia<br>
+        ✅ Checklist de regla N+1 para areneros<br>
+        ✅ Mejora de la conexión con tu mascota
+      </p>
+      <div class="bonus-value">Valor real: $19 — Hoy GRATIS</div>
+    </div>
+
+    <!-- SISTEMA 3: Plan de Juego Estructurado -->
+    <div class="bonus-card">
+      <span class="bonus-badge">GRATIS</span>
+      <img src="IMAGEN_BONO3.png" class="bonus-img" alt="Plan de Juego Estructurado">
+      <h3>🎯 Plan de Juego Estructurado</h3>
+      <p>
+        <strong>Sistema completo del Capítulo 8.</strong> Transforma el juego de tu gato en una herramienta de bienestar emocional.
+      </p>
+      <p style="font-size: 14px; opacity: 0.9; text-align: left; margin-top: 10px;">
+        ✅ Microdrama en 3 actos (acecho, captura, recompensa)<br>
+        ✅ Registro semanal de sesiones de juego<br>
+        ✅ Técnica segura para usar el puntero láser<br>
+        ✅ Guía de juguetes recomendados por tipo de gato<br>
+        ✅ Cómo integrar el juego con la alimentación
+      </p>
+      <div class="bonus-value">Valor real: $22 — Hoy GRATIS</div>
+    </div>
+
+    <!-- SISTEMA 4: Evaluador de Entorno Felino -->
+    <div class="bonus-card">
+      <span class="bonus-badge">GRATIS</span>
+      <img src="IMAGEN_BONO4.png" class="bonus-img" alt="Evaluador de Entorno Felino">
+      <h3>🏠 Evaluador de Entorno Felino</h3>
+      <p>
+        <strong>Checklist completo del Capítulo 6 y 7.</strong> Audita tu hogar y conviértelo en el paraíso que tu gato necesita.
+      </p>
+      <p style="font-size: 14px; opacity: 0.9; text-align: left; margin-top: 10px;">
+        ✅ Evaluación de espacio vertical (estantes, árboles, repisas)<br>
+        ✅ Auditoría completa del arenero (ubicación, limpieza, tipo)<br>
+        ✅ Verificación de la regla N+1<br>
+        ✅ Mapeo de zonas de estrés y refugios<br>
+        ✅ Checklist de rascadores y enriquecimiento ambiental
+      </p>
+      <div class="bonus-value">Valor real: $22 — Hoy GRATIS</div>
+    </div>
+
+  </div>
+
+  <!-- VALOR TOTAL DESTACADO -->
+  <div style="text-align: center; margin-top: 50px; padding: 25px; background: rgba(20, 184, 166, 0.1); border-radius: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">
+    <p style="font-size: 20px; font-weight: 700; color: white; margin-bottom: 10px;">
+      🎁 VALOR TOTAL DE LOS BONOS: <span style="text-decoration: line-through; opacity: 0.7;">$90</span> <span style="color: #14b8a6; font-size: 28px;">GRATIS</span>
+    </p>
+    <p style="font-size: 18px; color: white; opacity: 0.9;">
+      + El libro "Lo que haces mal con tu perro y tu gato sin saberlo" <span style="color: #14b8a6; font-weight: 700;">($20.00)</span>
+    </p>
+    <div style="height: 2px; width: 100px; background: #14b8a6; margin: 20px auto;"></div>
+    <p style="font-size: 24px; font-weight: 800; color: white;">
+      TODO POR SOLO <span style="color: #14b8a6;">$10.00 USD</span>
+    </p>
+  </div>
+
+  <div style="text-align: center; margin-top: 40px;">
+    <a href="https://pay.hotmart.com/G104635037L?checkoutMode=10" class="cta-button" style="font-size: 22px; padding: 20px 45px;">
+      👉 QUIERO EL LIBRO + MIS 4 SISTEMAS GRATIS
+    </a>
+    <div class="trust-badges" style="margin-top: 20px; color: white;">
+      🔒 Compra 100% segura • ⚡ Acceso inmediato • 🛡️ Garantía 7 días
+    </div>
+  </div>
+
+</section>
+
+<section class="guarantee-section">
+  <div class="guarantee-container">
+    <div class="guarantee-badge">🛡️</div>
+    <h2 class="guarantee-title">7 Días de Prueba. Sin Riesgos.</h2>
+    <p class="guarantee-highlight">Tu satisfacción está 100% garantizada</p>
+    <p class="guarantee-text">
+      Estamos tan seguros de que este libro transformará tu relación con tu mascota,
+      que te ofrecemos una garantía de satisfacción incondicional de 7 días a través de Hotmart.
+    </p>
+    <div class="guarantee-points">
+      <div class="guarantee-point">
+        <span class="check-icon">✓</span> Reembolso completo del 100%
+      </div>
+      <div class="guarantee-point">
+        <span class="check-icon">✓</span> Sin preguntas incómodas
+      </div>
+      <div class="guarantee-point">
+        <span class="check-icon">✓</span> Proceso rápido y seguro con Hotmart
+      </div>
+    </div>
+    <p class="guarantee-footer">
+      Si en los primeros 7 días no sientes que has aprendido herramientas prácticas
+      para mejorar la convivencia con tu mascota, simplemente solicita el reembolso.
+    </p>
+    <div class="guarantee-strong">Tienes todo que ganar y nada que perder.</div>
+  </div>
+</section>
+
+<section class="final-cta-section">
+  <div class="final-cta-container">
+    
+    <!-- Badge de urgencia (opcional) -->
+    <div class="urgency-badge">
+      ⚡ Oferta por tiempo limitado
+    </div>
+    
+    <h2 class="final-title">
+      Es hora de dejar de sufrir y empezar a <span class="highlight">disfrutar</span> de tu mejor amigo
+    </h2>
+    
+    <p class="final-description">
+      Consigue tu libro + los 4 sistemas profesionales ahora y da el primer paso 
+      hacia una relación basada en la confianza y el respeto mutuo.
+    </p>
+
+    <!-- Precio destacado -->
+    <div class="price-box">
+      <div class="price-old">$90 <span class="price-old-label">en bonos</span></div>
+      <div class="price-main">
+        <span class="price-currency">USD</span>
+        <span class="price-number">$10</span>
+      </div>
+      <div class="price-includes">+ libro incluido</div>
+    </div>
+    
+    <!-- Botón CTA principal -->
+    <a href="https://pay.hotmart.com/G104635037L?checkoutMode=10" class="cta-button final-cta">
+      👉 SÍ, QUIERO TRANSFORMAR MI RELACIÓN CON MI MASCOTA
+    </a>
+    
+    <!-- Badges de confianza unificados -->
+    <div class="trust-badges final-trust">
+      <span>🔒 Compra 100% segura</span>
+      <span>⚡ Acceso inmediato</span>
+      <span>🛡️ Garantía 7 días</span>
+    </div>
+    
+    <!-- Métodos de pago (opcional) -->
+    <div class="payment-methods">
+      <span>Pagos seguros vía Hotmart</span>
+      <div class="payment-icons">
+        <span>💳</span>
+        <span>📱</span>
+        <span>🏦</span>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="faq-header">
+    <h2>Preguntas Frecuentes</h2>
+    <p>Todo lo que necesitas saber antes de transformar la vida de tu gato.</p>
+  </div>
+
+  <div class="faq-container">
+    <!-- Pregunta 1: Público objetivo -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Este libro es solo para dueños de gatos?</span>
+        <span class="faq-icon-container"><span class="faq-icon">+</span></span>
+      </button>
+      <div class="faq-answer">
+        <p>Así es. Esta versión está dedicada exclusivamente a felinos. Encontrarás 5 capítulos completos sobre psicología felina, espacio vertical, arenero, juego e introducción de nuevos gatos. Si también tienes perro, tenemos una versión específica para ti.</p>
+      </div>
+    </div>
+
+    <!-- Pregunta 2: Conocimientos previos -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Necesito ser un experto en comportamiento felino?</span>
+        <span class="faq-icon-container"><span class="faq-icon">+</span></span>
+      </button>
+      <div class="faq-answer">
+        <p>Para nada. El libro está escrito para cualquier dueño, desde primerizos hasta los más experimentados. Empieza explicando la mentalidad del dueño y avanza hacia técnicas prácticas con un lenguaje claro y ejemplos cotidianos.</p>
+      </div>
+    </div>
+
+    <!-- Pregunta 3: Problema específico (Arenero) -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Mi gato orina fuera del arenero, ¿el libro tiene solución?</span>
+        <span class="faq-icon-container"><span class="faq-icon">+</span></span>
+      </button>
+      <div class="faq-answer">
+        <p>Sí. El Capítulo 7 (Psicología del arenero) está dedicado por completo a este problema. Aprenderás la regla de oro N+1, cómo auditar la ubicación para garantizar privacidad y por qué el 95% de los problemas de eliminación son ambientales, no del gato.</p>
+      </div>
+    </div>
+
+    <!-- Pregunta 4: Problema específico (Juego y láser) -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>He oído que el puntero láser es malo… ¿eso es cierto?</span>
+        <span class="faq-icon-container"><span class="faq-icon">+</span></span>
+      </button>
+      <div class="faq-answer">
+        <p>El Capítulo 8 desmonta este mito. El problema no es el láser en sí, sino usarlo sin una captura final, lo que genera frustración crónica. Te explicamos el ciclo de caza (Cazar-Atrapar-Matar-Comer) y cómo terminar las sesiones con una captura física para que tu gato quede satisfecho y relajado.</p>
+      </div>
+    </div>
+
+    <!-- Pregunta 5: Espacio vertical -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Vivo en un piso pequeño, ¿puedo aplicar el espacio vertical?</span>
+        <span class="faq-icon-container"><span class="faq-icon">+</span></span>
+      </button>
+      <div class="faq-answer">
+        <p>¡Por supuesto! El Capítulo 6 está diseñado para cualquier hogar. Te enseñamos a crear capas verticales con estantes flotantes, repisas en ventanas y árboles adaptados a espacios reducidos. No necesitas una casa grande, solo entender qué busca tu gato en la altura.</p>
+      </div>
+    </div>
+
+    <!-- Pregunta 6: Introducir un nuevo gato -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Voy a adoptar otro gato, ¿cómo evito que se peleen?</span>
+        <span class="faq-icon-container"><span class="faq-icon">+</span></span>
+      </button>
+      <div class="faq-answer">
+        <p>El Capítulo 9 contiene el protocolo paso a paso respaldado por la Universidad Estatal de Ohio: Olor → Visual → Supervisado. Aprenderás por qué las presentaciones cara a cara son un error y cómo usar el intercambio de mantas para que se familiaricen sin conflictos.</p>
+      </div>
+    </div>
+
+    <!-- Pregunta 7: Bonos y formato -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Cómo recibo los 4 sistemas profesionales?</span>
+        <span class="faq-icon-container"><span class="faq-icon">+</span></span>
+      </button>
+      <div class="faq-answer">
+        <p>Inmediatamente después de la compra, recibirás un correo con los enlaces para descargar el libro en PDF y los 4 bonos: la Plantilla Instinto vs Entorno, el Protocolo Anti Errores Cotidianos, el Plan de Juego Estructurado y el Evaluador de Entorno Felino. Todo listo para leer en tu ordenador, tablet o móvil.</p>
+      </div>
+    </div>
+
+    <!-- Pregunta 8: Garantía -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>¿Qué pasa si no me gusta o no me sirve?</span>
+        <span class="faq-icon-container"><span class="faq-icon">+</span></span>
+      </button>
+      <div class="faq-answer">
+        <p>Tienes 7 días de garantía incondicional a través de Hotmart. Si en ese tiempo no sientes que has aprendido herramientas prácticas para mejorar la vida de tu gato, solicitas el reembolso y te devolvemos el 100% de tu dinero. Sin preguntas, sin trámites complicados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>PETNOVA</h3>
+      <p>Mejorando la relación entre humanos y mascotas.</p>
+    </div>
+    <p class="footer-disclaimer">
+      Descargo de responsabilidad: Este libro es una guía educativa y no sustituye la consulta con un veterinario o etólogo profesional ante problemas de salud o comportamiento graves.
+    </p>
+    <p class="footer-copy">
+      Copyright © 2026 PETNOVA. Todos los derechos reservados.
+    </p>
+  </div>
+</footer>
+<script>
+
+setTimeout(()=>{
+
+document.getElementById("intro").classList.add("fade");
+document.body.style.overflow="auto";
+
+document.querySelector(".launch-timer").style.opacity="1";
+
+},2500);
+
+// TIMER 24H CON LOCAL STORAGE
+
+const TOTAL_TIME = 24 * 60 * 60 * 1000;
+
+let startTime = Number(localStorage.getItem("launchStart"));
+
+if(!startTime){
+startTime = Date.now();
+localStorage.setItem("launchStart", startTime);
+}
+
+function updateLaunchTimer() {
+    let now = Date.now();
+    let elapsed = now - startTime;
+    let remaining = TOTAL_TIME - elapsed;
+
+    // Reinicio automático al llegar a 0
+    if (remaining < 0) {
+        startTime = Date.now();
+        localStorage.setItem("launchStart", startTime);
+        remaining = TOTAL_TIME;
+    }
+
+    let hours = Math.floor(remaining / (1000 * 60 * 60));
+    let minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+    let text = "Oferta de lanzamiento 90% OFF — termina en ";
+    if (remaining < 3 * 60 * 60 * 1000) {
+        text = "🐱💨 La oferta se está escapando — ";
+    }
+
+    document.querySelector(".timer-text").innerHTML =
+        text + "<span id='launchCountdown'>" +
+        hours.toString().padStart(2,'0') + "h " +
+        minutes.toString().padStart(2,'0') + "m " +
+        seconds.toString().padStart(2,'0') + "s</span>";
+
+    let percent = (remaining / TOTAL_TIME) * 100;
+    let bar = document.getElementById("timerProgress");
+    let smoke = document.getElementById("timerSmoke");
+
+    bar.style.width = percent + "%";
+    smoke.style.left = percent + "%";
+
+    if (percent > 60) bar.style.background = "#22c55e"; // verde
+    else if (percent > 30) bar.style.background = "#f59e0b"; // naranja
+    else bar.style.background = "#ef4444"; // rojo
+}
+
+setInterval(updateLaunchTimer,1000);
+updateLaunchTimer();
+
+let buyers = [
+
+{name:"Carlos", city:"Bogotá", country:"Colombia"},
+{name:"Laura", city:"Medellín", country:"Colombia"},
+{name:"Mateo", city:"Buenos Aires", country:"Argentina"},
+{name:"Sofía", city:"Ciudad de México", country:"México"},
+{name:"Diego", city:"Lima", country:"Perú"},
+{name:"Valentina", city:"Santiago", country:"Chile"},
+{name:"Lucas", city:"Madrid", country:"España"},
+{name:"Ana", city:"Barcelona", country:"España"},
+{name:"Daniel", city:"Miami", country:"USA"},
+{name:"Isabella", city:"Los Ángeles", country:"USA"},
+{name:"Camila", city:"Quito", country:"Ecuador"},
+{name:"Javier", city:"Montevideo", country:"Uruguay"},
+{name:"Andrés", city:"San José", country:"Costa Rica"},
+{name:"Gabriel", city:"Panamá", country:"Panamá"},
+{name:"Mariana", city:"Guadalajara", country:"México"},
+{name:"Tomás", city:"Rosario", country:"Argentina"},
+{name:"Fernanda", city:"Sevilla", country:"España"},
+{name:"Pedro", city:"Lisboa", country:"Portugal"},
+{name:"Lucía", city:"Valencia", country:"España"},
+{name:"Miguel", city:"Nueva York", country:"USA"}
+
+];
+
+let messages = [
+
+"acaba de acceder a la guía",
+"empezó a mejorar la salud de su mascota",
+"está corrigiendo errores con su perro",
+"descubrió lo que estaba haciendo mal",
+"empezó a aplicar el método Petnova",
+"decidió ayudar mejor a su mascota",
+"ya está viendo cambios en su mascota",
+"comenzó a mejorar la alimentación de su mascota"
+
+];
+
+function showPurchase(){
+
+let popup = document.getElementById("purchasePopup");
+
+let buyer = buyers[Math.floor(Math.random()*buyers.length)];
+let message = messages[Math.floor(Math.random()*messages.length)];
+
+let pets = ["🐶","🐱"];
+let pet = pets[Math.floor(Math.random()*pets.length)];
+
+document.getElementById("buyerName").innerText =
+pet + " " + buyer.name + " – " + buyer.city + ", " + buyer.country + " " + message;
+
+popup.classList.add("show");
+
+setTimeout(()=>{
+popup.classList.remove("show");
+},5000);
+
+}
+
+// primera notificación (entre 8 y 15s)
+setTimeout(showPurchase, 8000 + Math.random()*7000);
+
+// segunda (entre 7 y 12 minutos)
+setTimeout(showPurchase,(7 + Math.random()*5)*60000);
+
+// luego cada 10-22 minutos
+function scheduleNext(){
+
+let next = (10 + Math.random()*12)*60000;
+
+setTimeout(()=>{
+showPurchase();
+scheduleNext();
+}, next);
+
+}
+
+scheduleNext();
+
+// Mini huella al hacer clic en el botón
+document.querySelector('.cta-button').addEventListener('click', function(e){
+  let paw = document.createElement('div');
+  paw.style.position='absolute';
+  paw.style.width='24px';
+  paw.style.height='24px';
+  paw.style.background='url(paw.png) no-repeat center/contain';
+  paw.style.left=(e.clientX - 12)+'px'; // centra la patita
+  paw.style.top=(e.clientY - 12)+'px';
+  paw.style.pointerEvents='none';
+  paw.style.zIndex='9999';
+  document.body.appendChild(paw);
+  setTimeout(()=>{ document.body.removeChild(paw); },500);
+});
+
+// Huella emoji al hacer clic en cualquier parte
+document.addEventListener('click', function(e){
+
+  let paw = document.createElement('div');
+  paw.textContent = '🐾'; // emoji de huella
+  paw.style.position = 'absolute';
+  paw.style.left = (e.clientX - 8) + 'px'; // centra la huella
+  paw.style.top = (e.clientY - 8) + 'px';
+  paw.style.fontSize = '16px'; // tamaño de la huella
+  paw.style.pointerEvents = 'none';
+  paw.style.zIndex = '9999';
+  paw.style.opacity = '0.9';
+  
+  document.body.appendChild(paw);
+  
+  // efecto de desvanecimiento rápido
+  setTimeout(()=>{
+    paw.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    paw.style.opacity = '0';
+    paw.style.transform = 'translateY(-5px)'; // sube un poquito mientras desaparece
+  }, 150);
+  
+  // borra después de 500ms
+  setTimeout(()=>{ 
+    if(paw.parentNode) paw.parentNode.removeChild(paw); 
+  }, 500);
+
+});
+
+</script>
+<script>
+
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+
+const question = item.querySelector(".faq-question");
+
+question.addEventListener("click", () => {
+
+item.classList.toggle("active");
+
+});
+
+});
+
+</script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const book = document.getElementById("petnovaBook");
+const spreads = document.querySelectorAll(".spread");
+
+let index = 0;
+
+/* CLICK EN LIBRO */
+
+book.addEventListener("click", function(e){
+
+/* abrir libro */
+
+if(!book.classList.contains("open")){
+book.classList.add("open");
+return;
+}
+
+/* detectar posición del clic */
+
+const rect = book.getBoundingClientRect();
+const clickX = e.clientX - rect.left;
+
+/* centro = cerrar */
+
+if(clickX > rect.width * 0.4 && clickX < rect.width * 0.6){
+
+book.classList.remove("open");
+return;
+
+}
+
+/* derecha = siguiente */
+
+if(clickX > rect.width/2){
+
+nextPage();
+
+}else{
+
+prevPage();
+
+}
+
+});
+
+/* siguiente página */
+
+function nextPage(){
+
+spreads[index].classList.remove("active");
+
+index++;
+
+if(index >= spreads.length){
+index = 0;
+}
+
+spreads[index].classList.add("active");
+
+}
+
+/* página anterior */
+
+function prevPage(){
+
+spreads[index].classList.remove("active");
+
+index--;
+
+if(index < 0){
+index = spreads.length - 1;
+}
+
+spreads[index].classList.add("active");
+
+}
+
+/* autoplay lento */
+
+setInterval(function(){
+
+if(book.classList.contains("open")){
+nextPage();
+}
+
+},9000);
+
+});
+
+</script>
+
+<script>
+
+const track = document.querySelector(".testimonial-track")
+
+// duplicar posts para loop infinito
+track.innerHTML += track.innerHTML
+
+let position = 0
+let speed = 0.4
+
+function animateCarousel(){
+
+position -= speed
+track.style.transform = `translateX(${position}px)`
+
+if(Math.abs(position) >= track.scrollWidth / 2){
+position = 0
+}
+
+requestAnimationFrame(animateCarousel)
+
+}
+
+animateCarousel()
+
+</script>
+
+<script>
+  (function() {
+    // ----- BURBUJAS DE LIKE: 1 a 3 POR POST, FOTOS ÚNICAS, CON ESPACIO Y ALTURA DINÁMICA -----
+    
+    // Obtener las imágenes de avatar reales de los posts
+    function getExistingAvatars() {
+      const avatars = [];
+      document.querySelectorAll('.post-header img').forEach(img => {
+        if (img.src && !avatars.includes(img.src)) {
+          avatars.push(img.src);
+        }
+      });
+      // Fallback por si no encuentra
+      return avatars.length ? avatars : [
+        'avatar1.jpg', 'avatar2.jpg', 'avatar3.jpg', 
+        'avatar4.jpg', 'avatar5.jpg', 'avatar6.jpg', 'avatar7.jpg', 'avatar8.jpg'
+      ];
+    }
+
+    const allProfilePics = getExistingAvatars();
+
+    function createBubbles() {
+      const posts = document.querySelectorAll('.testimonial-post');
+      
+      posts.forEach(post => {
+        const bubbleContainer = post.querySelector('.like-bubbles');
+        if (!bubbleContainer) return;
+
+        // Si ya tiene burbujas, no hacer nada
+        if (bubbleContainer.children.length > 0) return;
+
+        // Número aleatorio de burbujas entre 1 y 3
+        const numBubbles = Math.floor(Math.random() * 3) + 1; // 1, 2 o 3
+
+        // Copia del array de imágenes para no repetir en este post
+        let availablePics = [...allProfilePics];
+
+        for (let i = 0; i < numBubbles; i++) {
+          if (availablePics.length === 0) {
+            availablePics = [...allProfilePics];
+          }
+
+          const randomIndex = Math.floor(Math.random() * availablePics.length);
+          const selectedPic = availablePics[randomIndex];
+          availablePics.splice(randomIndex, 1);
+
+          const bubble = document.createElement('div');
+          bubble.className = 'like-bubble';
+
+          const img = document.createElement('img');
+          img.src = selectedPic;
+
+          const heart = document.createElement('div');
+          heart.className = 'bubble-heart';
+
+          bubble.appendChild(img);
+          bubble.appendChild(heart);
+
+          // ---- DESPLAZAMIENTO VERTICAL SEGÚN LA CANTIDAD DE BURBUJAS ----
+          let verticalOffset = 0;
+          if (numBubbles === 2) {
+            // Segunda burbuja más arriba
+            verticalOffset = i === 1 ? -8 : 0;
+          } else if (numBubbles === 3) {
+            // Segunda burbuja más arriba, primera y tercera al mismo nivel
+            verticalOffset = i === 1 ? -8 : 0;
+          }
+          bubble.style.top = verticalOffset + 'px';
+          // -------------------------------------------------------------
+
+          // Pequeño retraso para que no floten sincronizadas
+          bubble.style.animationDelay = (i * 0.2) + 's';
+
+          bubbleContainer.appendChild(bubble);
+        }
+      });
+    }
+
+    // Ejecutar cuando el DOM esté listo y después de que el carrusel duplique
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(createBubbles, 400);
+    });
+  })();
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
