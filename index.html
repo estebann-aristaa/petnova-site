@@ -2737,6 +2737,24 @@ object-fit:cover;
     font-size: 11px !important;
   }
 }
+
+/* FUERZA BRUTA PARA EVITAR DESBORDES */
+body, html {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+img, video, iframe, .book, .testimonial-post, .bonus-card, .guarantee-container, .final-cta-container {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.book {
+  width: 100% !important;
+  max-width: 350px !important; /* controlamos el tamaño máximo */
+  margin: 0 auto !important;
+}
 </style>
 
 </head>
