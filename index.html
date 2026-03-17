@@ -2362,12 +2362,27 @@ object-fit:cover;
 }
 
 /* ======================================== */
-/* ===== VERSIÓN MÓVIL UNIFICADA ===== */
+/* ===== RESPONSIVE SIMPLE Y FUNCIONAL ===== */
 /* ======================================== */
 
+/* Tablets y móviles grandes */
+@media (max-width: 900px) {
+  .problem-wrapper,
+  .story-grid {
+    flex-direction: column;
+  }
+  
+  .problem-image,
+  .story-right {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+/* Móviles */
 @media (max-width: 768px) {
   
-  /* ----- INTRO ----- */
+  /* INTRO */
   .intro .brand {
     flex-direction: column;
     text-align: center;
@@ -2379,44 +2394,26 @@ object-fit:cover;
     width: 60px;
     height: 60px;
   }
-  .intro .logo img {
-    width: 40px;
-    height: 40px;
-  }
-  .paw {
-    font-size: 16px;
-    opacity: 0.3;
-  }
   
-  /* ----- TIMER ----- */
+  /* TIMER */
   .launch-timer {
     flex-direction: column;
-    padding: 12px 10px;
-    gap: 8px;
+    padding: 10px;
     font-size: 13px;
-    box-sizing: border-box;
-    width: 100%;
   }
   .timer-bar {
     width: 180px;
-    max-width: 100%;
-  }
-  .timer-text {
-    text-align: center;
-    white-space: normal;
-    word-break: break-word;
   }
   
-  /* ----- HERO ----- */
+  /* HERO */
   .hero {
     flex-direction: column;
     padding: 40px 20px;
-    min-height: auto;
+    text-align: center;
   }
   .hero-left {
     margin: 0;
     align-items: center;
-    text-align: center;
     width: 100%;
   }
   .hero-logo {
@@ -2432,95 +2429,58 @@ object-fit:cover;
   .hero-right {
     display: block;
     width: 100%;
-    height: 350px;
+    height: 300px;
     background-size: cover;
-    background-position: left center !important; /* GATO A LA IZQUIERDA */
-    background-repeat: no-repeat;
-    margin-top: 30px;
-    border-radius: 20px;
+    background-position: left center;
+    margin-top: 20px;
   }
   
-  /* ----- PROBLEM SECTION ----- */
-  .problem-wrapper {
-    flex-direction: column;
-    gap: 30px;
-  }
+  /* PROBLEM SECTION */
   .problem-image {
-  background-image: url('problem-section-cat.png') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  width: 100% !important;
-  height: 280px !important;
-  display: block !important;
-  border-radius: 16px !important;
+    background-image: url('problem-section-cat.png');
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    border-radius: 16px;
   }
-
-.story-right {
-  background-image: url('perro1.jpg') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  width: 100% !important;
-  height: 300px !important;
-  display: block !important;
-  border-radius: 12px !important;
-  margin-top: 20px !important;
-}
   .problem-title {
     font-size: 28px;
   }
   .problem-text {
     font-size: 16px;
-    padding: 0 10px; /* para que no se pegue */
   }
   
-  /* ----- STORY SECTION (LA DEL PERRO) ----- */
+  /* STORY SECTION */
   .story-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    padding: 0 15px;
+    gap: 20px;
   }
   .story-left {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: auto !important;
-  padding: 0 !important;
-  text-align: left !important;
-  overflow-wrap: break-word !important;
+    width: 100%;
+    text-align: left;
+    word-wrap: break-word;
   }
   .story-left .story-title {
     font-size: 28px;
-    line-height: 1.3;
-    margin-bottom: 15px;
-    word-wrap: break-word;
   }
   .story-left .story-text {
     font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    word-wrap: break-word;
   }
   .story-left .cta-button {
     width: 100%;
-    max-width: 350px;
+    max-width: 300px;
     margin: 0 auto;
     display: block;
-    font-size: 16px;
-    padding: 14px 20px;
-    box-sizing: border-box;
   }
   .story-right {
-  background-image: url('perro1.jpg') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  width: 100% !important;
-  height: 300px !important;
-  display: block !important;
-  border-radius: 12px !important;
-  margin-top: 20px !important;
+    background-image: url('perro1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    border-radius: 12px;
+    margin-top: 20px;
   }
   
-  /* ----- BOOK SECTION ----- */
+  /* BOOK SECTION */
   .book-title h2 {
     font-size: 32px;
   }
@@ -2528,12 +2488,11 @@ object-fit:cover;
     font-size: 16px;
     padding: 0 15px;
   }
-  .book-stage {
-    margin-top: 30px;
-  }
   .book {
+    width: 100% !important;
     max-width: 300px !important;
     height: auto;
+    margin: 0 auto;
   }
   .page {
     padding: 15px !important;
@@ -2544,45 +2503,29 @@ object-fit:cover;
   .page h4 {
     font-size: 12px !important;
   }
-  .page ul {
-    padding-left: 12px;
-  }
   .page li {
     font-size: 10px !important;
-    margin-bottom: 3px;
   }
   .book-description[style*="margin-top"] {
-  margin-top: 80px !important;
+    margin-top: 60px !important;
   }
   .book-cta {
-  margin-top: 60px !important;
-  clear: both !important;
+    margin-top: 40px;
   }
   
-  /* ----- TESTIMONIALS SECTION ----- */
+  /* TESTIMONIALS */
   .testimonials-title {
     font-size: 32px;
-    margin-bottom: 30px;
   }
   .testimonials-description {
     font-size: 16px;
     padding: 0 15px;
-    max-width: 100%;
-  }
-  .testimonial-track {
-    gap: 20px;
   }
   .testimonial-post {
     width: 260px;
   }
   .post-media {
     height: 200px;
-  }
-  .post-caption {
-    font-size: 13px;
-  }
-  .like-bubbles {
-    bottom: 10px;
   }
   .like-bubble {
     width: 30px;
@@ -2591,59 +2534,29 @@ object-fit:cover;
   .bubble-heart {
     width: 6px;
     height: 6px;
-    bottom: -1px;
-    right: -1px;
-  }
-  .bubble-heart::before,
-  .bubble-heart::after {
-    width: 6px;
-    height: 6px;
-  }
-  .bubble-heart::before {
-    top: -3px;
-  }
-  .bubble-heart::after {
-    left: 3px;
   }
   
-  /* ----- BONUS SECTION ----- */
+  /* BONUS */
   .bonus-header h2 {
     font-size: 28px;
   }
   .bonus-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .bonus-card {
-    padding: 20px;
   }
   .bonus-img {
     width: 120px;
     height: 120px;
   }
-  .bonus-card h3 {
-    font-size: 18px;
-  }
-  .bonus-card p {
-    font-size: 14px;
-  }
   
-  /* ----- GUARANTEE SECTION ----- */
-  .guarantee-container {
-    padding: 30px 20px;
-  }
+  /* GUARANTEE */
   .guarantee-title {
     font-size: 26px;
   }
-  .guarantee-points {
-    align-items: center;
-  }
   .guarantee-point {
-    width: 100%;
     font-size: 15px;
   }
   
-  /* ----- FINAL CTA ----- */
+  /* FINAL CTA */
   .final-title {
     font-size: 28px;
   }
@@ -2655,65 +2568,47 @@ object-fit:cover;
   }
   .final-cta {
     font-size: 16px !important;
-    padding: 14px 25px !important;
+    padding: 14px 20px !important;
     width: 90%;
   }
   
-  /* ----- FAQ ----- */
+  /* FAQ */
   .faq-header h2 {
     font-size: 28px;
   }
   .faq-question {
     font-size: 15px;
-    padding: 15px 18px;
-  }
-  .faq-answer p {
-    font-size: 14px;
   }
   
-  /* ----- FOOTER ----- */
+  /* FOOTER */
   .footer-links {
     flex-direction: column;
-    gap: 15px;
-  }
-  .footer-disclaimer {
-    font-size: 12px;
+    gap: 10px;
   }
   
-  /* ----- BOTONES GENERALES ----- */
+  /* BOTONES */
   .cta-button {
     font-size: 16px;
-    padding: 14px 28px;
+    padding: 12px 20px;
     width: 90%;
-    max-width: 350px;
+    max-width: 300px;
     box-sizing: border-box;
-  }
-  .book-cta .cta-button,
-  .testimonials-footer .cta-button {
-    padding: 14px 28px;
-    font-size: 16px;
   }
 }
 
-/* Ajustes para pantallas muy pequeñas */
+/* Móviles muy pequeños */
 @media (max-width: 400px) {
   .hero-headline {
-    font-size: 26px;
+    font-size: 24px;
   }
   .hero-right {
-    height: 280px;
-  }
-  .problem-title {
-    font-size: 24px;
-  }
-  .story-left .story-title {
-    font-size: 24px;
+    height: 250px;
   }
   .testimonial-post {
     width: 220px;
   }
   .post-media {
-    height: 180px;
+    height: 170px;
   }
   .bonus-img {
     width: 100px;
@@ -2722,43 +2617,6 @@ object-fit:cover;
   .price-number {
     font-size: 36px;
   }
-}
-
-/* Arreglo específico para el libro en móvil muy pequeño */
-@media (max-width: 600px) {
-  .book {
-    max-width: 280px !important;
-    margin-bottom: 30px !important; /* separación del texto inferior */
-  }
-  .page {
-    padding: 10px !important;
-  }
-  .page li {
-    font-size: 9px !important;
-    line-height: 1.3;
-  }
-  .page h3 {
-    font-size: 12px !important;
-  }
-  .page h4 {
-    font-size: 11px !important;
-  }
-}
-
-/* FUERZA BRUTA PARA EVITAR DESBORDES */
-body, html {
-  overflow-x: hidden !important;
-  width: 100% !important;
-  max-width: 100% !important;
-}
-img, video, iframe, .book, .testimonial-post, .bonus-card, .guarantee-container, .final-cta-container {
-  max-width: 100% !important;
-  height: auto !important;
-}
-.book {
-  width: 100% !important;
-  max-width: 350px !important;
-  margin: 0 auto !important;
 }
 
 </style>
