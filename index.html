@@ -2449,9 +2449,22 @@ object-fit:cover;
   background-image: url('problem-section-cat.png') !important;
   background-size: cover !important;
   background-position: center !important;
+  width: 100% !important;
   height: 280px !important;
   display: block !important;
+  border-radius: 16px !important;
   }
+
+.story-right {
+  background-image: url('perro1.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  width: 100% !important;
+  height: 300px !important;
+  display: block !important;
+  border-radius: 12px !important;
+  margin-top: 20px !important;
+}
   .problem-title {
     font-size: 28px;
   }
@@ -2468,11 +2481,12 @@ object-fit:cover;
     padding: 0 15px;
   }
   .story-left {
-    width: 100%;
-    max-width: 100%;
-    min-width: auto;
-    padding: 0;
-    text-align: left;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: auto !important;
+  padding: 0 !important;
+  text-align: left !important;
+  overflow-wrap: break-word !important;
   }
   .story-left .story-title {
     font-size: 28px;
@@ -2499,8 +2513,10 @@ object-fit:cover;
   background-image: url('perro1.jpg') !important;
   background-size: cover !important;
   background-position: center !important;
+  width: 100% !important;
   height: 300px !important;
   display: block !important;
+  border-radius: 12px !important;
   margin-top: 20px !important;
   }
   
@@ -2537,6 +2553,10 @@ object-fit:cover;
   }
   .book-description[style*="margin-top"] {
   margin-top: 80px !important;
+  }
+  .book-cta {
+  margin-top: 60px !important;
+  clear: both !important;
   }
   
   /* ----- TESTIMONIALS SECTION ----- */
@@ -2708,6 +2728,7 @@ object-fit:cover;
 @media (max-width: 600px) {
   .book {
     max-width: 280px !important;
+    margin-bottom: 30px !important; /* separación del texto inferior */
   }
   .page {
     padding: 10px !important;
@@ -3002,7 +3023,7 @@ PETNOVA
   </div>
 </div>
 
-  <p class="book-description" style="margin-top: 40px;">
+<p class="book-description" style="margin-top: 80px;">
   Y esto es solo el comienzo. El libro incluye capítulos exclusivos sobre ansiedad por separación, enriquecimiento ambiental, comunicación avanzada y mucho más. Todo explicado de forma clara, sin tecnicismos innecesarios, para que cualquier dueño pueda aplicarlo.
 </p>
 
@@ -4103,42 +4124,6 @@ animateCarousel()
   })();
 </script>
 
-<script>
-  // Deshabilitar clic derecho
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-    return false;
-  });
-  
-  // Deshabilitar teclas de copia (Ctrl+C, Ctrl+X, Ctrl+U, F12)
-  document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'u') || e.key === 'F12') {
-      e.preventDefault();
-      return false;
-    }
-  });
-</script>
-<script>
-  // Protección básica contra copia e inspección
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-    alert('🔒 Contenido protegido. Si necesitas algo, contáctanos por redes sociales.');
-    return false;
-  });
-
-  document.addEventListener('keydown', function(e) {
-    // Bloquear F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S, etc.
-    if (e.key === 'F12' || 
-        (e.ctrlKey && e.shiftKey && e.key === 'I') || 
-        (e.ctrlKey && e.key === 'u') ||
-        (e.ctrlKey && e.key === 's') ||
-        (e.ctrlKey && e.key === 'c')) {
-      e.preventDefault();
-      alert('🔒 Acceso no permitido.');
-      return false;
-    }
-  });
-</script>
 </body>
 
 </html>
