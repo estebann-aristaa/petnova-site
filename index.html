@@ -249,8 +249,17 @@ body{margin:0;font-family:'Poppins',sans-serif;background:#f8fafc;overflow:hidde
   .intro .logo{width:60px;height:60px;}
 
   /* TIMER */
-  .launch-timer{flex-direction:column;padding:10px;font-size:13px;}
-  .timer-bar{width:180px;}
+  .launch-timer {
+  flex-direction: column;
+  padding: 8px 12px;
+  font-size: 12px;
+  gap: 6px;
+  text-align: center;
+}
+.timer-bar {
+  width: 80%;
+  max-width: 250px;
+}
 
   /* HERO */
   .hero{flex-direction:column;padding:40px 20px;text-align:center;}
@@ -258,26 +267,23 @@ body{margin:0;font-family:'Poppins',sans-serif;background:#f8fafc;overflow:hidde
   .hero-logo{width:150px;margin:0 auto 20px;}
   .hero-headline{font-size:28px;}
   .hero-subheadline{font-size:16px;}
-  .hero-right{display:block;width:100%;height:300px;background-size:cover;background-position:left center;margin-top:20px;}
+  .hero-right{display:block;width:100%;height:300px;background-size:cover;background-position:0% center;margin-top:20px;}
 
   /* PROBLEM SECTION */
-  .problem-image{
-    background-image:url('problem-section-cat.png');
-    background-size:cover;
-    background-position:center;
-    height:250px;
-    border-radius:16px;
-    order:-1; /* ✅ imagen arriba */
-  }
+  .problem-image {
+  flex: 1;
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  max-height: 600px;
+}
   .problem-title{font-size:28px;}
   .problem-text{font-size:16px;}
 
   /* STORY SECTION */
   .story-grid{gap:20px;}
   .story-right{
-    background-image:url('perro1.jpg');
-    background-size:cover;
-    background-position:center;
+    object-fit: cover
     height:250px;
     border-radius:12px;
     margin-top:0;
@@ -399,7 +405,7 @@ body{margin:0;font-family:'Poppins',sans-serif;background:#f8fafc;overflow:hidde
 <!-- En PC: imagen izquierda, texto derecha. En móvil: imagen arriba, texto abajo (via order:-1) -->
 <section class="problem-section">
   <div class="problem-wrapper">
-    <div class="problem-image"></div>
+    <img src="problem-section-cat.png" class="problem-image" alt="gato">
     <div class="problem-text">
       <h2 class="problem-title">¿Sientes que hablas idiomas distintos con tu mascota?</h2>
       <p>Seguro que has vivido esto. Llegas a casa y encuentras tu zapato favorito hecho trizas o un "regalito" en la alfombra.</p>
@@ -431,7 +437,7 @@ body{margin:0;font-family:'Poppins',sans-serif;background:#f8fafc;overflow:hidde
       <p class="story-text">Este libro te da las herramientas para, por fin, entender su lógica y actuar en consecuencia.</p>
       <a href="https://pay.hotmart.com/G104635037L?checkoutMode=10" class="cta-button">👉 QUIERO APRENDER A HABLAR EL IDIOMA DE MI MASCOTA</a>
     </div>
-    <div class="story-right"></div>
+   <img src="perro1.jpg" class="story-right" alt="perro">
   </div>
 </section>
 
