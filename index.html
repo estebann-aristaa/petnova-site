@@ -2446,12 +2446,11 @@ object-fit:cover;
     gap: 30px;
   }
   .problem-image {
-    width: 100%;
-    height: 280px;
-    background-size: cover;
-    background-position: center;
-    background-image: url('problem-section-cat.png'); /* forzamos la imagen */
-    border-radius: 16px;
+  background-image: url('problem-section-cat.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  height: 280px !important;
+  display: block !important;
   }
   .problem-title {
     font-size: 28px;
@@ -2497,13 +2496,12 @@ object-fit:cover;
     box-sizing: border-box;
   }
   .story-right {
-    width: 100%;
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-    background-image: url('perro1.jpg'); /* forzamos la imagen */
-    border-radius: 12px;
-    margin-top: 20px;
+  background-image: url('perro1.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  height: 300px !important;
+  display: block !important;
+  margin-top: 20px !important;
   }
   
   /* ----- BOOK SECTION ----- */
@@ -2537,8 +2535,8 @@ object-fit:cover;
     font-size: 10px !important;
     margin-bottom: 3px;
   }
-  .book-description[style*="margin-top: 40px"] {
-    margin-top: 60px !important;
+  .book-description[style*="margin-top"] {
+  margin-top: 80px !important;
   }
   
   /* ----- TESTIMONIALS SECTION ----- */
