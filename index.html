@@ -28,12 +28,12 @@ body{margin:0;font-family:'Poppins',sans-serif;background:#f8fafc;overflow:hidde
 .purchase-popup.show{opacity:1;transform:translateY(0);}
 
 /* HERO */
-.hero{min-height:100vh;background:none;display:flex;align-items:center;justify-content:flex-start;padding:80px 20px;}
+.hero{min-height:100vh;background-image:url('fondo-mascota.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;display:flex;align-items:center;justify-content:flex-start;padding:80px 20px;}
 .hero-left{flex:1;display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:650px;margin-left:80px;}
 .hero-logo{width:260px;margin:0 auto 25px 120px;display:block;}
 .hero-headline{font-size:44px;font-weight:800;color:teal;line-height:1.2;text-shadow:0 4px 18px rgba(0,0,0,0.7);max-width:700px;letter-spacing:-0.5px;}
 .hero-subheadline{font-size:18px;color:white;line-height:1.6;margin-bottom:30px;font-weight:400;max-width:650px;}
-.hero-right{flex:1;min-height:100vh;background-image:url('fondo-mascota.jpg');background-size:cover;background-position:center;}
+.hero-right{display:none;}
 
 /* CTA */
 .cta-button{display:inline-block;background:#14b8a6;color:white;font-weight:700;font-size:18px;padding:16px 34px;border-radius:12px;text-decoration:none;transition:all 0.3s ease;box-shadow:0 0 18px rgba(20,184,166,0.6);animation:pulse 2s infinite;position:relative;}
@@ -226,13 +226,12 @@ body{margin:0;font-family:'Poppins',sans-serif;background:#f8fafc;overflow:hidde
   .story-right{width:100%;height:300px;}
 
   /* ✅ FIX 1: imagen encima del texto en Problem Section */
-  .problem-image{order:-1;}
+  .problem-image{order:-1;height:320px;object-fit:cover;}
 
   /* ✅ FIX 2: imagen encima del texto en Story Section */
-  .story-right{order:-1;min-width:unset;}
+  .story-right{order:-1;min-width:unset;height:320px;object-fit:cover;}
 
   .bonus-grid{grid-template-columns:1fr;}
-
   .book{width:100%;height:auto;aspect-ratio:760/960;max-width:500px;}
   .page{padding:30px 20px;}
   .page ul{padding-left:15px;font-size:14px;}
