@@ -2434,7 +2434,7 @@ object-fit:cover;
     width: 100%;
     height: 350px;
     background-size: cover;
-    background-position: left center !important; /* antes era center */
+    background-position: left center !important; /* GATO A LA IZQUIERDA */
     background-repeat: no-repeat;
     margin-top: 30px;
     border-radius: 20px;
@@ -2446,61 +2446,64 @@ object-fit:cover;
     gap: 30px;
   }
   .problem-image {
-  background-image: url('problem-section-cat.png') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  min-height: 280px !important;
-  display: block !important;
+    width: 100%;
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    background-image: url('problem-section-cat.png'); /* forzamos la imagen */
+    border-radius: 16px;
   }
   .problem-title {
     font-size: 28px;
   }
   .problem-text {
     font-size: 16px;
+    padding: 0 10px; /* para que no se pegue */
   }
   
-  /* ----- STORY SECTION ----- */
+  /* ----- STORY SECTION (LA DEL PERRO) ----- */
   .story-grid {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 30px !important;
-    padding: 0 15px !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 0 15px;
   }
   .story-left {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: auto !important;
-    padding: 0 !important;
-    text-align: left !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: auto;
+    padding: 0;
+    text-align: left;
   }
   .story-left .story-title {
-    font-size: 28px !important;
-    line-height: 1.3 !important;
-    margin-bottom: 15px !important;
-    word-wrap: break-word !important;
+    font-size: 28px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    word-wrap: break-word;
   }
   .story-left .story-text {
-    font-size: 16px !important;
-    line-height: 1.6 !important;
-    margin-bottom: 15px !important;
-    word-wrap: break-word !important;
-    hyphens: auto !important;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    word-wrap: break-word;
   }
   .story-left .cta-button {
-    width: 100% !important;
-    max-width: 350px !important;
-    margin: 0 auto !important;
-    display: block !important;
-    font-size: 16px !important;
-    padding: 14px 20px !important;
-    box-sizing: border-box !important;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    display: block;
+    font-size: 16px;
+    padding: 14px 20px;
+    box-sizing: border-box;
   }
   .story-right {
-  background-image: url('perro1.jpg') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  min-height: 300px !important;
-  display: block !important;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-image: url('perro1.jpg'); /* forzamos la imagen */
+    border-radius: 12px;
+    margin-top: 20px;
   }
   
   /* ----- BOOK SECTION ----- */
@@ -2535,7 +2538,7 @@ object-fit:cover;
     margin-bottom: 3px;
   }
   .book-description[style*="margin-top: 40px"] {
-    margin-top: 60px !important; /* más separación del libro */
+    margin-top: 60px !important;
   }
   
   /* ----- TESTIMONIALS SECTION ----- */
@@ -2935,56 +2938,71 @@ PETNOVA
       </div>
       <div class="pages">
         <div class="spread active">
-          <div class="page">
-            <h3>Capítulo 1</h3>
-            <h4>La mentalidad del dueño moderno</h4>
-            <ul>
-              <li>El concepto de "jerarquía ambiental": por qué para un gato, la altura es mucho más que un gusto, es una necesidad de supervivencia.</li>
-              <li>Por qué la altura equivale a seguridad (y cómo un estudio de la USP demuestra su preferencia por los lugares elevados).</li>
-              <li>El error común de condenar a tu gato a la "vida solo a nivel del suelo".</li>
-              <li>Marco de acción: Cómo crear capas verticales (estantes, árboles, repisas) para convertir tu casa en un paraíso felino.</li>
-              <li>Ejercicio práctico: Añadir tu primera zona segura elevada y observar cómo transforma el comportamiento de tu gato.</li>
-            </ul>
-          </div>
-          <div class="page">
-            <h3>Capítulo 2</h3>
-            <h4>Comunicación con la correa</h4>
-            <ul>
-              <li>La importancia de la limpieza y la ubicación. Por qué estos dos factores son los responsables del 95% de los problemas de eliminación.</li>
-              <li>Por qué la mayoría de los problemas de "pipí" fuera del arenero no son del gato, sino del arenero (y cómo solucionarlo).</li>
-              <li>Los errores más comunes: tipo o ubicación incorrectos (arenas perfumadas, bandejas con tapa, sitios de mucho tránsito).</li>
-              <li>El marco de acción de oro: la Regla N+1. Aprende a calcular cuántos areneros necesitas REALMENTE en tu hogar.</li>
-              <li>Ejercicio práctico: Auditar la ubicación de tus areneros para garantizar la privacidad y seguridad que tu gato necesita.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="spread">
-          <div class="page">
-            <h3>Capítulo 3</h3>
-            <h4>Ansiedad por separación</h4>
-            <ul>
-              <li>El ciclo biológico que todo dueño debe conocer: Cazar → Atrapar → Matar → Comer. Por qué tu gato no juega por "diversión", sino por instinto.</li>
-              <li>Por qué este ciclo es esencial para regular el estrés y la ansiedad felina.</li>
-              <li>El error común y silencioso: el juego exclusivo con puntero láser (sin captura final). Por qué puede crear obsesiones y frustración crónica.</li>
-              <li>Marco de acción: La clave para un juego saludable: terminar las sesiones con una captura física (y cómo lograrlo incluso con el láser).</li>
-              <li>Ejercicio práctico: 10 minutos diarios de simulación de caza estructurada. Un microdrama en tres actos que tu gato te agradecerá.</li>
-            </ul>
-          </div>
-          <div class="page">
-            <h3>Capítulo 4</h3>
-            <h4>Corregir sin castigo</h4>
-            <ul>
-              <li>El fundamento de la integración: basada en el olor primero. Por qué el olfato es la identidad de tu gato.</li>
-              <li>Por qué las introducciones repentinas (cara a cara) disparan guerras territoriales que pueden durar años.</li>
-              <li>El error más costoso: el cara a cara demasiado pronto. Por qué ese primer encuentro lo es todo.</li>
-              <li>El marco de acción infalible: Olor → Visual → Supervisado. El protocolo respaldado por la Universidad Estatal de Ohio y la San Diego Humane Society.</li>
-              <li>Ejercicio práctico: El simple pero crucial paso de intercambiar mantas durante 3 días antes del primer encuentro visual.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="page">
+    <h3>Capítulo 1</h3>
+    <h4>Territorio y espacio vertical</h4>
+    <ul>
+      <li>La jerarquía ambiental: por qué la altura es seguridad para tu gato.</li>
+      <li>El error de condenarlo a vivir solo a nivel del suelo.</li>
+      <li>Cómo crear capas verticales con estantes y árboles.</li>
+      <li>Ejercicio: Añadir tu primera zona segura elevada.</li>
+    </ul>
   </div>
+  <div class="page">
+    <h3>Capítulo 2</h3>
+    <h4>Psicología del arenero</h4>
+    <ul>
+      <li>Por qué el 95% de los problemas de eliminación son ambientales.</li>
+      <li>Limpieza y ubicación: los factores clave.</li>
+      <li>La regla de oro N+1 (un gato = dos areneros).</li>
+      <li>Ejercicio: Auditar la ubicación para garantizar privacidad.</li>
+    </ul>
+  </div>
+</div>
+<div class="spread">
+  <div class="page">
+    <h3>Capítulo 3</h3>
+    <h4>El juego como simulación de caza</h4>
+    <ul>
+      <li>El ciclo Cazar–Atrapar–Matar–Comer.</li>
+      <li>Por qué el juego regula el estrés felino.</li>
+      <li>El error del puntero láser sin captura final.</li>
+      <li>Ejercicio: 10 minutos diarios de simulación de caza.</li>
+    </ul>
+  </div>
+  <div class="page">
+    <h3>Capítulo 4</h3>
+    <h4>Introducción de nuevas mascotas</h4>
+    <ul>
+      <li>Integración basada en el olor primero.</li>
+      <li>Por qué el cara a cara repentino genera guerras territoriales.</li>
+      <li>Protocolo infalible: Olor → Visual → Supervisado.</li>
+      <li>Ejercicio: Intercambiar mantas durante 3 días.</li>
+    </ul>
+  </div>
+</div>
+<div class="spread">
+  <div class="page">
+    <h3>Capítulo 5</h3>
+    <h4>Sistema de Equilibrio Felino de 30 días</h4>
+    <ul>
+      <li>El error de cambiar todo a la vez.</li>
+      <li>Auditoría → Enriquecimiento → Rastreo → Estabilidad.</li>
+      <li>Cómo prevenir regresiones.</li>
+      <li>Ejercicio: Diseñar tu propio rastreador de 30 días.</li>
+    </ul>
+  </div>
+  <div class="page">
+    <h3>Capítulo 6</h3>
+    <h4>Psicología Perro vs. Gato</h4>
+    <ul>
+      <li>Por qué tienen lógicas diferentes.</li>
+      <li>El error de esperar obediencia perruna de un gato.</li>
+      <li>Marco comparado: Estructura para perros / Entorno para gatos.</li>
+      <li>Ejercicio: Categorizar conductas (instinto vs. entorno).</li>
+    </ul>
+  </div>
+</div>
 
   <p class="book-description" style="margin-top: 40px;">
   Y esto es solo el comienzo. El libro incluye capítulos exclusivos sobre ansiedad por separación, enriquecimiento ambiental, comunicación avanzada y mucho más. Todo explicado de forma clara, sin tecnicismos innecesarios, para que cualquier dueño pueda aplicarlo.
@@ -3545,62 +3563,62 @@ PETNOVA
 <section class="faq-section">
   <div class="faq-header">
     <h2>Preguntas Frecuentes</h2>
-    <p>Todo lo que necesitas saber antes de transformar la vida de tu gato.</p>
+    <p>Resolvemos las dudas más comunes sobre el comportamiento felino basadas en el libro.</p>
   </div>
 
   <div class="faq-container">
-    <!-- Pregunta 1: Público objetivo -->
+    <!-- Pregunta 1: ¿El libro es solo para gatos? -->
     <div class="faq-item">
       <button class="faq-question">
         <span>¿Este libro es solo para dueños de gatos?</span>
         <span class="faq-icon-container"><span class="faq-icon">+</span></span>
       </button>
       <div class="faq-answer">
-        <p>Así es. Esta versión está dedicada exclusivamente a felinos. Encontrarás 5 capítulos completos sobre psicología felina, espacio vertical, arenero, juego e introducción de nuevos gatos. Si también tienes perro, tenemos una versión específica para ti.</p>
+        <p>Sí, esta edición está dedicada exclusivamente a felinos. Encontrarás 6 capítulos completos sobre psicología felina, espacio vertical, arenero, juego e introducción de nuevos gatos. Si también tienes perro, tenemos una versión específica para ti.</p>
       </div>
     </div>
 
-    <!-- Pregunta 2: Conocimientos previos -->
-    <div class="faq-item">
-      <button class="faq-question">
-        <span>¿Necesito ser un experto en comportamiento felino?</span>
-        <span class="faq-icon-container"><span class="faq-icon">+</span></span>
-      </button>
-      <div class="faq-answer">
-        <p>Para nada. El libro está escrito para cualquier dueño, desde primerizos hasta los más experimentados. Empieza explicando la mentalidad del dueño y avanza hacia técnicas prácticas con un lenguaje claro y ejemplos cotidianos.</p>
-      </div>
-    </div>
-
-    <!-- Pregunta 3: Problema específico (Arenero) -->
+    <!-- Pregunta 2: Mi gato no usa el arenero, ¿qué hago? -->
     <div class="faq-item">
       <button class="faq-question">
         <span>Mi gato orina fuera del arenero, ¿el libro tiene solución?</span>
         <span class="faq-icon-container"><span class="faq-icon">+</span></span>
       </button>
       <div class="faq-answer">
-        <p>Sí. El Capítulo 7 (Psicología del arenero) está dedicado por completo a este problema. Aprenderás la regla de oro N+1, cómo auditar la ubicación para garantizar privacidad y por qué el 95% de los problemas de eliminación son ambientales, no del gato.</p>
+        <p>Sí. El <strong>Capítulo 2 (Psicología del arenero)</strong> está dedicado por completo a este problema. Aprenderás la regla de oro <strong>N+1</strong>, cómo auditar la ubicación para garantizar privacidad y por qué el 95% de los problemas de eliminación son ambientales, no del gato. También incluye un ejercicio práctico para auditar la ubicación del arenero.</p>
       </div>
     </div>
 
-    <!-- Pregunta 4: Problema específico (Juego y láser) -->
+    <!-- Pregunta 3: Mi gato araña los muebles -->
     <div class="faq-item">
       <button class="faq-question">
-        <span>He oído que el puntero láser es malo… ¿eso es cierto?</span>
+        <span>Mi gato araña los muebles, ¿cómo evitarlo?</span>
         <span class="faq-icon-container"><span class="faq-icon">+</span></span>
       </button>
       <div class="faq-answer">
-        <p>El Capítulo 8 desmonta este mito. El problema no es el láser en sí, sino usarlo sin una captura final, lo que genera frustración crónica. Te explicamos el ciclo de caza (Cazar-Atrapar-Matar-Comer) y cómo terminar las sesiones con una captura física para que tu gato quede satisfecho y relajado.</p>
+        <p>Arañar es un comportamiento instintivo (marcaje, afilado de uñas). En el <strong>Capítulo 1 (Territorio y espacio vertical)</strong> explicamos por qué los gatos necesitan superficies adecuadas. Te enseñamos a elegir rascadores y ubicarlos estratégicamente para redirigir esta conducta de forma natural.</p>
+      </div>
+    </div>
+
+    <!-- Pregunta 4: ¿Es malo el puntero láser? -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>He oído que el puntero láser es malo… ¿es cierto?</span>
+        <span class="faq-icon-container"><span class="faq-icon">+</span></span>
+      </button>
+      <div class="faq-answer">
+        <p>El <strong>Capítulo 3 (El juego como simulación de caza)</strong> desmonta este mito. El problema no es el láser en sí, sino usarlo sin una captura final, lo que genera frustración crónica. Te explicamos el ciclo <strong>Cazar-Atrapar-Matar-Comer</strong> y cómo terminar las sesiones con una captura física para que tu gato quede satisfecho y relajado.</p>
       </div>
     </div>
 
     <!-- Pregunta 5: Espacio vertical -->
     <div class="faq-item">
       <button class="faq-question">
-        <span>Vivo en un piso pequeño, ¿puedo aplicar el espacio vertical?</span>
+        <span>Vivo en un piso pequeño, ¿puedo crear espacio vertical?</span>
         <span class="faq-icon-container"><span class="faq-icon">+</span></span>
       </button>
       <div class="faq-answer">
-        <p>¡Por supuesto! El Capítulo 6 está diseñado para cualquier hogar. Te enseñamos a crear capas verticales con estantes flotantes, repisas en ventanas y árboles adaptados a espacios reducidos. No necesitas una casa grande, solo entender qué busca tu gato en la altura.</p>
+        <p>¡Por supuesto! El <strong>Capítulo 1</strong> incluye un marco de acción para crear capas verticales con estantes flotantes, repisas en ventanas y árboles adaptados a espacios reducidos. No necesitas una casa grande, solo entender qué busca tu gato en la altura.</p>
       </div>
     </div>
 
@@ -3611,29 +3629,51 @@ PETNOVA
         <span class="faq-icon-container"><span class="faq-icon">+</span></span>
       </button>
       <div class="faq-answer">
-        <p>El Capítulo 9 contiene el protocolo paso a paso respaldado por la Universidad Estatal de Ohio: Olor → Visual → Supervisado. Aprenderás por qué las presentaciones cara a cara son un error y cómo usar el intercambio de mantas para que se familiaricen sin conflictos.</p>
+        <p>El <strong>Capítulo 4 (Introducción de nuevas mascotas)</strong> contiene el protocolo paso a paso: <strong>Olor → Visual → Supervisado</strong>. Aprenderás por qué las presentaciones cara a cara son un error y cómo usar el intercambio de mantas durante 3 días antes del primer encuentro visual.</p>
       </div>
     </div>
 
-    <!-- Pregunta 7: Bonos y formato -->
+    <!-- Pregunta 7: Cambios en el entorno -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Mi gato se estresa con los cambios, ¿cómo ayudarlo?</span>
+        <span class="faq-icon-container"><span class="faq-icon">+</span></span>
+      </button>
+      <div class="faq-answer">
+        <p>El <strong>Capítulo 5 (Sistema de Equilibrio Felino de 30 días)</strong> está diseñado para esto. Te guía en un proceso de <strong>Auditoría → Enriquecimiento → Rastreo → Estabilidad</strong> para que los cambios sean graduales y tu gato los asimile sin estrés. Incluye un rastreador de 30 días para monitorear su progreso.</p>
+      </div>
+    </div>
+
+    <!-- Pregunta 8: ¿Perros vs Gatos? -->
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Tengo perro y gato, ¿el libro me sirve?</span>
+        <span class="faq-icon-container"><span class="faq-icon">+</span></span>
+      </button>
+      <div class="faq-answer">
+        <p>El <strong>Capítulo 6 (Psicología Perro vs. Gato)</strong> está dedicado a la convivencia entre especies. Explica las diferencias en su arquitectura conductual y cómo aplicar el enfoque de <strong>Estructura para perros / Entorno para gatos</strong> para que ambos vivan en armonía.</p>
+      </div>
+    </div>
+
+    <!-- Pregunta 9: Bonos y formato -->
     <div class="faq-item">
       <button class="faq-question">
         <span>¿Cómo recibo los 4 sistemas profesionales?</span>
         <span class="faq-icon-container"><span class="faq-icon">+</span></span>
       </button>
       <div class="faq-answer">
-        <p>Inmediatamente después de la compra, recibirás un correo con los enlaces para descargar el libro en PDF y los 4 bonos: la Plantilla Instinto vs Entorno, el Protocolo Anti Errores Cotidianos, el Plan de Juego Estructurado y el Evaluador de Entorno Felino. Todo listo para leer en tu ordenador, tablet o móvil.</p>
+        <p>Inmediatamente después de la compra, recibirás un correo con los enlaces para descargar el libro en PDF y los 4 bonos: el <strong>Rastreador de Progreso 30 Días</strong>, la <strong>Guía de Señales de Calma</strong>, el <strong>Checklist de Errores Comunes</strong> y la <strong>Mini Guía de Rutinas Diarias</strong>. Todo listo para leer en tu ordenador, tablet o móvil.</p>
       </div>
     </div>
 
-    <!-- Pregunta 8: Garantía -->
+    <!-- Pregunta 10: Garantía -->
     <div class="faq-item">
       <button class="faq-question">
-        <span>¿Qué pasa si no me gusta o no me sirve?</span>
+        <span>¿Qué pasa si no me gusta?</span>
         <span class="faq-icon-container"><span class="faq-icon">+</span></span>
       </button>
       <div class="faq-answer">
-        <p>Tienes 7 días de garantía incondicional a través de Hotmart. Si en ese tiempo no sientes que has aprendido herramientas prácticas para mejorar la vida de tu gato, solicitas el reembolso y te devolvemos el 100% de tu dinero. Sin preguntas, sin trámites complicados.</p>
+        <p>Tienes <strong>7 días de garantía incondicional</strong> a través de Hotmart. Si en ese tiempo no sientes que has aprendido herramientas prácticas para mejorar la vida de tu gato, solicitas el reembolso y te devolvemos el 100% de tu dinero. Sin preguntas, sin trámites complicados.</p>
       </div>
     </div>
   </div>
