@@ -28,12 +28,12 @@ body{margin:0;font-family:'Poppins',sans-serif;background:#f8fafc;overflow:hidde
 .purchase-popup.show{opacity:1;transform:translateY(0);}
 
 /* HERO */
-.hero{min-height:100vh;background-image:url("fondo-mascota.jpg");background-size:cover;background-position:center;background-repeat:no-repeat;display:flex;align-items:center;justify-content:flex-start;padding:80px 20px;}
+.hero{min-height:100vh;background:none;display:flex;align-items:center;justify-content:flex-start;padding:80px 20px;}
 .hero-left{flex:1;display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:650px;margin-left:80px;}
 .hero-logo{width:260px;margin:0 auto 25px 120px;display:block;}
 .hero-headline{font-size:44px;font-weight:800;color:teal;line-height:1.2;text-shadow:0 4px 18px rgba(0,0,0,0.7);max-width:700px;letter-spacing:-0.5px;}
 .hero-subheadline{font-size:18px;color:white;line-height:1.6;margin-bottom:30px;font-weight:400;max-width:650px;}
-.hero-right{flex:1;height:500px;background-image:url('fondo-mascota.jpg');background-size:cover;background-position:center;}
+.hero-right{flex:1;min-height:100vh;background-image:url('fondo-mascota.jpg');background-size:cover;background-position:center;}
 
 /* CTA */
 .cta-button{display:inline-block;background:#14b8a6;color:white;font-weight:700;font-size:18px;padding:16px 34px;border-radius:12px;text-decoration:none;transition:all 0.3s ease;box-shadow:0 0 18px rgba(20,184,166,0.6);animation:pulse 2s infinite;position:relative;}
@@ -266,20 +266,12 @@ body{margin:0;font-family:'Poppins',sans-serif;background:#f8fafc;overflow:hidde
 }
 
   /* HERO */
-  .hero{flex-direction:column;padding:40px 20px;text-align:center;}
-  .hero-left{margin:0;align-items:center;width:100%;}
-  .hero-logo{width:150px;margin:0 auto 20px;}
-  .hero-headline{font-size:28px;}
-  .hero-subheadline{font-size:16px;}
-  .hero-right {
-  display: block;
-  width: 100%;
-  height: 300px;
-  margin-top: 20px;
-  background-image: url('imagen-movil.jpg');
-  background-size: cover;
-  background-position: center;
-}
+.hero{flex-direction:column;padding:40px 20px;text-align:center;background-image:url('imagen-movil.jpg');background-size:cover;background-position:center;}
+.hero-left{margin:0;align-items:center;width:100%;}
+.hero-logo{width:150px;margin:0 auto 20px;}
+.hero-headline{font-size:28px;}
+.hero-subheadline{font-size:16px;}
+.hero-right{display:none;}
    
   /* PROBLEM SECTION */
   .problem-image {
