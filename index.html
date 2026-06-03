@@ -1159,6 +1159,12 @@ footer p { font-size: 12px; color: var(--text-dim); line-height: 1.7; max-width:
   }, HOLD);
 })();
 
+  // Scroll al inicio al refrescar
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 // ── FAQ ──
 function toggleFaq(btn) {
   var item = btn.closest('.faq-item');
