@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PETNOVA — Lo que haces mal con tu gato sin saberlo</title>
 <meta name="description" content="Descubre por qué tu gato actúa así — y qué hacer al respecto. Guía práctica para dueños que quieren entender de verdad a su gato.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petnovagatos.com">
+<meta property="og:title" content="Lo que haces mal con tu gato sin saberlo">
+<meta property="og:description" content="Descubre por qué tu gato actúa así — y qué hacer al respecto. Guía práctica para dueños que quieren entender de verdad a su gato.">
+<meta property="og:image" content="https://petnovagatos.com/logogatosebook.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://petnovagatos.com/logogatosebook.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -295,9 +303,13 @@ strong { font-weight: 500; }
 /* page reveal */
 #page {
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.6s ease 0.05s;
 }
-#page.visible { opacity: 1; }
+#page.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 /* ── INTRO KEYFRAMES ── */
 @keyframes canvasIn    { to { opacity: 1; } }
@@ -1164,7 +1176,9 @@ footer p { font-size: 12px; color: var(--text-dim); line-height: 1.7; max-width:
 if (history.scrollRestoration) {
   history.scrollRestoration = 'manual';
 }
-window.scrollTo(0, 0);
+requestAnimationFrame(function() {
+  window.scrollTo(0, 0);
+});
 
 // ── FAQ ──
 function toggleFaq(btn) {
