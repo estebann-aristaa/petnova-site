@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PETNOVA — Lo que haces mal con tu gato sin saberlo</title>
+<meta name="description" content="Descubre por qué tu gato actúa así — y qué hacer al respecto. Guía práctica para dueños que quieren entender de verdad a su gato.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://petnovagatos.com">
+<meta property="og:title" content="Lo que haces mal con tu gato sin saberlo">
+<meta property="og:description" content="Descubre por qué tu gato actúa así y qué hacer al respecto. Sin adiestramiento forzado. Solo resultados.">
+<meta property="og:image" content="https://petnovagatos.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://petnovagatos.com/og-image.png">
+<meta property="og:site_name" content="PETNOVA">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="icon" href="logo.jpg" type="image/x-icon">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overscroll-behavior-y: contain; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  background: #060d0a;
+  color: #e8f0ec;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+}
+
+:root {
+  --teal:        #0eb882;
+  --teal-dim:    #0a8a61;
+  --teal-bright: #12d494;
+  --gold:        #c9a84c;
+  --gold-dim:    #a8863a;
+  --emerald:     #1a3d2b;
+  --dark:        #060d0a;
+  --dark2:       #0c1a12;
+  --dark3:       #112318;
+  --surface:     #152d1e;
+  --surface2:    #1c3828;
+  --text:        #e8f0ec;
+  --text-muted:  #7eab8e;
+  --text-dim:    #4a7a5c;
+  --border:      rgba(14,184,130,0.12);
+  --border-gold: rgba(201,168,76,0.25);
+  --glow-teal:   0 0 60px rgba(14,184,130,0.15);
+  --radius-sm:   8px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-xl:   40px;
+  font-size: 13px;
+}
+
+.container        { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+.container--narrow{ max-width: 640px; margin: 0 auto; padding: 0 20px; }
+img { display: block; max-width: 100%; }
+a   { text-decoration: none; color: inherit; }
+strong { font-weight: 500; }
+
+#particle-canvas {
+  position: fixed; inset: 0;
+  z-index: 0; pointer-events: none; opacity: 0.5;
+}
+
+.glass {
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(12px) saturate(1.3);
+  -webkit-backdrop-filter: blur(12px) saturate(1.3);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.08);
+  position: relative; overflow: hidden;
+  border-radius: var(--radius-md);
+}
+.glass::before {
+  content: '';
+  position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 75%, rgba(255,255,255,0.35) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.glass::after {
+  content: '';
+  position: absolute; top: 0; left: -60%;
+  width: 40%; height: 100%;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.04) 50%, transparent 70%);
+  pointer-events: none; transform: skewX(-15deg); transition: left 0.6s ease;
+}
+.glass:hover::after { left: 120%; }
+.glass--gold { background: rgba(201,168,76,0.02); }
+.glass--gold::before { background: linear-gradient(180deg, rgba(201,168,76,0.35) 0%, rgba(201,168,76,0.1) 25%, rgba(201,168,76,0) 50%, rgba(201,168,76,0.1) 75%, rgba(201,168,76,0.35) 100%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .glass { backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 16px 32px;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 8px 12px 8px 20px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-radius: 100px;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+  position: relative;
+}
+.nav-inner::before {
+  content: '';
+  position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.12) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.12) 70%, rgba(255,255,255,0.4) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.nav-logo {
+  font-family: 'Instrument Serif', serif;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.92);
+}
+.nav-logo span { color: rgba(255,255,255,0.92); font-weight: 700; }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 100px;
+  background: rgba(14,184,130,0.12);
+  border: 1px solid rgba(14,184,130,0.3);
+  transition: background 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
+  flex-shrink: 0;
+}
+.nav-cta:hover { background: rgba(14,184,130,0.2); border-color: rgba(14,184,130,0.5); }
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+}
+.hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; z-index: 0;
+  opacity: 0;
+  animation: videoIn 1.2s ease 0.1s forwards;
+  will-change: opacity;
+}
+@keyframes videoIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) { .hero-video { display: none; } }
+.hero-bg-photo {
+  display: none;
+  position: absolute; inset: 0;
+  background-image: url('hero-mobile.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  z-index: 0;
+  opacity: 0;
+  animation: heroPhotoIn 1.4s ease 0.2s forwards, kenBurns 24s ease-in-out 1.6s infinite alternate;
+  will-change: transform;
+}
+@media (max-width: 768px) { .hero-bg-photo { display: block; } }
+@keyframes heroPhotoIn {
+  from { opacity: 0; transform: scale(1.06); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes kenBurns {
+  0%   { transform: scale(1)    translate(0,0); }
+  50%  { transform: scale(1.04) translate(-1%,0.4%); }
+  100% { transform: scale(1.08) translate(0.8%,-0.8%); }
+}
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    radial-gradient(ellipse 100% 90% at 50% 50%, transparent 40%, rgba(4,10,7,0.30) 100%),
+    linear-gradient(to bottom, rgba(4,10,7,0.12) 0%, rgba(4,10,7,0.22) 40%, rgba(4,10,7,0.10) 70%, rgba(4,10,7,0.38) 100%),
+    radial-gradient(ellipse 40% 40% at 100% 100%, rgba(4,10,7,0.9) 0%, transparent 70%);
+}
+.hero-center {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  width: 92%; max-width: 1100px;
+  padding: 0 24px;
+  margin-top: 0;
+  text-align: center;
+}
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.88);
+  padding: 8px 20px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+  background: rgba(255,255,255,0.10);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(255,255,255,0.06), 0 4px 20px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 0.7s ease 0.2s forwards;
+}
+.hero-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(36px, 5vw, 76px);
+  font-weight: 300;
+  line-height: 0.6;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 0 28px 0;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.50), 0 1px 4px rgba(0,0,0,0.30);
+  text-align: center;
+}
+.hero-title em { font-style: italic; color: #ffffff; display: block; }
+@media (max-width: 768px) {
+  .hero-title { font-size: clamp(44px,12vw,72px); letter-spacing: -0.02em; }
+  .problem-card, .chapter-card, .bonus-card, .testi-card, .faq-item, .final-cta-wrap, .book-intro-inner, .footer-inner {
+    backdrop-filter: blur(8px) saturate(1.2);
+    -webkit-backdrop-filter: blur(8px) saturate(1.2);
+  }
+}
+
+.blur-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.2em;
+}
+.blur-word {
+  display: inline-block;
+  filter: blur(10px);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: filter 0.7s ease-out, opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.blur-word.visible {
+  filter: blur(0px);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-sub {
+  font-size: clamp(13px, 1.4vw, 16px);
+  color: rgba(220,235,228,0.70);
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.75;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.65);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 0.7s ease 0.6s forwards;
+}
+@media (max-width: 768px) { .hero-sub { font-size: 13px; max-width: 88%; } }
+
+.hero-cta {
+  display: inline-flex; align-items: center;
+  background: rgba(14,184,130,0.15);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(14,184,130,0.4);
+  color: #ffffff;
+  font-size: clamp(11px, 1.2vw, 13px);
+  font-weight: 400;
+  padding: 12px 30px;
+  border-radius: 100px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s, border-color 0.2s;
+  position: relative;
+  z-index: 3;
+  will-change: transform;
+}
+.hero-cta.hero-cta--animated {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 0.7s ease 0.8s forwards;
+}
+.hero-cta:hover {
+  background: rgba(14,184,130,0.25);
+  border-color: rgba(14,184,130,0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-photo { animation: heroPhotoIn 0.1s ease forwards; }
+}
+
+.problem { padding: 100px 20px; background: var(--dark2); position: relative; overflow: hidden; }
+.problem-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.problem-video {
+  width: 140%; height: 140%; object-fit: cover;
+  opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
+  will-change: opacity;
+  transform: translate(-15%, -15%);
+}
+.problem-fallback-img {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%; object-fit: cover;
+  transform: translate(-15%, -15%);
+}
+.problem-mobile-img {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%; object-fit: cover;
+  transform: translate(-15%, -15%);
+}
+@media (max-width: 768px) {
+  .problem-video { display: none; }
+  .problem-fallback-img { display: none; }
+  .problem-mobile-img { display: block; }
+}
+.problem-bg-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(12,26,18,0.6) 0%, rgba(12,26,18,0.4) 40%, rgba(12,26,18,0.6) 100%),
+    radial-gradient(ellipse 40% 40% at 100% 100%, rgba(12,26,18,0.85) 0%, transparent 70%);
+}
+.problem > .container { position: relative; z-index: 2; }
+.section-label { display: inline-block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 500; margin-bottom: 20px; opacity: 0; transform: translateY(20px); animation: heroFadeUp 0.7s ease 0.4s forwards; }
+.problem .section-label { color: rgba(255,255,255,0.8); }
+.problem h2 { font-family: 'Instrument Serif', serif; font-size: clamp(30px,5vw,48px); line-height: 1.15; color: #ffffff; margin-bottom: 40px; max-width: 680px; opacity: 0; transform: translateY(20px); animation: heroFadeUp 0.7s ease 0.5s forwards; }
+.problem h2 em { font-style: italic; color: rgba(255,255,255,0.7); }
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
+@media (max-width:600px) { .problem-grid { grid-template-columns: 1fr; } }
+.problem-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md); padding: 24px;
+  position: relative; overflow: hidden;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+  opacity: 0; transform: translateY(20px);
+  animation: heroFadeUp 0.6s ease forwards;
+}
+.problem-card:nth-child(1) { animation-delay: 0.6s; }
+.problem-card:nth-child(2) { animation-delay: 0.7s; }
+.problem-card:nth-child(3) { animation-delay: 0.8s; }
+.problem-card:nth-child(4) { animation-delay: 0.9s; }
+.problem-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.06) 70%, rgba(255,255,255,0.25) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.problem-card:hover { border-color: rgba(14,184,130,.3); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,.4), 0 0 24px rgba(14,184,130,.08); }
+.problem-card::after { content: ''; position: absolute; top: 0; left: -80%; width: 60%; height: 100%; background: linear-gradient(105deg,transparent,rgba(255,255,255,.05),transparent); transform: skewX(-15deg); transition: left .5s ease; pointer-events: none; }
+.problem-card:hover::after { left: 140%; }
+.problem-card-icon { font-size: 22px; margin-bottom: 12px; }
+.problem-card h3 { font-family: 'Instrument Serif', serif; font-size: 17px; font-weight: 400; font-style: italic; color: #ffffff; margin-bottom: 8px; line-height: 1.35; }
+.problem-card p  { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.65; }
+.problem-callout {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-lg); padding: 36px 40px;
+  text-align: center; position: relative; overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.3);
+  opacity: 0; transform: translateY(20px);
+  animation: heroFadeUp 0.7s ease 1s forwards;
+}
+.problem-callout::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.06) 70%, rgba(255,255,255,0.25) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.problem-callout::after { display: none; }
+.problem-callout > * { position: relative; }
+.problem-callout-main { font-family: 'Instrument Serif', serif; font-size: clamp(22px,3.5vw,30px); line-height: 1.3; color: #ffffff; margin-bottom: 8px; }
+.problem-callout-sub { font-family: 'Instrument Serif', serif; font-size: clamp(15px,2vw,20px); line-height: 1.4; color: rgba(255,255,255,0.7); font-style: italic; margin-bottom: 12px; }
+.problem-callout small { font-size: 13px; color: rgba(255,255,255,0.6); }
+.problem-callout small { font-size: 13px; color: rgba(255,255,255,0.7); }
+
+.book-intro {
+  padding: 100px 0;
+  position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.book-intro-video {
+  position: absolute; inset: 0;
+  width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
+  transform: translate(-15%, -15%);
+}
+.book-intro-fallback {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+.book-intro-mobile {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+@media (max-width: 768px) {
+  .book-intro-video { display: none; }
+  .book-intro-fallback { display: none; }
+  .book-intro-mobile { display: block; }
+}
+.book-intro-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(6,13,10,0.65) 0%, rgba(6,13,10,0.45) 50%, rgba(6,13,10,0.65) 100%),
+    radial-gradient(ellipse 40% 40% at 100% 100%, rgba(6,13,10,0.85) 0%, transparent 70%);
+}
+.book-intro > .book-intro-inner { position: relative; z-index: 2; }
+.book-intro-inner {
+  display: grid; grid-template-columns: auto 1fr; gap: 60px; align-items: center; max-width: 860px; margin: 0 auto;
+  padding: 48px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 40px rgba(0,0,0,.4);
+  position: relative; overflow: hidden;
+  opacity: 0; transform: translateY(20px);
+  animation: heroFadeUp 0.7s ease 0.3s forwards;
+}
+.book-intro-inner::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.08) 70%, rgba(255,255,255,0.3) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+@media (max-width:680px) { .book-intro-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; padding: 32px 24px; } .book-intro-inner img { margin: 0 auto; } }
+.book-cover {
+  width: clamp(140px,22vw,190px); border-radius: var(--radius-md);
+  box-shadow: 12px 20px 60px rgba(0,0,0,.7), 0 0 0 1px rgba(14,184,130,.15), 0 0 40px rgba(14,184,130,.1);
+  flex-shrink: 0; transition: transform .4s ease, box-shadow .4s ease;
+  will-change: transform;
+  position: relative;
+  transform: perspective(800px) rotateY(0deg);
+}
+.book-cover:hover {
+  transform: perspective(800px) rotateY(8deg) translateY(-8px) scale(1.03);
+  box-shadow: 20px 28px 70px rgba(0,0,0,.8), 0 0 0 1px rgba(14,184,130,.3), 0 0 60px rgba(14,184,130,.2);
+}
+.book-intro h2 { font-family: 'Instrument Serif', serif; font-size: clamp(26px,4vw,40px); line-height: 1.2; color: #ffffff; margin-bottom: 16px; }
+.book-intro h2 em { font-style: italic; color: var(--teal-bright); }
+.book-intro p { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.75; margin-bottom: 14px; }
+.book-intro p strong { color: #ffffff; font-weight: 500; }
+.book-stat-row { display: flex; gap: 28px; margin-top: 28px; flex-wrap: wrap; }
+@media (max-width:680px) { .book-stat-row { justify-content: center; } }
+.book-stat-num { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--teal-bright); line-height: 1; margin-bottom: 4px; }
+.book-stat-label { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+.chapters {
+  padding: 0;
+  position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.chapters-video {
+  position: absolute; inset: 0;
+  width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
+  transform: translate(-15%, -15%);
+}
+.chapters-fallback {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+.chapters-mobile {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+@media (max-width: 768px) {
+  .chapters-video { display: none; }
+  .chapters-fallback { display: none; }
+  .chapters-mobile { display: block; }
+}
+.chapters-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(12,26,18,0.75) 0%, rgba(12,26,18,0.55) 50%, rgba(12,26,18,0.75) 100%),
+    radial-gradient(ellipse 40% 40% at 100% 100%, rgba(12,26,18,0.85) 0%, transparent 70%);
+}
+.chapters > .container { position: relative; z-index: 2; padding: 100px 20px; }
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-header h2 { font-family: 'Instrument Serif', serif; font-size: clamp(28px,4.5vw,46px); line-height: 1.15; color: #ffffff; margin-bottom: 14px; }
+.section-header p  { font-size: 15px; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto; line-height: 1.65; }
+.chapters-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 16px; max-width: 860px; margin: 0 auto; }
+.chapter-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md); padding: 28px 24px;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+  position: relative; overflow: hidden;
+}
+.chapter-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.06) 70%, rgba(255,255,255,0.25) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.chapter-card:hover { border-color: rgba(14,184,130,.3); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,.4), 0 0 24px rgba(14,184,130,.08); }
+.chapter-card::after { content: ''; position: absolute; top: 0; left: -80%; width: 60%; height: 100%; background: linear-gradient(105deg,transparent,rgba(255,255,255,.04),transparent); transform: skewX(-15deg); transition: left .5s ease; pointer-events: none; }
+.chapter-card:hover::after { left: 140%; }
+.chapter-num { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); font-weight: 500; margin-bottom: 12px; }
+.chapter-card h3 { font-family: 'Instrument Serif', serif; font-size: 16px; font-weight: 400; font-style: italic; color: #ffffff; line-height: 1.35; margin-bottom: 10px; }
+.chapter-card p  { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.chapter-highlight { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; color: var(--gold); display: flex; align-items: center; gap: 6px; }
+.chapter-highlight::before { content: ''; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+
+.bonuses {
+  padding: 0;
+  position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.bonuses-video {
+  position: absolute; inset: 0;
+  width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
+  transform: translate(-15%, -15%);
+}
+.bonuses-fallback {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+.bonuses-mobile {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+@media (max-width: 768px) {
+  .bonuses-video { display: none; }
+  .bonuses-fallback { display: none; }
+  .bonuses-mobile { display: block; }
+}
+.bonuses-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(6,13,10,0.75) 0%, rgba(6,13,10,0.55) 50%, rgba(6,13,10,0.75) 100%),
+    radial-gradient(ellipse 40% 40% at 100% 100%, rgba(6,13,10,0.85) 0%, transparent 70%);
+}
+.bonuses > .container { position: relative; z-index: 2; padding: 100px 20px; }
+.bonuses-header { text-align: center; margin-bottom: 56px; }
+.bonuses-header h2 { font-family: 'Instrument Serif', serif; font-size: clamp(28px,4.5vw,46px); line-height: 1.15; color: #ffffff; margin-bottom: 14px; }
+.bonuses-header h2 em { font-style: italic; color: var(--gold); }
+.bonuses-header p { font-size: 15px; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto; line-height: 1.65; }
+.bonuses-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 860px; margin: 0 auto 52px; }
+@media (max-width: 600px) { .bonuses-grid { grid-template-columns: 1fr; } }
+.bonus-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md); padding: 28px 24px;
+  position: relative; overflow: hidden;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+}
+.bonus-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.06) 70%, rgba(255,255,255,0.25) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.bonus-card:hover { border-color: rgba(201,168,76,.45); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,.4), 0 0 24px rgba(201,168,76,.08); }
+.bonus-card::after  { content: ''; position: absolute; top: 0; left: -80%; width: 60%; height: 100%; background: linear-gradient(105deg,transparent,rgba(255,255,255,.04),transparent); transform: skewX(-15deg); transition: left .5s ease; pointer-events: none; }
+.bonus-card:hover::after { left: 140%; }
+.bonus-tag  { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.2); padding: 3px 10px; border-radius: 100px; margin-bottom: 14px; }
+.bonus-card h3 { font-family: 'Instrument Serif', serif; font-size: 16px; font-weight: 400; font-style: italic; color: #ffffff; margin-bottom: 10px; line-height: 1.35; }
+.bonus-card p  { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; margin-bottom: 16px; }
+.bonus-list    { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.bonus-list li { font-size: 12px; color: rgba(255,255,255,0.65); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+.bonus-list li::before { content: '\2713'; color: var(--teal); font-size: 11px; margin-top: 2px; flex-shrink: 0; }
+.bonus-value   { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-dim); }
+.bonus-value s { color: var(--text-dim); }
+.bonus-value span { color: var(--gold); font-weight: 500; margin-left: 6px; }
+.bonuses-total {
+  max-width: 560px; margin: 0 auto;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg); padding: 32px 40px;
+  text-align: center; position: relative; overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.4);
+}
+.bonuses-total::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.06) 70%, rgba(255,255,255,0.25) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.bonuses-total > * { position: relative; }
+.bonuses-total .total-label { font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px; }
+.bonuses-total .total-value { font-family: 'Instrument Serif', serif; font-size: 48px; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+.bonuses-total .total-value s { font-size: 28px; color: rgba(255,255,255,0.3); vertical-align: middle; margin-right: 10px; }
+.bonuses-total small { font-size: 13px; color: rgba(255,255,255,0.6); }
+
+.testimonials {
+  padding: 0;
+  position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.testimonials-video {
+  position: absolute; inset: 0;
+  width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
+  transform: translate(-15%, -15%);
+}
+.testimonials-fallback {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+.testimonials-mobile {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+@media (max-width: 768px) {
+  .testimonials-video { display: none; }
+  .testimonials-fallback { display: none; }
+  .testimonials-mobile { display: block; }
+}
+.testimonials-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(12,26,18,0.75) 0%, rgba(12,26,18,0.55) 50%, rgba(12,26,18,0.75) 100%),
+    radial-gradient(ellipse 40% 40% at 100% 100%, rgba(12,26,18,0.85) 0%, transparent 70%);
+}
+.testimonials > .container { position: relative; z-index: 2; padding: 100px 20px; }
+.testi-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 16px; max-width: 860px; margin: 0 auto; }
+.testi-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md); padding: 24px;
+  transition: border-color .25s, transform .2s, box-shadow .25s;
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+  position: relative; overflow: hidden;
+}
+.testi-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.06) 70%, rgba(255,255,255,0.25) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.testi-card:hover { border-color: rgba(14,184,130,.25); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,.4); }
+.testi-header   { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.testi-avatar   { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.15); flex-shrink: 0; }
+.testi-name     { font-size: 14px; font-weight: 500; color: #ffffff; }
+.testi-location { font-size: 12px; color: rgba(255,255,255,0.6); }
+.testi-ig       { margin-left: auto; font-size: 11px; color: var(--teal); opacity: .7; }
+.testi-post     { border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 14px; }
+.testi-post img { width: 100%; }
+.testi-text     { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.65; }
+.testi-text strong { color: #ffffff; font-weight: 500; }
+
+.pricing {
+  padding: 0;
+  position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.pricing-video {
+  position: absolute; inset: 0;
+  width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
+  transform: translate(-15%, -15%);
+}
+.pricing-fallback {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+.pricing-mobile {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+@media (max-width: 768px) {
+  .pricing-video { display: none; }
+  .pricing-fallback { display: none; }
+  .pricing-mobile { display: block; }
+}
+.pricing-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(6,13,10,0.75) 0%, rgba(6,13,10,0.55) 50%, rgba(6,13,10,0.75) 100%),
+    radial-gradient(ellipse 40% 40% at 100% 100%, rgba(6,13,10,0.85) 0%, transparent 70%);
+}
+.pricing > .container--narrow { position: relative; z-index: 2; padding: 100px 20px; }
+.pricing-card {
+  max-width: 560px; margin: 0 auto;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-xl); padding: 52px 48px;
+  text-align: center; position: relative; overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.4);
+}
+.pricing-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.08) 70%, rgba(255,255,255,0.3) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.pricing-badge { display: inline-block; background: rgba(14,184,130,.12); border: 1px solid rgba(14,184,130,.35); color: var(--teal-bright); font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; padding: 5px 16px; border-radius: 100px; margin-bottom: 28px; }
+.pricing-card h2 { font-family: 'Instrument Serif', serif; font-size: clamp(26px,4vw,36px); line-height: 1.2; color: #ffffff; margin-bottom: 32px; }
+.pricing-includes { text-align: left; margin-bottom: 36px; display: flex; flex-direction: column; gap: 12px; }
+.pricing-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.5; }
+.pricing-item-check { width: 20px; height: 20px; background: rgba(14,184,130,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.pricing-item-check svg { width: 10px; height: 10px; color: var(--teal); }
+.pricing-item-value { margin-left: auto; font-size: 12px; color: rgba(255,255,255,0.4); flex-shrink: 0; padding-left: 10px; }
+.pricing-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 28px 0; }
+.pricing-total-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.pricing-total-label { font-size: 13px; color: rgba(255,255,255,0.6); }
+.pricing-original { font-size: 18px; color: rgba(255,255,255,0.3); text-decoration: line-through; }
+.pricing-main { text-align: center; margin-bottom: 28px; }
+.pricing-main .price-now { font-family: 'Instrument Serif', serif; font-size: 72px; color: #ffffff; line-height: 1; letter-spacing: -.02em; }
+.pricing-main .price-now sup { font-size: 28px; vertical-align: top; margin-top: 16px; display: inline-block; }
+.pricing-main .price-save { font-size: 14px; color: var(--teal); margin-top: 6px; }
+
+.cta-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(14,184,130,0.15); color: #ffffff;
+  font-size: 16px; font-weight: 500;
+  padding: 18px 40px; border-radius: 100px;
+  letter-spacing: .01em; transition: background 0.2s, box-shadow 0.3s, transform 0.1s ease;
+  border: 1px solid rgba(14,184,130,0.4);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,.3), 0 0 40px rgba(14,184,130,.1);
+  cursor: pointer;
+  position: relative; overflow: hidden;
+  will-change: transform;
+}
+.cta-primary::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.3) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.cta-primary::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,rgba(255,255,255,.08),transparent); opacity: 0; transition: opacity .2s; border-radius: inherit; pointer-events: none; }
+.cta-primary:hover::after { opacity: 1; }
+.cta-primary:hover { background: rgba(14,184,130,0.25); border-color: rgba(14,184,130,0.6); transform: translateY(-2px); box-shadow: 0 14px 48px rgba(0,0,0,.4), 0 0 60px rgba(14,184,130,.2); }
+.cta-primary svg { width: 18px; height: 18px; flex-shrink: 0; }
+.cta-primary--lg {
+  width: 100%; justify-content: center; font-size: 17px; padding: 20px 40px; margin-bottom: 20px;
+}
+
+.pricing-trust-row { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; opacity: 0; animation: heroFadeUp 0.6s ease 0.5s forwards; }
+.pricing-trust-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: rgba(255,255,255,0.5); }
+.pricing-trust-item svg { width: 13px; height: 13px; color: var(--teal); }
+
+.guarantee { max-width: 680px; margin: 60px auto 0; padding: 0 20px; text-align: center; }
+.guarantee-inner {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg); padding: 40px;
+  position: relative; overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.4);
+}
+.guarantee-inner::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.06) 70%, rgba(255,255,255,0.25) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.guarantee-inner > * { position: relative; }
+.guarantee-icon { font-size: 36px; margin-bottom: 16px; }
+.guarantee-inner h3 { font-family: 'Instrument Serif', serif; font-size: 24px; color: #ffffff; margin-bottom: 12px; }
+.guarantee-inner p  { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.75; max-width: 460px; margin: 0 auto 20px; }
+.guarantee-items    { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.guarantee-item     { display: flex; align-items: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.7); }
+.guarantee-item::before { content: '\2713'; color: var(--gold); font-weight: 500; font-size: 12px; }
+
+.faq {
+  padding: 0;
+  position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+}
+.faq-video {
+  position: absolute; inset: 0;
+  width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
+  transform: translate(-15%, -15%);
+}
+.faq-fallback {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+.faq-mobile {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+@media (max-width: 768px) {
+  .faq-video { display: none; }
+  .faq-fallback { display: none; }
+  .faq-mobile { display: block; }
+}
+.faq-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(12,26,18,0.8) 0%, rgba(12,26,18,0.6) 50%, rgba(12,26,18,0.8) 100%),
+    radial-gradient(ellipse 40% 40% at 100% 100%, rgba(12,26,18,0.85) 0%, transparent 70%);
+}
+.faq > .container--narrow { position: relative; z-index: 2; padding: 100px 20px; }
+.faq-list { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 2px; }
+.faq-item {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md); overflow: hidden;
+  transition: border-color .3s, box-shadow .3s;
+  position: relative;
+  opacity: 0; transform: translateY(15px);
+  animation: heroFadeUp 0.5s ease forwards;
+}
+.faq-item:nth-child(1) { animation-delay: 0.1s; }
+.faq-item:nth-child(2) { animation-delay: 0.15s; }
+.faq-item:nth-child(3) { animation-delay: 0.2s; }
+.faq-item:nth-child(4) { animation-delay: 0.25s; }
+.faq-item:nth-child(5) { animation-delay: 0.3s; }
+.faq-item:nth-child(6) { animation-delay: 0.35s; }
+.faq-item:nth-child(7) { animation-delay: 0.4s; }
+.faq-item::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.05) 70%, rgba(255,255,255,0.2) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.faq-item:hover { border-color: rgba(14,184,130,.25); box-shadow: 0 4px 24px rgba(0,0,0,.3); }
+.faq-item.open { border-color: rgba(14,184,130,.35); box-shadow: 0 8px 32px rgba(0,0,0,.4), 0 0 24px rgba(14,184,130,.06); }
+.faq-question { width: 100%; background: none; border: none; color: #ffffff; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; text-align: left; padding: 22px 24px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; transition: color .2s; }
+.faq-question:hover { color: var(--teal-bright); }
+.faq-arrow { width: 20px; height: 20px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform .25s, background .2s; }
+.faq-arrow svg { width: 10px; height: 10px; color: rgba(255,255,255,0.5); }
+.faq-item.open .faq-arrow { transform: rotate(180deg); background: rgba(14,184,130,.15); }
+.faq-item.open .faq-arrow svg { color: var(--teal-bright); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height .3s ease; padding: 0 24px; }
+.faq-answer p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.75; padding-bottom: 22px; }
+.faq-answer strong { color: #ffffff; font-weight: 500; }
+.faq-item.open .faq-answer { max-height: 400px; }
+
+.final-cta {
+  padding: 0;
+  position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.final-cta-video {
+  position: absolute; inset: 0;
+  width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
+  transform: translate(-15%, -15%);
+}
+.final-cta-fallback {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+.final-cta-mobile {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+@media (max-width: 768px) {
+  .final-cta-video { display: none; }
+  .final-cta-fallback { display: none; }
+  .final-cta-mobile { display: block; }
+}
+.final-cta-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(6,13,10,0.75) 0%, rgba(6,13,10,0.55) 50%, rgba(6,13,10,0.75) 100%),
+    radial-gradient(ellipse 40% 40% at 100% 100%, rgba(6,13,10,0.85) 0%, transparent 70%);
+}
+.final-cta-wrap {
+  position: relative; z-index: 2;
+  max-width: 700px; margin: 0 auto;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border-radius: var(--radius-xl); padding: 64px 48px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  opacity: 0; transform: translateY(20px);
+  animation: heroFadeUp 0.7s ease 0.2s forwards;
+}
+.final-cta-wrap::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.08) 70%, rgba(255,255,255,0.3) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+@media (max-width: 500px) { .final-cta-wrap { padding: 40px 24px; } }
+.final-cta h2 { font-family: 'Instrument Serif', serif; font-size: clamp(32px,6vw,52px); line-height: 1.05; color: #ffffff; margin: 0 auto 20px; }
+.final-cta h2 em { font-style: italic; color: var(--teal-bright); display: block; margin-top: 4px; }
+.final-cta p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 460px; margin: 0 auto 44px; line-height: 1.65; }
+
+.hero-trust { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 20px; flex-wrap: wrap; opacity: 0; animation: heroFadeUp 0.7s ease 1s forwards; }
+.trust-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: .03em; }
+.trust-item svg { width: 14px; height: 14px; color: var(--teal); flex-shrink: 0; }
+
+footer {
+  position: relative; overflow: hidden;
+  padding: 48px 20px 32px;
+  text-align: center;
+}
+.footer-video {
+  position: absolute; inset: 0;
+  width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+  opacity: 0;
+  animation: videoIn 1.2s ease 0.2s forwards;
+}
+.footer-fallback {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+.footer-mobile {
+  position: absolute; inset: 0;
+  display: none; width: 140%; height: 140%;
+  object-fit: cover; z-index: 0;
+  transform: translate(-15%, -15%);
+}
+@media (max-width: 768px) {
+  .footer-video { display: none; }
+  .footer-fallback { display: none; }
+  .footer-mobile { display: block; }
+}
+.footer-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(6,13,10,0.85) 0%, rgba(6,13,10,0.7) 50%, rgba(6,13,10,0.9) 100%),
+    radial-gradient(ellipse 40% 40% at 100% 100%, rgba(6,13,10,0.8) 0%, transparent 70%);
+}
+.footer-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative; z-index: 2;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  border: 1px solid rgba(255,255,255,0.08);
+  opacity: 0; transform: translateY(15px);
+  animation: heroFadeUp 0.6s ease 0.3s forwards;
+}
+.footer-inner::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.2) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+.footer-logo { font-family: 'Instrument Serif', serif; font-size: 22px; letter-spacing: .08em; color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+.footer-logo span { color: var(--teal-bright); }
+.footer-links { display: flex; justify-content: center; gap: 28px; margin-bottom: 24px; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.5); transition: color .2s; text-decoration: none; }
+.footer-links a:hover { color: var(--teal-bright); }
+.footer-divider { width: 60px; height: 1px; background: rgba(255,255,255,0.1); margin: 0 auto 20px; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.7; max-width: 560px; margin: 0 auto; }
+.footer-copy em { font-style: italic; color: rgba(255,255,255,0.4); }
+
+.sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(6,13,10,.92); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-top: 1px solid var(--border); z-index: 200; transition: opacity .3s; }
+@media (max-width:640px) { .sticky-cta { display: block; } }
+.sticky-cta a { display: block; background: rgba(14,184,130,0.15); border: 1px solid rgba(14,184,130,0.4); color: #ffffff; font-size: 15px; font-weight: 500; text-align: center; padding: 16px; border-radius: 100px; letter-spacing: .02em; box-shadow: 0 4px 20px rgba(0,0,0,.3); transition: background .2s, border-color .2s; }
+.sticky-cta a:hover { background: rgba(14,184,130,0.25); border-color: rgba(14,184,130,0.6); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+  .fade-up.visible { opacity: 1; transform: none; }
+}
+
+/* ══ INTRO SCREEN ══ */
+#intro-screen {
+  position: fixed; inset: 0; z-index: 9999;
+  background: radial-gradient(ellipse at center, #1e4532 0%, #162f22 60%, #0e1f16 100%);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+#intro-screen.exit {
+  opacity: 0;
+  transform: scale(1.05);
+  pointer-events: none;
+}
+#intro-logo-img {
+  width: clamp(120px, 30vw, 200px);
+  border-radius: 16px;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: introLogoIn 1s ease 0.2s forwards;
+}
+#intro-glow-intro {
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14,184,130,0.25) 0%, rgba(14,184,130,0.08) 40%, transparent 70%);
+  opacity: 0;
+  animation: introGlow 1.2s ease 0.3s forwards;
+}
+@keyframes introLogoIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes introGlow {
+  0%   { opacity: 0; transform: scale(0.5); }
+  50%  { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.6; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #intro-screen { display: none !important; }
+  #page { opacity: 1 !important; }
+  body { overflow: auto !important; }
+}
+
+/* ══ SPLIT TEXT CHARS ══ */
+.split-text .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.split-text .char.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body style="overflow:hidden;">
+
+<div id="intro-screen">
+  <div id="intro-glow-intro"></div>
+  <img src="logo-intro.jpg" alt="PETNOVA" id="intro-logo-img">
+</div>
+
+<canvas id="particle-canvas"></canvas>
+
+<div id="page" style="opacity:0; transition: opacity 0.8s ease;">
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">PET<span>NOVA</span></div>
+    <a href="https://pago.petnovagatos.com" class="nav-cta">Obtener el libro &rarr;</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-bg-photo"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-center">
+    <div class="hero-pill">80% de descuento — Acaba en cualquier momento</div>
+    <h1 class="hero-title" id="hero-title">
+      <span class="blur-line">Lo que haces mal con tu gato</span><br>
+      <em><span class="blur-line">sin saberlo</span></em>
+    </h1>
+    <p class="hero-sub">
+      Descubre por qué tu gato araña los muebles, ignora el arenero<br>
+      y aprende qué cambiar para transformar esa relación en días.
+    </p>
+    <a href="https://pago.petnovagatos.com" class="hero-cta hero-cta--animated" id="hero-cta-btn">
+      Quiero entender a mi gato por fin
+    </a>
+  </div>
+</section>
+
+<section class="problem">
+  <div class="problem-bg">
+    <video class="problem-video" autoplay muted loop playsinline preload="none">
+      <source src="problem-desktopvideo.mp4" type="video/mp4">
+    </video>
+    <img src="problem-desktopimage.jpg" alt="" class="problem-fallback-img" loading="lazy">
+    <img src="problem-mobile.jpg" alt="" class="problem-mobile-img" loading="lazy">
+    <div class="problem-bg-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="section-label">¿Te suena familiar?</div>
+    <h2>Tu gato no está siendo difícil.<br><em>Tú estás hablando un idioma que él no entiende.</em></h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-card-icon">&#x1FAA3;</div>
+        <h3>Compraste el arenero más caro con filtros de lavanda</h3>
+        <p>Y aun así prefiere la pila de ropa limpia recién doblada. No es venganza. Es que el entorno no satisface sus necesidades básicas.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-icon">&#x1F648;</div>
+        <h3>Intentas acariciarlo y se va. Le hablas y te ignora</h3>
+        <p>Crees que "es así, los gatos son fríos". Pero eso no es verdad. Nadie te enseñó a hablar su idioma.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-icon">&#x1F624;</div>
+        <h3>Has probado de todo y la situación no mejora</h3>
+        <p>Castigos, ignorarlo, forzar el cariño. Aplicamos lógica humana a una mente felina — y eso nunca funciona.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-icon">&#x1F4B8;</div>
+        <h3>Gastas en juguetes que olfatea dos segundos y abandona</h3>
+        <p>El problema no es el juguete. Es que el juego de tu gato sigue un ciclo muy específico que casi nadie conoce.</p>
+      </div>
+    </div>
+    <div class="problem-callout">
+      <p class="problem-callout-main">El error no es tu gato.</p>
+      <p class="problem-callout-sub">Es la mentalidad con la que te relacionas con él.</p>
+      <small>Y eso se puede cambiar — en días, no en meses.</small>
+    </div>
+  </div>
+</section>
+
+<section class="book-intro">
+  <video class="book-intro-video" autoplay muted loop playsinline preload="metadata">
+    <source src="book-desktopvideo.mp4" type="video/mp4">
+  </video>
+  <img src="book-desktopimage.jpg" alt="" class="book-intro-fallback" loading="lazy">
+  <img src="book-mobileimage.jpg" alt="" class="book-intro-mobile" loading="lazy">
+  <div class="book-intro-overlay"></div>
+  <div class="book-intro-inner container">
+    <img src="logogatosebook.png" alt="Portada del libro" class="book-cover" loading="lazy">
+    <div>
+      <div class="section-label">El libro</div>
+      <h2>No es un libro de adiestramiento.<br><em>Es un cambio de mentalidad.</em></h2>
+      <p><strong>Lo que haces mal con tu gato sin saberlo</strong> reúne el conocimiento de los mejores etólogos y educadores del mundo en un marco de acción claro, directo y sin tecnicismos.</p>
+      <p>En 7 días sabrás exactamente por qué tu gato actúa así — y tendrás herramientas concretas para transformar esa relación. Sin forzar nada. Sin castigos. Sin frustración.</p>
+      <div class="book-stat-row">
+        <div class="book-stat"><div class="book-stat-num">200+</div><div class="book-stat-label">páginas prácticas</div></div>
+        <div class="book-stat"><div class="book-stat-num">6</div><div class="book-stat-label">capítulos clave</div></div>
+        <div class="book-stat"><div class="book-stat-num">30</div><div class="book-stat-label">días de sistema</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chapters">
+  <video class="chapters-video" autoplay muted loop playsinline preload="metadata">
+    <source src="chapters-desktopvideo.mp4" type="video/mp4">
+  </video>
+  <img src="chapters-desktopimage.jpg" alt="" class="chapters-fallback" loading="lazy">
+  <img src="chapters-mobileimage.jpg" alt="" class="chapters-mobile" loading="lazy">
+  <div class="chapters-overlay"></div>
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Dentro del libro</div>
+      <h2 split-text>Todo lo que nadie te explicó sobre los gatos</h2>
+      <p>Seis capítulos diseñados para transformar cómo entiendes y convives con tu gato desde el primer día.</p>
+    </div>
+    <div class="chapters-grid">
+      <div class="chapter-card fade-up"><div class="chapter-num">Capítulo 1</div><h3>Territorio y espacio vertical</h3><p>Por qué la altura es seguridad para tu gato y cómo crear un entorno que reduzca el estrés radicalmente.</p><div class="chapter-highlight">El error de condenarlo a vivir al nivel del suelo</div></div>
+      <div class="chapter-card fade-up"><div class="chapter-num">Capítulo 2</div><h3>Psicología del arenero</h3><p>El 95% de los problemas de eliminación son ambientales. La regla N+1 que cambia todo en días.</p><div class="chapter-highlight">Solución definitiva al problema del arenero</div></div>
+      <div class="chapter-card fade-up"><div class="chapter-num">Capítulo 3</div><h3>El juego como simulación de caza</h3><p>El ciclo Cazar–Atrapar–Matar–Comer que regula el estrés felino. Por qué el puntero láser puede dañar a tu gato.</p><div class="chapter-highlight">10 minutos diarios que lo cambian todo</div></div>
+      <div class="chapter-card fade-up"><div class="chapter-num">Capítulo 4</div><h3>Introducción de nuevas mascotas</h3><p>El protocolo infalible Olor → Visual → Supervisado para evitar guerras territoriales desde el día uno.</p><div class="chapter-highlight">El error del cara a cara repentino</div></div>
+      <div class="chapter-card fade-up"><div class="chapter-num">Capítulo 5</div><h3>Sistema de Equilibrio Felino de 30 días</h3><p>Auditoría → Enriquecimiento → Rastreo → Estabilidad. Un sistema probado para cambios que duran.</p><div class="chapter-highlight">Por qué cambiar todo a la vez destruye el proceso</div></div>
+      <div class="chapter-card fade-up"><div class="chapter-num">Capítulo 6</div><h3>Psicología Perro vs. Gato</h3><p>Tienen lógicas completamente distintas. El error de esperar obediencia perruna — y cómo corregirlo.</p><div class="chapter-highlight">Estructura para perros / Entorno para gatos</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="bonuses">
+  <video class="bonuses-video" autoplay muted loop playsinline preload="metadata">
+    <source src="bonuses-desktopvideo.mp4" type="video/mp4">
+  </video>
+  <img src="bonuses-desktopimage.jpg" alt="" class="bonuses-fallback" loading="lazy">
+  <img src="bonuses-mobileimage.jpg" alt="" class="bonuses-mobile" loading="lazy">
+  <div class="bonuses-overlay"></div>
+  <div class="container">
+    <div class="bonuses-header fade-up">
+      <div class="section-label">Incluido gratis</div>
+      <h2 split-text>4 sistemas profesionales<br><em>para aplicar desde el día 1</em></h2>
+      <p>Herramientas diseñadas por expertos en comportamiento felino para que no tengas que adivinar qué hacer.</p>
+    </div>
+    <div class="bonuses-grid">
+      <div class="bonus-card fade-up"><div class="bonus-tag">Bono #1</div><h3>Sistema Instinto vs. Entorno</h3><p>Analiza cualquier conducta de tu gato con el método exacto que usan los expertos — y sabe qué cambiar primero.</p><ul class="bonus-list"><li>Identifica si el problema es instinto o entorno</li><li>Plan de acción semanal paso a paso</li><li>Enfoque estratégico correcto desde el día 1</li></ul><div class="bonus-value">Valor real: <s>$27</s><span>Gratis</span></div></div>
+      <div class="bonus-card fade-up"><div class="bonus-tag">Bono #2</div><h3>Protocolo Anti Errores Cotidianos</h3><p>Deja de sabotear la relación con tu gato sin darte cuenta. Checklist práctica para aplicar hoy.</p><ul class="bonus-list"><li>Los 5 errores más comunes que dañan la confianza</li><li>Modelo Calma–Claridad–Consistencia</li><li>Regla N+1 para el arenero incluida</li></ul><div class="bonus-value">Valor real: <s>$19</s><span>Gratis</span></div></div>
+      <div class="bonus-card fade-up"><div class="bonus-tag">Bono #3</div><h3>Plan de Juego Estructurado</h3><p>Transforma el juego diario en una herramienta de bienestar emocional que regula el estrés de tu gato.</p><ul class="bonus-list"><li>Microdrama de caza en 3 actos</li><li>Técnica correcta para el puntero láser</li><li>Registro semanal de sesiones</li></ul><div class="bonus-value">Valor real: <s>$22</s><span>Gratis</span></div></div>
+      <div class="bonus-card fade-up"><div class="bonus-tag">Bono #4</div><h3>Evaluador de Entorno Felino</h3><p>Audita tu hogar en 20 minutos y convierte tu espacio en el entorno que tu gato necesita para estar bien.</p><ul class="bonus-list"><li>Evaluación completa de espacio vertical</li><li>Mapeo de zonas de estrés en el hogar</li><li>Checklist de rascadores y enriquecimiento</li></ul><div class="bonus-value">Valor real: <s>$22</s><span>Gratis</span></div></div>
+    </div>
+    <div class="bonuses-total fade-up">
+      <div class="total-label">Valor total que recibes</div>
+      <div class="total-value"><s>$187</s> $20</div>
+      <small>Libro + 4 sistemas profesionales · Acceso inmediato en PDF</small>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <video class="testimonials-video" autoplay muted loop playsinline preload="metadata">
+    <source src="testimonials-desktopvideo.mp4" type="video/mp4">
+  </video>
+  <img src="testimonials-desktopimage.jpg" alt="" class="testimonials-fallback" loading="lazy">
+  <img src="testimonials-mobileimage.jpg" alt="" class="testimonials-mobile" loading="lazy">
+  <div class="testimonials-overlay"></div>
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Resultados reales</div>
+      <h2 split-text>Lo que dicen quienes ya lo aplicaron</h2>
+      <p>Dueños de gatos que, como tú, querían entender a su mascota y no sabían cómo.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-up">
+        <div class="testi-header"><img src="avatar1.jpg" alt="Mariana" class="testi-avatar" loading="lazy"><div><div class="testi-name">Mariana A.</div><div class="testi-location">Valencia, España</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+        <div class="testi-post"><img src="post1.jpg" alt="Testimonio Mariana" loading="lazy"></div>
+        <div class="testi-text">Mi gata orinaba en mi cama. Resultó que la arena perfumada era el problema. <strong>Volví a la arena sin olor y los accidentes cesaron inmediatamente.</strong></div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim);letter-spacing:.04em;"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color:var(--teal);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Compra verificada</div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="testi-header"><img src="avatar2.jpg" alt="Ana" class="testi-avatar" loading="lazy"><div><div class="testi-name">Ana N.</div><div class="testi-location">Barcelona, España</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+        <div class="testi-post"><img src="post2.jpg" alt="Testimonio Ana" loading="lazy"></div>
+        <div class="testi-text">Mi gato se obsesionaba con el puntero láser. El libro me enseñó a terminar el juego con una captura física. <strong>Ahora se relaja y duerme después de jugar.</strong></div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim);letter-spacing:.04em;"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color:var(--teal);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Compra verificada</div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="testi-header"><img src="avatar3.jpg" alt="Javier" class="testi-avatar" loading="lazy"><div><div class="testi-name">Javier L.</div><div class="testi-location">Bogotá, Colombia</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+        <div class="testi-post"><img src="post3.jpg" alt="Testimonio Javier" loading="lazy"></div>
+        <div class="testi-text">Mis dos gatos no paraban de pelearse. Instalé estantes altos y un árbol junto a la ventana. <strong>Ahora cada uno tiene su espacio y las peleas terminaron.</strong></div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim);letter-spacing:.04em;"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color:var(--teal);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Compra verificada</div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="testi-header"><img src="avatar4.jpg" alt="Laura" class="testi-avatar" loading="lazy"><div><div class="testi-name">Laura F.</div><div class="testi-location">Lima, Perú</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+        <div class="testi-post"><img src="post4.jpg" alt="Testimonio Laura" loading="lazy"></div>
+        <div class="testi-text">Cambiaba todo a la vez y mi gato se estresaba más. Aprendí a introducir un solo cambio por semana. <strong>Funciona.</strong></div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim);letter-spacing:.04em;"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color:var(--teal);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Compra verificada</div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="testi-header"><img src="avatar5.jpg" alt="Carlos" class="testi-avatar" loading="lazy"><div><div class="testi-name">Carlos P.</div><div class="testi-location">Buenos Aires, Argentina</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+        <div class="testi-post"><img src="post5.jpg" alt="Testimonio Carlos" loading="lazy"></div>
+        <div class="testi-text">Esperaba que mi gato fuera obediente como un perro y me frustraba. Ahora entiendo su lenguaje. <strong>Confía más en mí.</strong></div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim);letter-spacing:.04em;"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color:var(--teal);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Compra verificada</div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="testi-header"><img src="avatar6.jpg" alt="Danna" class="testi-avatar" loading="lazy"><div><div class="testi-name">Danna B.</div><div class="testi-location">Santiago, Chile</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+        <div class="testi-post"><img src="post6.jpg" alt="Testimonio Danna" loading="lazy"></div>
+        <div class="testi-text">Aprendí a respetar sus momentos. <strong>Ahora él se acerca primero y confía plenamente.</strong></div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim);letter-spacing:.04em;"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color:var(--teal);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Compra verificada</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="comprar">
+  <video class="pricing-video" autoplay muted loop playsinline preload="metadata">
+    <source src="pricing-desktopvideo.mp4" type="video/mp4">
+  </video>
+  <img src="pricing-desktopimage.jpg" alt="" class="pricing-fallback" loading="lazy">
+  <img src="pricing-mobileimage.jpg" alt="" class="pricing-mobile" loading="lazy">
+  <div class="pricing-overlay"></div>
+  <div class="container--narrow">
+    <div class="section-header fade-up">
+      <div class="section-label">La oferta</div>
+      <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(28px,4.5vw,46px);line-height:1.15;color:#ffffff;margin-bottom:14px">Todo lo que necesitas para entender a tu gato</h2>
+    </div>
+    <div class="pricing-card fade-up">
+      <div class="pricing-badge">Oferta de lanzamiento · 80% OFF</div>
+      <h2>El libro + 4 sistemas<br>por un único pago</h2>
+      <div class="pricing-includes">
+        <div class="pricing-item"><div class="pricing-item-check"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg></div><span>Ebook completo — Lo que haces mal con tu gato sin saberlo</span><span class="pricing-item-value">$97</span></div>
+        <div class="pricing-item"><div class="pricing-item-check"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg></div><span>Sistema Instinto vs. Entorno</span><span class="pricing-item-value">$27</span></div>
+        <div class="pricing-item"><div class="pricing-item-check"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg></div><span>Protocolo Anti Errores Cotidianos</span><span class="pricing-item-value">$19</span></div>
+        <div class="pricing-item"><div class="pricing-item-check"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg></div><span>Plan de Juego Estructurado</span><span class="pricing-item-value">$22</span></div>
+        <div class="pricing-item"><div class="pricing-item-check"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg></div><span>Evaluador de Entorno Felino</span><span class="pricing-item-value">$22</span></div>
+      </div>
+      <div class="pricing-divider"></div>
+      <div class="pricing-total-row"><span class="pricing-total-label">Valor total</span><span class="pricing-original">$187 USD</span></div>
+      <div class="pricing-main">
+        <div class="price-now"><sup>$</sup>20</div>
+        <div class="price-save">Ahorras $167 hoy — acceso inmediato</div>
+      </div>
+      <a href="https://pago.petnovagatos.com" class="cta-primary cta-primary--lg">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+        Sí, quiero transformar mi relación con mi gato
+      </a>
+      <div class="pricing-trust-row">
+        <div class="pricing-trust-item"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>Pago seguro vía Hotmart</div>
+        <div class="pricing-trust-item"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>Acceso inmediato en PDF</div>
+        <div class="pricing-trust-item"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"/></svg>7 días de garantía</div>
+      </div>
+    </div>
+    <div class="guarantee fade-up">
+      <div class="guarantee-inner">
+        <div class="guarantee-icon">&#x1F6E1;&#xFE0F;</div>
+        <h3>7 días para probarlo. Sin riesgos.</h3>
+        <p>Estamos tan seguros de que este libro transforma tu relación con tu gato que te damos 7 días completos para leerlo, aplicarlo y ver resultados. Si no cambia cómo entiendes a tu gato, te devolvemos el 100% del dinero — sin preguntas, sin trámites complicados.</p>
+        <div class="guarantee-items">
+          <div class="guarantee-item">Reembolso del 100%</div>
+          <div class="guarantee-item">Sin preguntas</div>
+          <div class="guarantee-item">Proceso rápido con Hotmart</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <video class="faq-video" autoplay muted loop playsinline preload="metadata">
+    <source src="faq-desktopvideo.mp4" type="video/mp4">
+  </video>
+  <img src="faq-desktopimage.jpg" alt="" class="faq-fallback" loading="lazy">
+  <img src="faq-mobileimage.jpg" alt="" class="faq-mobile" loading="lazy">
+  <div class="faq-overlay"></div>
+  <div class="container--narrow">
+    <div class="section-header fade-up">
+      <div class="section-label">Dudas frecuentes</div>
+      <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(28px,4vw,42px);line-height:1.15;color:#ffffff;margin-bottom:0">Resolvemos las preguntas más comunes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Mi gato orina fuera del arenero, ¿el libro tiene solución?<span class="faq-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></span></button><div class="faq-answer"><p>Sí. El <strong>Capítulo 2 (Psicología del arenero)</strong> está dedicado por completo a este problema. Aprenderás la regla de oro <strong>N+1</strong> y por qué el 95% de los problemas de eliminación son ambientales, no de comportamiento.</p></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Mi gato araña los muebles. ¿Cómo lo evito?<span class="faq-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></span></button><div class="faq-answer"><p>Arañar es un comportamiento instintivo, no una travesura. En el <strong>Capítulo 1</strong> te enseñamos a elegir rascadores y ubicarlos estratégicamente para redirigir esta conducta de forma natural, sin castigos.</p></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">¿El puntero láser es malo para los gatos?<span class="faq-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></span></button><div class="faq-answer"><p>El <strong>Capítulo 3</strong> desmonta este mito. El problema no es el láser en sí, sino usarlo sin una captura final. Te explicamos el ciclo <strong>Cazar–Atrapar–Matar–Comer</strong> y cómo terminar las sesiones correctamente para que tu gato no quede frustrado.</p></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Vivo en un piso pequeño. ¿Puedo crear espacio vertical?<span class="faq-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></span></button><div class="faq-answer"><p>Sí. El <strong>Capítulo 1</strong> incluye un marco de acción para crear capas verticales con estantes flotantes, repisas en ventanas y árboles adaptados a espacios reducidos. No necesitas mucho espacio — necesitas usarlo bien.</p></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Voy a adoptar otro gato. ¿Cómo evito que se peleen?<span class="faq-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></span></button><div class="faq-answer"><p>El <strong>Capítulo 4</strong> contiene el protocolo paso a paso: <strong>Olor → Visual → Supervisado</strong>. Aprenderás por qué las presentaciones cara a cara inmediatas generan guerras territoriales y cómo hacer la integración correctamente.</p></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">¿Cómo recibo el libro y los 4 sistemas?<span class="faq-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></span></button><div class="faq-answer"><p>Inmediatamente después de la compra, recibirás un correo con los enlaces para descargar el libro en PDF y los 4 sistemas. Todo listo para leer en tu computador, tablet o móvil — sin aplicaciones adicionales.</p></div></div>
+      <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">¿Qué pasa si no me gusta?<span class="faq-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></span></button><div class="faq-answer"><p>Tienes <strong>7 días de garantía incondicional</strong> a través de Hotmart. Si no estás satisfecho por cualquier motivo, solicitas el reembolso y te devolvemos el 100% de tu dinero. Sin preguntas, sin trámites complicados.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <video class="final-cta-video" autoplay muted loop playsinline preload="metadata">
+    <source src="finalcta-desktopvideo.mp4" type="video/mp4">
+  </video>
+  <img src="finalcta-desktopimage.jpg" alt="" class="final-cta-fallback" loading="lazy">
+  <img src="finalcta-mobileimage.jpg" alt="" class="final-cta-mobile" loading="lazy">
+  <div class="final-cta-overlay"></div>
+  <div class="final-cta-wrap">
+    <h2>Tu gato lleva tiempo</h2>
+    <h2 style="margin-top:-10px"><em>intentando decirte algo.</em></h2>
+    <p>Ya tienes el conocimiento. Solo falta dar el paso. Por menos de lo que cuesta una visita al veterinario.</p>
+    <a href="https://pago.petnovagatos.com" class="cta-primary">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+      Obtener el libro por $20 USD
+    </a>
+    <div class="hero-trust" style="margin-top:24px">
+      <div class="trust-item"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 01.44 10.59a12.003 12.003 0 002.014 8.07A12.004 12.004 0 007.5 21.93a12.002 12.002 0 007.5-3.269 12.004 12.004 0 003.046-5.26 11.956 11.956 0 00-3.16-4.671A11.959 11.959 0 0012 2.714z"/></svg>Compra segura</div>
+      <div class="trust-item"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>Acceso inmediato</div>
+      <div class="trust-item"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"/></svg>7 días de garantía</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <video class="footer-video" autoplay muted loop playsinline preload="metadata">
+    <source src="footer-desktopvideo.mp4" type="video/mp4">
+  </video>
+  <img src="footer-desktopimage.jpg" alt="" class="footer-fallback" loading="lazy">
+  <img src="footer-mobileimage.jpg" alt="" class="footer-mobile" loading="lazy">
+  <div class="footer-overlay"></div>
+  <div class="footer-inner">
+    <div class="footer-logo">PET<span>NOVA</span></div>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">
+      <em>Descargo de responsabilidad: Este libro es una guía educativa y no sustituye la consulta con un veterinario o etólogo profesional ante problemas de salud o comportamiento graves.</em><br><br>
+      Copyright &copy; 2026 PETNOVA. Todos los derechos reservados.
+    </p>
+  </div>
+</footer>
+
+</div>
+
+<div class="sticky-cta">
+  <a href="https://pago.petnovagatos.com">Obtener el libro — $20 USD &rarr;</a>
+</div>
+
+<script>
+/* ══ INTRO SCREEN ══ */
+(function() {
+  var intro = document.getElementById('intro-screen');
+  var page = document.getElementById('page');
+  if (!intro) { if (page) { page.style.opacity = '1'; document.body.style.overflow = 'auto'; } return; }
+  setTimeout(function() {
+    intro.classList.add('exit');
+    setTimeout(function() {
+      intro.parentNode.removeChild(intro);
+      page.style.opacity = '1';
+      document.body.style.overflow = 'auto';
+    }, 800);
+  }, 2000);
+})();
+
+if (history.scrollRestoration) history.scrollRestoration = 'manual';
+requestAnimationFrame(function() { window.scrollTo(0,0); });
+
+(function() {
+  var canvas = document.getElementById('particle-canvas');
+  if (!canvas) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ctx, W, H, hairs = [];
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize, {passive:true});
+  var count = Math.min(18, Math.floor(W * H / 30000));
+  for (var i = 0; i < count; i++) spawnHair(true);
+  function spawnHair(initial) {
+    var isHair = Math.random() > 0.3;
+    var colors = ['rgba(14,184,130,', 'rgba(232,240,236,', 'rgba(201,168,76,'];
+    var weights = [0.5, 0.35, 0.15];
+    var r = Math.random();
+    var colorBase = r < weights[0] ? colors[0] : r < weights[0]+weights[1] ? colors[1] : colors[2];
+    hairs.push({ x: Math.random()*W, y: initial ? Math.random()*H : H+20, vx: (Math.random()-0.5)*0.35, vy: -(Math.random()*0.3+0.08), rot: Math.random()*360, rotV: (Math.random()-0.5)*0.6, len: isHair ? Math.random()*20+10 : 0, size: isHair ? 0 : Math.random()*1.2+0.4, color: colorBase, alpha: Math.random()*0.35+0.1, life: initial ? Math.floor(Math.random()*300) : 0, maxLife: Math.random()*400+200, isHair: isHair, cx: (Math.random()-0.5)*12, cy: (Math.random()-0.5)*8 });
+  }
+  function drawHairs() {
+    ctx.clearRect(0,0,W,H);
+    for (var i = hairs.length-1; i >= 0; i--) {
+      var p = hairs[i];
+      p.life++; p.x+=p.vx; p.y+=p.vy; p.rot+=p.rotV;
+      var prog = p.life/p.maxLife;
+      var fade = prog<0.12 ? prog/0.12 : prog>0.8 ? (1-prog)/0.2 : 1;
+      var a = p.alpha*fade;
+      if (a <= 0) { hairs.splice(i,1); spawnHair(false); continue; }
+      ctx.save(); ctx.globalAlpha = a; ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180);
+      if (p.isHair) {
+        ctx.beginPath(); ctx.moveTo(0,0); ctx.quadraticCurveTo(p.cx,p.cy,p.len,0);
+        ctx.strokeStyle = p.color+'1)'; ctx.lineWidth = 0.75; ctx.lineCap = 'round'; ctx.stroke();
+      } else {
+        ctx.beginPath(); ctx.arc(0,0,p.size,0,Math.PI*2);
+        ctx.fillStyle = p.color+'1)'; ctx.fill();
+      }
+      ctx.restore();
+      if (p.life >= p.maxLife) { hairs.splice(i,1); spawnHair(false); }
+    }
+    requestAnimationFrame(drawHairs);
+  }
+  if ((navigator.hardwareConcurrency || 2) > 2) { ctx = canvas.getContext('2d'); drawHairs(); }
+})();
+
+function toggleFaq(btn) {
+  var item = btn.closest('.faq-item');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(el){ el.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+
+if ('IntersectionObserver' in window) {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.fade-up').forEach(function(el){ obs.observe(el); });
+} else {
+  document.querySelectorAll('.fade-up').forEach(function(el){ el.classList.add('visible'); });
+}
+
+var pricingSection = document.getElementById('comprar');
+var stickyCta = document.querySelector('.sticky-cta');
+if (pricingSection && stickyCta && 'IntersectionObserver' in window) {
+  var priceObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      stickyCta.style.opacity = e.isIntersecting ? '0' : '1';
+      stickyCta.style.pointerEvents = e.isIntersecting ? 'none' : 'auto';
+    });
+  }, { threshold: 0.15 });
+  priceObs.observe(pricingSection);
+}
+
+var DeviceTier = (function() {
+  var cores = navigator.hardwareConcurrency || 2;
+  var ram = navigator.deviceMemory || 2;
+  var isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) return 'C';
+  if (cores <= 2 || ram <= 1) return 'C';
+  if (isMobile && cores <= 4) return 'B';
+  return 'A';
+})();
+document.body.classList.add('tier-' + DeviceTier.toLowerCase());
+if (DeviceTier === 'C') {
+  var s = document.createElement('style');
+  s.textContent = '.glass,.problem-card,.chapter-card,.bonus-card,.testi-card,.faq-item,.pricing-card,.guarantee-inner,.bonuses-total,.problem-callout,.nav-inner,.final-cta-wrap,.book-intro-inner,.footer-inner{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}';
+  document.head.appendChild(s);
+}
+
+(function() {
+  if (DeviceTier !== 'A') return;
+  if (/Mobi|Android/i.test(navigator.userAgent)) return;
+  var s = document.createElement('style');
+  s.textContent = 'body.tier-a{cursor:none;}#pn-cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px rgba(14,184,130,.7);transform:translate(-50%,-50%);transition:transform .1s ease,width .2s ease,height .2s ease,background .2s;mix-blend-mode:screen;}#pn-cursor.hovering{width:36px;height:36px;background:rgba(14,184,130,.15);box-shadow:0 0 20px rgba(14,184,130,.4);border:1px solid rgba(14,184,130,.5);}.pn-trail{position:fixed;pointer-events:none;z-index:99998;border-radius:50%;transform:translate(-50%,-50%);background:var(--teal);mix-blend-mode:screen;}a,button,.cta-primary,.nav-cta,.faq-question,.hero-cta{cursor:none!important;}';
+  document.head.appendChild(s);
+  var cursor = document.createElement('div'); cursor.id = 'pn-cursor'; document.body.appendChild(cursor);
+  var TRAIL = 8, trail = [];
+  for (var i = 0; i < TRAIL; i++) {
+    var dot = document.createElement('div'); dot.className = 'pn-trail';
+    var frac = 1 - i/TRAIL; var sz = Math.max(1, frac*6);
+    dot.style.cssText = 'width:'+sz+'px;height:'+sz+'px;opacity:'+(frac*0.35)+';';
+    document.body.appendChild(dot); trail.push({el:dot,x:-100,y:-100});
+  }
+  var mouseX=-100, mouseY=-100;
+  document.addEventListener('mousemove',function(e){mouseX=e.clientX;mouseY=e.clientY;},{passive:true});
+  document.querySelectorAll('a,button,.cta-primary,.nav-cta,.hero-cta').forEach(function(el){
+    el.addEventListener('mouseenter',function(){cursor.classList.add('hovering');});
+    el.addEventListener('mouseleave',function(){cursor.classList.remove('hovering');});
+  });
+  var cx=-100, cy=-100, trailPositions=Array(TRAIL).fill(0).map(function(){return{x:-100,y:-100};});
+  function animCursor() {
+    cx+=(mouseX-cx)*0.18; cy+=(mouseY-cy)*0.18;
+    cursor.style.left=cx+'px'; cursor.style.top=cy+'px';
+    for(var i=TRAIL-1;i>0;i--){trailPositions[i].x+=(trailPositions[i-1].x-trailPositions[i].x)*0.5;trailPositions[i].y+=(trailPositions[i-1].y-trailPositions[i].y)*0.5;}
+    trailPositions[0].x=cx; trailPositions[0].y=cy;
+    for(var j=0;j<TRAIL;j++){trail[j].el.style.left=trailPositions[j].x+'px';trail[j].el.style.top=trailPositions[j].y+'px';}
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+})();
+
+(function() {
+  if (DeviceTier === 'C') return;
+  if (/Mobi|Android/i.test(navigator.userAgent)) return;
+  var STRENGTH = DeviceTier === 'A' ? 0.38 : 0.22;
+  var RADIUS = 90;
+  function applyMagnetic(btn) {
+    btn.addEventListener('mousemove', function(e) {
+      var rect = btn.getBoundingClientRect();
+      var centerX = rect.left + rect.width / 2;
+      var centerY = rect.top + rect.height / 2;
+      var dx = e.clientX - centerX;
+      var dy = e.clientY - centerY;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < RADIUS) {
+        btn.style.transform = 'translate(' + (dx * STRENGTH).toFixed(1) + 'px,' + (dy * STRENGTH).toFixed(1) + 'px)';
+        btn.style.transition = 'transform 0.1s ease, background 0.2s, border-color 0.2s, box-shadow 0.2s';
+      }
+    });
+    btn.addEventListener('mouseleave', function() {
+      btn.style.transform = '';
+      btn.style.transition = 'transform 0.4s cubic-bezier(.34,1.56,.64,1), background 0.2s, border-color 0.2s, box-shadow 0.2s';
+    });
+  }
+  document.querySelectorAll('.cta-primary, .nav-cta, .hero-cta').forEach(applyMagnetic);
+})();
+
+(function() {
+  var s = document.createElement('style');
+  s.textContent = '@keyframes ctaShimmer{0%{left:-80%}100%{left:160%}}.cta-primary .shimmer-streak{position:absolute;top:0;left:-80%;width:60%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-15deg);pointer-events:none;border-radius:inherit;}.cta-primary.shimmer-go .shimmer-streak{animation:ctaShimmer .65s ease forwards;}';
+  document.head.appendChild(s);
+  document.querySelectorAll('.cta-primary').forEach(function(btn){
+    var streak = document.createElement('span');
+    streak.className = 'shimmer-streak';
+    btn.appendChild(streak);
+  });
+  function fireShimmer() {
+    document.querySelectorAll('.cta-primary').forEach(function(btn){
+      btn.classList.remove('shimmer-go');
+      void btn.offsetWidth;
+      btn.classList.add('shimmer-go');
+      setTimeout(function(){ btn.classList.remove('shimmer-go'); }, 700);
+    });
+  }
+  setTimeout(function(){ fireShimmer(); setInterval(fireShimmer, 3200); }, 2000);
+})();
+
+(function() {
+  var lines = document.querySelectorAll('.blur-line');
+  lines.forEach(function(line) {
+    var text = line.textContent;
+    var words = text.split(' ');
+    line.innerHTML = '';
+    words.forEach(function(word, i) {
+      var span = document.createElement('span');
+      span.className = 'blur-word';
+      span.textContent = word;
+      span.style.transitionDelay = (i * 0.1) + 's';
+      line.appendChild(span);
+    });
+  });
+  setTimeout(function() {
+    document.querySelectorAll('.blur-word').forEach(function(w) {
+      w.classList.add('visible');
+    });
+  }, 300);
+  var heroCta = document.getElementById('hero-cta-btn');
+  if (heroCta) {
+    heroCta.addEventListener('animationend', function() {
+      heroCta.classList.remove('hero-cta--animated');
+    });
+  }
+})();
+
+/* ══ SPLIT TEXT CHARS ══ */
+(function() {
+  var targets = document.querySelectorAll('[split-text]');
+  targets.forEach(function(el) {
+    var text = el.textContent;
+    el.innerHTML = '';
+    text.split('').forEach(function(char) {
+      var span = document.createElement('span');
+      span.className = 'char';
+      span.textContent = char === ' ' ? '\u00A0' : char;
+      el.appendChild(span);
+    });
+  });
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          var chars = e.target.querySelectorAll('.char');
+          chars.forEach(function(c, i) {
+            setTimeout(function() { c.classList.add('visible'); }, i * 30);
+          });
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    targets.forEach(function(el) { obs.observe(el); });
+  } else {
+    document.querySelectorAll('.char').forEach(function(c) { c.classList.add('visible'); });
+  }
+})();
+
+/* ══ BOOK COVER PARALLAX ══ */
+(function() {
+  var bookCover = document.querySelector('.book-cover');
+  if (!bookCover || !('IntersectionObserver' in window)) return;
+  var bookSection = document.querySelector('.book-intro');
+  var isVisible = false;
+  var currentY = 0;
+  var targetY = 0;
+  var obs = new IntersectionObserver(function(entries) {
+    isVisible = entries[0].isIntersecting;
+  }, { threshold: 0.1 });
+  obs.observe(bookSection);
+  window.addEventListener('scroll', function() {
+    if (!isVisible) return;
+    var rect = bookSection.getBoundingClientRect();
+    var progress = -rect.top / (rect.height + window.innerHeight);
+    targetY = progress * 40;
+  }, { passive: true });
+  function animate() {
+    currentY += (targetY - currentY) * 0.08;
+    bookCover.style.transform = 'translateY(' + currentY.toFixed(1) + 'px) perspective(800px) rotateY(' + (currentY * 0.1).toFixed(1) + 'deg)';
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+</script>
+</body>
+</html>
