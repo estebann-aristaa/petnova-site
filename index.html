@@ -333,6 +333,7 @@ nav {
   position: absolute; inset: 0; z-index: 0;
 }
 .problem-video {
+  position: absolute; inset: 0;
   width: 140%; height: 140%; object-fit: cover;
   opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
   will-change: opacity;
@@ -347,6 +348,7 @@ nav {
   position: absolute; inset: 0;
   display: none; width: 140%; height: 140%; object-fit: cover;
   transform: translate(-15%, -15%);
+  z-index: 0;
 }
 @media (max-width: 768px) {
   .problem-video { display: none; }
@@ -1120,6 +1122,82 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ══ MOBILE FIXES ══ */
+@media (max-width: 768px) {
+  .book-intro, .chapters, .bonuses, .testimonials, .pricing, .faq, .final-cta {
+    min-height: auto; padding: 50px 0;
+  }
+  .chapters > .container, .bonuses > .container, .testimonials > .container,
+  .pricing > .container--narrow, .faq > .container--narrow {
+    padding: 50px 16px;
+  }
+  .problem { padding: 50px 16px; }
+  nav { padding: 10px 12px; }
+  .nav-inner { padding: 6px 10px 6px 14px; gap: 12px; }
+  .nav-logo { font-size: 14px; }
+  .nav-cta { font-size: 11px; padding: 8px 14px; }
+
+  .problem-grid { grid-template-columns: 1fr; }
+  .chapters-grid { grid-template-columns: 1fr; }
+  .bonuses-grid { grid-template-columns: 1fr; margin-bottom: 32px; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .testi-grid > * { min-width: 0; }
+
+  .book-intro-inner { grid-template-columns: 1fr; gap: 24px; text-align: center; padding: 28px 16px; }
+  .book-intro-inner img { margin: 0 auto; width: clamp(120px, 40vw, 160px); }
+
+  .pricing-card { padding: 32px 18px; }
+  .guarantee-inner { padding: 24px 18px; }
+  .bonuses-total { padding: 24px 18px; }
+  .footer-inner { padding: 24px 18px; }
+  .problem-callout { padding: 24px 16px; }
+  .final-cta-wrap { padding: 40px 18px; }
+
+  .section-header { margin-bottom: 32px; }
+  .section-header h2 { font-size: clamp(22px, 5vw, 32px); margin-bottom: 10px; }
+  .section-header p { font-size: 13px; }
+  .problem h2 { font-size: clamp(24px, 5vw, 36px); margin-bottom: 24px; }
+  .pricing-main .price-now { font-size: 48px; }
+  .pricing-main .price-now sup { font-size: 22px; }
+  .bonuses-total .total-value { font-size: 32px; }
+  .bonuses-total .total-value s { font-size: 20px; }
+  .guarantee-inner h3 { font-size: 18px; }
+  .guarantee-inner p { font-size: 13px; }
+  .final-cta h2 { font-size: clamp(24px, 7vw, 36px); }
+  .final-cta p { font-size: 13px; margin-bottom: 32px; }
+  .hero-title { font-size: clamp(36px, 10vw, 60px); line-height: 0.7; }
+  .hero-sub { font-size: 13px; }
+  .hero-pill { font-size: 10px; padding: 6px 14px; }
+
+  .pricing-includes { margin-bottom: 24px; gap: 10px; }
+  .pricing-item { font-size: 13px; gap: 8px; }
+  .pricing-divider { margin: 20px 0; }
+  .cta-primary { font-size: 14px; padding: 16px 28px; }
+  .cta-primary--lg { padding: 18px 28px; font-size: 15px; }
+  .bonus-card { padding: 20px 16px; }
+  .bonus-card h3 { font-size: 15px; }
+  .bonus-card p { font-size: 12px; }
+  .bonus-list li { font-size: 11px; }
+  .chapter-card { padding: 20px 16px; }
+  .chapter-card h3 { font-size: 15px; }
+  .chapter-card p { font-size: 12px; }
+  .testi-card { padding: 18px 16px; }
+  .testi-text { font-size: 12px; }
+
+  .hero-book { margin-bottom: 32px; }
+  .hero-book-3d img { width: 140px; }
+
+  .faq-question { font-size: 14px; padding: 18px 16px; }
+  .faq-answer p { font-size: 13px; }
+
+  .hero-trust { gap: 12px; margin-top: 16px; }
+  .trust-item { font-size: 11px; }
+  .pricing-trust-row { gap: 12px; }
+  .pricing-trust-item { font-size: 11px; }
+
+  footer { padding: 36px 16px 24px; }
+}
 </style>
 </head>
 <body style="overflow:hidden;">
@@ -1725,4 +1803,3 @@ if (DeviceTier === 'C') {
 })();
 </script>
 </body>
-</html>
