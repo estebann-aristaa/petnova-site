@@ -334,26 +334,24 @@ nav {
 }
 .problem-video {
   position: absolute; inset: 0;
-  width: 140%; height: 140%; object-fit: cover;
+  width: 100%; height: 100%; object-fit: cover;
   opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
-  will-change: opacity;
-  transform: translate(-15%, -15%);
 }
-.problem-fallback-img {
+.problem-bg-fallback {
   position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%; object-fit: cover;
-  transform: translate(-15%, -15%);
+  display: none; width: 100%; height: 100%; object-fit: cover;
 }
-.problem-mobile-img {
+.problem-bg-mobile {
+  display: none;
   position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%; object-fit: cover;
-  transform: translate(-15%, -15%);
-  z-index: 0;
+  background-image: url('problem-mobile.jpg');
+  background-size: cover;
+  background-position: center;
 }
 @media (max-width: 768px) {
   .problem-video { display: none; }
-  .problem-fallback-img { display: none; }
-  .problem-mobile-img { display: block; }
+  .problem-bg-fallback { display: none; }
+  .problem-bg-mobile { display: block; }
 }
 .problem-bg-overlay {
   position: absolute; inset: 0; z-index: 1;
@@ -429,27 +427,25 @@ nav {
 }
 .book-intro-video {
   position: absolute; inset: 0;
-  width: 140%; height: 140%;
+  width: 100%; height: 100%;
   object-fit: cover; z-index: 0;
   opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
-  transform: translate(-15%, -15%);
 }
 .book-intro-fallback {
-  position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  display: none; position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
 }
-.book-intro-mobile {
+.book-intro-bg-mobile {
+  display: none;
   position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  background-image: url('book-mobileimage.jpg');
+  background-size: cover;
+  background-position: center;
 }
 @media (max-width: 768px) {
   .book-intro-video { display: none; }
   .book-intro-fallback { display: none; }
-  .book-intro-mobile { display: block; }
+  .book-intro-bg-mobile { display: block; }
 }
 .book-intro-overlay {
   position: absolute; inset: 0; z-index: 1;
@@ -508,27 +504,25 @@ nav {
 }
 .chapters-video {
   position: absolute; inset: 0;
-  width: 140%; height: 140%;
+  width: 100%; height: 100%;
   object-fit: cover; z-index: 0;
   opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
-  transform: translate(-15%, -15%);
 }
 .chapters-fallback {
-  position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  display: none; position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
 }
-.chapters-mobile {
+.chapters-bg-mobile {
+  display: none;
   position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  background-image: url('chapters-mobileimage.jpg');
+  background-size: cover;
+  background-position: center;
 }
 @media (max-width: 768px) {
   .chapters-video { display: none; }
   .chapters-fallback { display: none; }
-  .chapters-mobile { display: block; }
+  .chapters-bg-mobile { display: block; }
 }
 .chapters-overlay {
   position: absolute; inset: 0; z-index: 1;
@@ -574,27 +568,25 @@ nav {
 }
 .bonuses-video {
   position: absolute; inset: 0;
-  width: 140%; height: 140%;
+  width: 100%; height: 100%;
   object-fit: cover; z-index: 0;
   opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
-  transform: translate(-15%, -15%);
 }
 .bonuses-fallback {
-  position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  display: none; position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
 }
-.bonuses-mobile {
+.bonuses-bg-mobile {
+  display: none;
   position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  background-image: url('bonuses-mobileimage.jpg');
+  background-size: cover;
+  background-position: center;
 }
 @media (max-width: 768px) {
   .bonuses-video { display: none; }
   .bonuses-fallback { display: none; }
-  .bonuses-mobile { display: block; }
+  .bonuses-bg-mobile { display: block; }
 }
 .bonuses-overlay {
   position: absolute; inset: 0; z-index: 1;
@@ -669,27 +661,25 @@ nav {
 }
 .testimonials-video {
   position: absolute; inset: 0;
-  width: 140%; height: 140%;
+  width: 100%; height: 100%;
   object-fit: cover; z-index: 0;
   opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
-  transform: translate(-15%, -15%);
 }
 .testimonials-fallback {
-  position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  display: none; position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
 }
-.testimonials-mobile {
+.testimonials-bg-mobile {
+  display: none;
   position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  background-image: url('testimonials-mobileimage.jpg');
+  background-size: cover;
+  background-position: center;
 }
 @media (max-width: 768px) {
   .testimonials-video { display: none; }
   .testimonials-fallback { display: none; }
-  .testimonials-mobile { display: block; }
+  .testimonials-bg-mobile { display: block; }
 }
 .testimonials-overlay {
   position: absolute; inset: 0; z-index: 1;
@@ -735,27 +725,25 @@ nav {
 }
 .pricing-video {
   position: absolute; inset: 0;
-  width: 140%; height: 140%;
+  width: 100%; height: 100%;
   object-fit: cover; z-index: 0;
   opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
-  transform: translate(-15%, -15%);
 }
 .pricing-fallback {
-  position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  display: none; position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
 }
-.pricing-mobile {
+.pricing-bg-mobile {
+  display: none;
   position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  background-image: url('pricing-mobileimage.jpg');
+  background-size: cover;
+  background-position: center;
 }
 @media (max-width: 768px) {
   .pricing-video { display: none; }
   .pricing-fallback { display: none; }
-  .pricing-mobile { display: block; }
+  .pricing-bg-mobile { display: block; }
 }
 .pricing-overlay {
   position: absolute; inset: 0; z-index: 1;
@@ -862,27 +850,25 @@ nav {
 }
 .faq-video {
   position: absolute; inset: 0;
-  width: 140%; height: 140%;
+  width: 100%; height: 100%;
   object-fit: cover; z-index: 0;
   opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
-  transform: translate(-15%, -15%);
 }
 .faq-fallback {
-  position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  display: none; position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
 }
-.faq-mobile {
+.faq-bg-mobile {
+  display: none;
   position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  background-image: url('faq-mobileimage.jpg');
+  background-size: cover;
+  background-position: center;
 }
 @media (max-width: 768px) {
   .faq-video { display: none; }
   .faq-fallback { display: none; }
-  .faq-mobile { display: block; }
+  .faq-bg-mobile { display: block; }
 }
 .faq-overlay {
   position: absolute; inset: 0; z-index: 1;
@@ -939,27 +925,25 @@ nav {
 }
 .final-cta-video {
   position: absolute; inset: 0;
-  width: 140%; height: 140%;
+  width: 100%; height: 100%;
   object-fit: cover; z-index: 0;
   opacity: 0; animation: videoIn 1.2s ease 0.2s forwards;
-  transform: translate(-15%, -15%);
 }
 .final-cta-fallback {
-  position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  display: none; position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
 }
-.final-cta-mobile {
+.final-cta-bg-mobile {
+  display: none;
   position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  background-image: url('finalcta-mobileimage.jpg');
+  background-size: cover;
+  background-position: center;
 }
 @media (max-width: 768px) {
   .final-cta-video { display: none; }
   .final-cta-fallback { display: none; }
-  .final-cta-mobile { display: block; }
+  .final-cta-bg-mobile { display: block; }
 }
 .final-cta-overlay {
   position: absolute; inset: 0; z-index: 1;
@@ -1002,28 +986,26 @@ footer {
 }
 .footer-video {
   position: absolute; inset: 0;
-  width: 140%; height: 140%;
+  width: 100%; height: 100%;
   object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
   opacity: 0;
   animation: videoIn 1.2s ease 0.2s forwards;
 }
 .footer-fallback {
-  position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  display: none; position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
 }
-.footer-mobile {
+.footer-bg-mobile {
+  display: none;
   position: absolute; inset: 0;
-  display: none; width: 140%; height: 140%;
-  object-fit: cover; z-index: 0;
-  transform: translate(-15%, -15%);
+  background-image: url('footer-mobileimage.jpg');
+  background-size: cover;
+  background-position: center;
 }
 @media (max-width: 768px) {
   .footer-video { display: none; }
   .footer-fallback { display: none; }
-  .footer-mobile { display: block; }
+  .footer-bg-mobile { display: block; }
 }
 .footer-overlay {
   position: absolute; inset: 0; z-index: 1;
@@ -1245,8 +1227,8 @@ footer {
     <video class="problem-video" autoplay muted loop playsinline preload="none">
       <source src="problem-desktopvideo.mp4" type="video/mp4">
     </video>
-    <img src="problem-desktopimage.jpg" alt="" class="problem-fallback-img" loading="lazy">
-    <img src="problem-mobile.jpg" alt="" class="problem-mobile-img" loading="lazy">
+    <img src="problem-desktopimage.jpg" alt="" class="problem-bg-fallback" loading="lazy">
+    <div class="problem-bg-mobile"></div>
     <div class="problem-bg-overlay"></div>
   </div>
   <div class="container">
@@ -1283,11 +1265,11 @@ footer {
 </section>
 
 <section class="book-intro">
-  <video class="book-intro-video" autoplay muted loop playsinline preload="metadata">
+  <video class="book-intro-video" autoplay muted loop playsinline preload="none">
     <source src="book-desktopvideo.mp4" type="video/mp4">
   </video>
   <img src="book-desktopimage.jpg" alt="" class="book-intro-fallback" loading="lazy">
-  <img src="book-mobileimage.jpg" alt="" class="book-intro-mobile" loading="lazy">
+  <div class="book-intro-bg-mobile"></div>
   <div class="book-intro-overlay"></div>
   <div class="book-intro-inner container">
     <img src="logogatosebook.png" alt="Portada del libro" class="book-cover" loading="lazy">
@@ -1306,11 +1288,11 @@ footer {
 </section>
 
 <section class="chapters">
-  <video class="chapters-video" autoplay muted loop playsinline preload="metadata">
+  <video class="chapters-video" autoplay muted loop playsinline preload="none">
     <source src="chapters-desktopvideo.mp4" type="video/mp4">
   </video>
   <img src="chapters-desktopimage.jpg" alt="" class="chapters-fallback" loading="lazy">
-  <img src="chapters-mobileimage.jpg" alt="" class="chapters-mobile" loading="lazy">
+  <div class="chapters-bg-mobile"></div>
   <div class="chapters-overlay"></div>
   <div class="container">
     <div class="section-header fade-up">
@@ -1330,11 +1312,11 @@ footer {
 </section>
 
 <section class="bonuses">
-  <video class="bonuses-video" autoplay muted loop playsinline preload="metadata">
+  <video class="bonuses-video" autoplay muted loop playsinline preload="none">
     <source src="bonuses-desktopvideo.mp4" type="video/mp4">
   </video>
   <img src="bonuses-desktopimage.jpg" alt="" class="bonuses-fallback" loading="lazy">
-  <img src="bonuses-mobileimage.jpg" alt="" class="bonuses-mobile" loading="lazy">
+  <div class="bonuses-bg-mobile"></div>
   <div class="bonuses-overlay"></div>
   <div class="container">
     <div class="bonuses-header fade-up">
@@ -1357,11 +1339,11 @@ footer {
 </section>
 
 <section class="testimonials">
-  <video class="testimonials-video" autoplay muted loop playsinline preload="metadata">
+  <video class="testimonials-video" autoplay muted loop playsinline preload="none">
     <source src="testimonials-desktopvideo.mp4" type="video/mp4">
   </video>
   <img src="testimonials-desktopimage.jpg" alt="" class="testimonials-fallback" loading="lazy">
-  <img src="testimonials-mobileimage.jpg" alt="" class="testimonials-mobile" loading="lazy">
+  <div class="testimonials-bg-mobile"></div>
   <div class="testimonials-overlay"></div>
   <div class="container">
     <div class="section-header fade-up">
@@ -1411,11 +1393,11 @@ footer {
 </section>
 
 <section class="pricing" id="comprar">
-  <video class="pricing-video" autoplay muted loop playsinline preload="metadata">
+  <video class="pricing-video" autoplay muted loop playsinline preload="none">
     <source src="pricing-desktopvideo.mp4" type="video/mp4">
   </video>
   <img src="pricing-desktopimage.jpg" alt="" class="pricing-fallback" loading="lazy">
-  <img src="pricing-mobileimage.jpg" alt="" class="pricing-mobile" loading="lazy">
+  <div class="pricing-bg-mobile"></div>
   <div class="pricing-overlay"></div>
   <div class="container--narrow">
     <div class="section-header fade-up">
@@ -1464,11 +1446,11 @@ footer {
 </section>
 
 <section class="faq">
-  <video class="faq-video" autoplay muted loop playsinline preload="metadata">
+  <video class="faq-video" autoplay muted loop playsinline preload="none">
     <source src="faq-desktopvideo.mp4" type="video/mp4">
   </video>
   <img src="faq-desktopimage.jpg" alt="" class="faq-fallback" loading="lazy">
-  <img src="faq-mobileimage.jpg" alt="" class="faq-mobile" loading="lazy">
+  <div class="faq-bg-mobile"></div>
   <div class="faq-overlay"></div>
   <div class="container--narrow">
     <div class="section-header fade-up">
@@ -1488,11 +1470,11 @@ footer {
 </section>
 
 <section class="final-cta">
-  <video class="final-cta-video" autoplay muted loop playsinline preload="metadata">
+  <video class="final-cta-video" autoplay muted loop playsinline preload="none">
     <source src="finalcta-desktopvideo.mp4" type="video/mp4">
   </video>
   <img src="finalcta-desktopimage.jpg" alt="" class="final-cta-fallback" loading="lazy">
-  <img src="finalcta-mobileimage.jpg" alt="" class="final-cta-mobile" loading="lazy">
+  <div class="final-cta-bg-mobile"></div>
   <div class="final-cta-overlay"></div>
   <div class="final-cta-wrap">
     <h2>Tu gato lleva tiempo</h2>
@@ -1511,11 +1493,11 @@ footer {
 </section>
 
 <footer>
-  <video class="footer-video" autoplay muted loop playsinline preload="metadata">
+  <video class="footer-video" autoplay muted loop playsinline preload="none">
     <source src="footer-desktopvideo.mp4" type="video/mp4">
   </video>
   <img src="footer-desktopimage.jpg" alt="" class="footer-fallback" loading="lazy">
-  <img src="footer-mobileimage.jpg" alt="" class="footer-mobile" loading="lazy">
+  <div class="footer-bg-mobile"></div>
   <div class="footer-overlay"></div>
   <div class="footer-inner">
     <div class="footer-logo">PET<span>NOVA</span></div>
