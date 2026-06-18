@@ -1179,12 +1179,13 @@ footer {
 }
 </style>
 </head>
-<body style="overflow:hidden;">
+<body>
 
 <div id="intro-screen">
   <div id="intro-glow-intro"></div>
   <img src="logo-intro.jpg" alt="PETNOVA" id="intro-logo-img">
 </div>
+<noscript><style>#intro-screen{display:none!important;}#page{opacity:1!important;}</style></noscript>
 
 <canvas id="particle-canvas"></canvas>
 
@@ -1515,15 +1516,24 @@ footer {
 <script>
 /* ══ INTRO SCREEN ══ */
 (function() {
-  var intro = document.getElementById('intro-screen');
-  var page = document.getElementById('page');
-  if (!intro) { if (page) { page.style.opacity = '1'; document.body.style.overflow = 'auto'; } return; }
+  var intro  = document.getElementById('intro-screen');
+  var page   = document.getElementById('page');
+  if (!intro) { if (page) page.style.opacity = '1'; return; }
+
+  /* Safety: force intro close after 4s even if JS lags */
+  setTimeout(function() {
+    if (intro && !intro.classList.contains('exit')) {
+      intro.classList.add('exit');
+      page.style.opacity = '1';
+      setTimeout(function() { if (intro.parentNode) intro.parentNode.removeChild(intro); }, 800);
+    }
+  }, 4000);
+
   setTimeout(function() {
     intro.classList.add('exit');
     setTimeout(function() {
-      intro.parentNode.removeChild(intro);
       page.style.opacity = '1';
-      document.body.style.overflow = 'auto';
+      if (intro.parentNode) intro.parentNode.removeChild(intro);
     }, 800);
   }, 2000);
 })();
@@ -1782,3 +1792,4 @@ if (DeviceTier === 'C') {
 })();
 </script>
 </body>
+</html>
