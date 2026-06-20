@@ -17,6 +17,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="hero-mobile.webp" type="image/webp">
+<link rel="preload" as="image" href="logo-intro.webp" type="image/webp">
+<link rel="preload" as="video" href="hero-video.mp4" type="video/mp4">
 <link rel="icon" href="logo.jpg" type="image/x-icon">
 
 <style>
@@ -188,7 +191,7 @@ nav {
 .hero-bg-photo {
   display: none;
   position: absolute; inset: 0;
-  background-image: url('hero-mobile.jpg');
+  background-image: url('hero-mobile.webp');
   background-size: cover;
   background-position: center 40%;
   z-index: 0;
@@ -344,7 +347,7 @@ nav {
 .problem-bg-mobile {
   display: none;
   position: absolute; inset: 0;
-  background-image: url('problem-mobile.jpg');
+  background-image: url('problem-mobile.webp');
   background-size: cover;
   background-position: center;
 }
@@ -434,7 +437,7 @@ nav {
 .book-intro-bg-mobile {
   display: none;
   position: absolute; inset: 0;
-  background-image: url('book-mobileimage.jpg');
+  background-image: url('book-mobileimage.webp');
   background-size: cover;
   background-position: center;
 }
@@ -511,7 +514,7 @@ nav {
 .chapters-bg-mobile {
   display: none;
   position: absolute; inset: 0;
-  background-image: url('chapters-mobileimage.jpg');
+  background-image: url('chapters-mobileimage.webp');
   background-size: cover;
   background-position: center;
 }
@@ -575,7 +578,7 @@ nav {
 .bonuses-bg-mobile {
   display: none;
   position: absolute; inset: 0;
-  background-image: url('bonuses-mobileimage.jpg');
+  background-image: url('bonuses-mobileimage.webp');
   background-size: cover;
   background-position: center;
 }
@@ -668,7 +671,7 @@ nav {
 .testimonials-bg-mobile {
   display: none;
   position: absolute; inset: 0;
-  background-image: url('testimonials-mobileimage.jpg');
+  background-image: url('testimonials-mobileimage.webp');
   background-size: cover;
   background-position: center;
 }
@@ -732,7 +735,7 @@ nav {
 .pricing-bg-mobile {
   display: none;
   position: absolute; inset: 0;
-  background-image: url('pricing-mobileimage.jpg');
+  background-image: url('pricing-mobileimage.webp');
   background-size: cover;
   background-position: center;
 }
@@ -857,7 +860,7 @@ nav {
 .faq-bg-mobile {
   display: none;
   position: absolute; inset: 0;
-  background-image: url('faq-mobileimage.jpg');
+  background-image: url('faq-mobileimage.webp');
   background-size: cover;
   background-position: center;
 }
@@ -932,7 +935,7 @@ nav {
 .final-cta-bg-mobile {
   display: none;
   position: absolute; inset: 0;
-  background-image: url('finalcta-mobileimage.jpg');
+  background-image: url('finalcta-mobileimage.webp');
   background-size: cover;
   background-position: center;
 }
@@ -994,7 +997,7 @@ footer {
 .footer-bg-mobile {
   display: none;
   position: absolute; inset: 0;
-  background-image: url('footer-mobileimage.jpg');
+  background-image: url('footer-mobileimage.webp');
   background-size: cover;
   background-position: center;
 }
@@ -1183,7 +1186,7 @@ footer {
 
 <div id="intro-screen">
   <div id="intro-glow-intro"></div>
-  <img src="logo-intro.jpg" alt="PETNOVA" id="intro-logo-img">
+  <img src="logo-intro.webp" alt="PETNOVA" id="intro-logo-img">
 </div>
 <noscript><style>#intro-screen{display:none!important;}#page{opacity:1!important;}</style></noscript>
 
@@ -1225,7 +1228,7 @@ footer {
     <video class="problem-video" autoplay muted loop playsinline preload="none">
       <source src="problem-desktopvideo.mp4" type="video/mp4">
     </video>
-    <img src="problem-desktopimage.jpg" alt="" class="problem-bg-fallback" loading="lazy">
+    <img src="problem-desktopimage.webp" alt="" class="problem-bg-fallback" loading="lazy">
     <div class="problem-bg-mobile"></div>
     <div class="problem-bg-overlay"></div>
   </div>
@@ -1266,11 +1269,11 @@ footer {
   <video class="book-intro-video" autoplay muted loop playsinline preload="none">
     <source src="book-desktopvideo.mp4" type="video/mp4">
   </video>
-  <img src="book-desktopimage.jpg" alt="" class="book-intro-fallback" loading="lazy">
+  <img src="book-desktopimage.webp" alt="" class="book-intro-fallback" loading="lazy">
   <div class="book-intro-bg-mobile"></div>
   <div class="book-intro-overlay"></div>
   <div class="book-intro-inner container">
-    <img src="logogatosebook.png" alt="Portada del libro" class="book-cover" loading="lazy">
+    <img src="logogatosebook.webp" alt="Portada del libro" class="book-cover" loading="lazy">
     <div>
       <div class="section-label">El libro</div>
       <h2>No es un libro de adiestramiento.<br><em>Es un cambio de mentalidad.</em></h2>
@@ -1289,7 +1292,7 @@ footer {
   <video class="chapters-video" autoplay muted loop playsinline preload="none">
     <source src="chapters-desktopvideo.mp4" type="video/mp4">
   </video>
-  <img src="chapters-desktopimage.jpg" alt="" class="chapters-fallback" loading="lazy">
+  <img src="chapters-desktopimage.webp" alt="" class="chapters-fallback" loading="lazy">
   <div class="chapters-bg-mobile"></div>
   <div class="chapters-overlay"></div>
   <div class="container">
@@ -1313,7 +1316,7 @@ footer {
   <video class="bonuses-video" autoplay muted loop playsinline preload="none">
     <source src="bonuses-desktopvideo.mp4" type="video/mp4">
   </video>
-  <img src="bonuses-desktopimage.jpg" alt="" class="bonuses-fallback" loading="lazy">
+  <img src="bonuses-desktopimage.webp" alt="" class="bonuses-fallback" loading="lazy">
   <div class="bonuses-bg-mobile"></div>
   <div class="bonuses-overlay"></div>
   <div class="container">
@@ -1340,7 +1343,7 @@ footer {
   <video class="testimonials-video" autoplay muted loop playsinline preload="none">
     <source src="testimonials-desktopvideo.mp4" type="video/mp4">
   </video>
-  <img src="testimonials-desktopimage.jpg" alt="" class="testimonials-fallback" loading="lazy">
+  <img src="testimonials-desktopimage.webp" alt="" class="testimonials-fallback" loading="lazy">
   <div class="testimonials-bg-mobile"></div>
   <div class="testimonials-overlay"></div>
   <div class="container">
@@ -1351,38 +1354,38 @@ footer {
     </div>
     <div class="testi-grid">
       <div class="testi-card fade-up">
-        <div class="testi-header"><img src="avatar1.jpg" alt="Mariana" class="testi-avatar" loading="lazy"><div><div class="testi-name">Mariana A.</div><div class="testi-location">Valencia, España</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-        <div class="testi-post"><img src="post1.jpg" alt="Testimonio Mariana" loading="lazy"></div>
+        <div class="testi-header"><img src="avatar1.webp" alt="Mariana" class="testi-avatar" loading="lazy"><div><div class="testi-name">Mariana A.</div><div class="testi-location">Valencia, España</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+        <div class="testi-post"><img src="post1.webp" alt="Testimonio Mariana" loading="lazy"></div>
         <div class="testi-text">Mi gata orinaba en mi cama. Resultó que la arena perfumada era el problema. <strong>Volví a la arena sin olor y los accidentes cesaron inmediatamente.</strong></div>
         <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim);letter-spacing:.04em;"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color:var(--teal);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Compra verificada</div>
       </div>
       <div class="testi-card fade-up">
-        <div class="testi-header"><img src="avatar2.jpg" alt="Ana" class="testi-avatar" loading="lazy"><div><div class="testi-name">Ana N.</div><div class="testi-location">Barcelona, España</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-        <div class="testi-post"><img src="post2.jpg" alt="Testimonio Ana" loading="lazy"></div>
+        <div class="testi-header"><img src="avatar2.webp" alt="Ana" class="testi-avatar" loading="lazy"><div><div class="testi-name">Ana N.</div><div class="testi-location">Barcelona, España</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+        <div class="testi-post"><img src="post2.webp" alt="Testimonio Ana" loading="lazy"></div>
         <div class="testi-text">Mi gato se obsesionaba con el puntero láser. El libro me enseñó a terminar el juego con una captura física. <strong>Ahora se relaja y duerme después de jugar.</strong></div>
         <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim);letter-spacing:.04em;"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color:var(--teal);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Compra verificada</div>
       </div>
       <div class="testi-card fade-up">
-        <div class="testi-header"><img src="avatar3.jpg" alt="Javier" class="testi-avatar" loading="lazy"><div><div class="testi-name">Javier L.</div><div class="testi-location">Bogotá, Colombia</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-        <div class="testi-post"><img src="post3.jpg" alt="Testimonio Javier" loading="lazy"></div>
+        <div class="testi-header"><img src="avatar3.webp" alt="Javier" class="testi-avatar" loading="lazy"><div><div class="testi-name">Javier L.</div><div class="testi-location">Bogotá, Colombia</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+        <div class="testi-post"><img src="post3.webp" alt="Testimonio Javier" loading="lazy"></div>
         <div class="testi-text">Mis dos gatos no paraban de pelearse. Instalé estantes altos y un árbol junto a la ventana. <strong>Ahora cada uno tiene su espacio y las peleas terminaron.</strong></div>
         <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim);letter-spacing:.04em;"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color:var(--teal);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Compra verificada</div>
       </div>
       <div class="testi-card fade-up">
-        <div class="testi-header"><img src="avatar4.jpg" alt="Laura" class="testi-avatar" loading="lazy"><div><div class="testi-name">Laura F.</div><div class="testi-location">Lima, Perú</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-        <div class="testi-post"><img src="post4.jpg" alt="Testimonio Laura" loading="lazy"></div>
+        <div class="testi-header"><img src="avatar4.webp" alt="Laura" class="testi-avatar" loading="lazy"><div><div class="testi-name">Laura F.</div><div class="testi-location">Lima, Perú</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+        <div class="testi-post"><img src="post4.webp" alt="Testimonio Laura" loading="lazy"></div>
         <div class="testi-text">Cambiaba todo a la vez y mi gato se estresaba más. Aprendí a introducir un solo cambio por semana. <strong>Funciona.</strong></div>
         <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim);letter-spacing:.04em;"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color:var(--teal);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Compra verificada</div>
       </div>
       <div class="testi-card fade-up">
-        <div class="testi-header"><img src="avatar5.jpg" alt="Carlos" class="testi-avatar" loading="lazy"><div><div class="testi-name">Carlos P.</div><div class="testi-location">Buenos Aires, Argentina</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-        <div class="testi-post"><img src="post5.jpg" alt="Testimonio Carlos" loading="lazy"></div>
+        <div class="testi-header"><img src="avatar5.webp" alt="Carlos" class="testi-avatar" loading="lazy"><div><div class="testi-name">Carlos P.</div><div class="testi-location">Buenos Aires, Argentina</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+        <div class="testi-post"><img src="post5.webp" alt="Testimonio Carlos" loading="lazy"></div>
         <div class="testi-text">Esperaba que mi gato fuera obediente como un perro y me frustraba. Ahora entiendo su lenguaje. <strong>Confía más en mí.</strong></div>
         <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim);letter-spacing:.04em;"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color:var(--teal);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Compra verificada</div>
       </div>
       <div class="testi-card fade-up">
-        <div class="testi-header"><img src="avatar6.jpg" alt="Danna" class="testi-avatar" loading="lazy"><div><div class="testi-name">Danna B.</div><div class="testi-location">Santiago, Chile</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-        <div class="testi-post"><img src="post6.jpg" alt="Testimonio Danna" loading="lazy"></div>
+        <div class="testi-header"><img src="avatar6.webp" alt="Danna" class="testi-avatar" loading="lazy"><div><div class="testi-name">Danna B.</div><div class="testi-location">Santiago, Chile</div></div><div class="testi-ig" style="font-size:10px;letter-spacing:.08em;color:#c9a84c;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+        <div class="testi-post"><img src="post6.webp" alt="Testimonio Danna" loading="lazy"></div>
         <div class="testi-text">Aprendí a respetar sus momentos. <strong>Ahora él se acerca primero y confía plenamente.</strong></div>
         <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-dim);letter-spacing:.04em;"><svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="color:var(--teal);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Compra verificada</div>
       </div>
@@ -1394,7 +1397,7 @@ footer {
   <video class="pricing-video" autoplay muted loop playsinline preload="none">
     <source src="pricing-desktopvideo.mp4" type="video/mp4">
   </video>
-  <img src="pricing-desktopimage.jpg" alt="" class="pricing-fallback" loading="lazy">
+  <img src="pricing-desktopimage.webp" alt="" class="pricing-fallback" loading="lazy">
   <div class="pricing-bg-mobile"></div>
   <div class="pricing-overlay"></div>
   <div class="container--narrow">
@@ -1447,7 +1450,7 @@ footer {
   <video class="faq-video" autoplay muted loop playsinline preload="none">
     <source src="faq-desktopvideo.mp4" type="video/mp4">
   </video>
-  <img src="faq-desktopimage.jpg" alt="" class="faq-fallback" loading="lazy">
+  <img src="faq-desktopimage.webp" alt="" class="faq-fallback" loading="lazy">
   <div class="faq-bg-mobile"></div>
   <div class="faq-overlay"></div>
   <div class="container--narrow">
@@ -1471,7 +1474,7 @@ footer {
   <video class="final-cta-video" autoplay muted loop playsinline preload="none">
     <source src="finalcta-desktopvideo.mp4" type="video/mp4">
   </video>
-  <img src="finalcta-desktopimage.jpg" alt="" class="final-cta-fallback" loading="lazy">
+  <img src="finalcta-desktopimage.webp" alt="" class="final-cta-fallback" loading="lazy">
   <div class="final-cta-bg-mobile"></div>
   <div class="final-cta-overlay"></div>
   <div class="final-cta-wrap">
@@ -1494,7 +1497,7 @@ footer {
   <video class="footer-video" autoplay muted loop playsinline preload="none">
     <source src="footer-desktopvideo.mp4" type="video/mp4">
   </video>
-  <img src="footer-desktopimage.jpg" alt="" class="footer-fallback" loading="lazy">
+  <img src="footer-desktopimage.webp" alt="" class="footer-fallback" loading="lazy">
   <div class="footer-bg-mobile"></div>
   <div class="footer-overlay"></div>
   <div class="footer-inner">
