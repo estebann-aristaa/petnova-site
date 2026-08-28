@@ -2190,7 +2190,7 @@
     <!-- Header & Floating Navbar -->
     <header class="hero-header">
       <div class="top-meta-info">
-        <a href="mailto:equipo@petnovagatos.com" class="meta-link">
+        <a href="#" class="meta-link js-protected-mail">
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
@@ -2738,7 +2738,7 @@
             <strong>Instant Access:</strong> 24/7 Digital PDF Download
           </div>
           <div class="contact-item">
-            <strong>Support Mail:</strong> <a href="mailto:equipo@petnovagatos.com" class="contact-mail-link">equipo@petnovagatos.com</a>
+            <strong>Support Mail:</strong> <a href="#" class="contact-mail-link js-protected-mail">Support Email</a>
           </div>
           <div class="contact-item">
             <strong>Hours:</strong> Mon - Fri: 7:00 AM – 4:00 PM EST
@@ -3209,6 +3209,88 @@
         closeLegalModal();
       }
     });
+  </script>
+  <!-- =========================================
+       PETNOVA SECURITY GUARD & ANTI-CLONING
+       ========================================= -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* 1. VERIFICACIÓN DE DOMINIO (DOMAIN LOCK) */
+      const ALLOWED_HOSTS = [
+        'petnovagatos.com',
+        'www.petnovagatos.com',
+        'localhost',
+        '127.0.0.1'
+      ];
+
+      const currentHost = window.location.hostname.toLowerCase();
+      // Permite tu dominio oficial, localhost y tus enlaces de prueba en Vercel (.vercel.app)
+      const isHostValid = ALLOWED_HOSTS.some(allowed => currentHost === allowed || currentHost.endsWith('.' + allowed)) || currentHost.endsWith('.vercel.app');
+
+      if (!isHostValid && window.location.protocol !== 'file:') {
+        document.documentElement.innerHTML = `
+          <div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#461405;color:#fff;font-family:sans-serif;text-align:center;padding:20px;">
+            <div>
+              <h1 style="font-size:26px;margin-bottom:12px;">Protected Content</h1>
+              <p style="font-size:15px;margin-bottom:20px;opacity:0.85;">This store is protected by Petnova™. Redirecting to the official store...</p>
+              <a href="https://petnovagatos.com" style="background:#fff;color:#461405;padding:12px 24px;border-radius:99px;text-decoration:none;font-weight:bold;">Go to Official Petnova</a>
+            </div>
+          </div>
+        `;
+        setTimeout(() => {
+          window.location.replace('https://petnovagatos.com');
+        }, 2000);
+        return;
+      }
+
+      /* 2. PROTECCIÓN VISUAL Y DESACTIVACIÓN DE COPIA RÁPIDA */
+      // Bloquea arrastrar imágenes fuera de la web
+      document.addEventListener('dragstart', function (e) {
+        if (e.target.nodeName === 'IMG' || e.target.nodeName === 'A') {
+          e.preventDefault();
+        }
+      }, false);
+
+      // Bloquea clic derecho sobre imágenes o secciones principales
+      document.addEventListener('contextmenu', function (e) {
+        if (e.target.nodeName === 'IMG' || e.target.closest('.hero-viewport') || e.target.closest('.feature-card')) {
+          e.preventDefault();
+        }
+      }, false);
+
+      // Intercepta atajos de teclado de descarga e inspección (F12, Ctrl+U, Ctrl+S)
+      window.addEventListener('keydown', function (e) {
+        const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+        const ctrlOrCmd = isMac ? e.metaKey : e.ctrlKey;
+
+        if (
+          e.key === 'F12' ||
+          (ctrlOrCmd && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S')) ||
+          (ctrlOrCmd && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key))
+        ) {
+          if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+            e.preventDefault();
+          }
+        }
+      });
+
+      /* 3. PROTECCIÓN DE EMAIL CONTRA BOTS DE SPAM */
+      window.addEventListener('DOMContentLoaded', function () {
+        const mail = 'equipo' + '@' + 'petnovagatos.com';
+        document.querySelectorAll('.js-protected-mail').forEach(el => {
+          if (el.tagName === 'A') {
+            el.setAttribute('href', 'mailto:' + mail);
+            if (!el.textContent.trim() || el.textContent.includes('@')) {
+              el.textContent = mail;
+            }
+          } else {
+            el.textContent = mail;
+          }
+        });
+      });
+    })();
   </script>
 </body>
 </html>
