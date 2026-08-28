@@ -87,8 +87,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
 
   <!-- =========================================
-       5. GUMROAD NATIVE SCRIPT
+       5. GUMROAD OFICIAL (ESTILOS + SCRIPT OVERLAY)
        ========================================= -->
+  <link rel="stylesheet" href="https://gumroad.com/js/gumroad.css" type="text/css" />
   <script src="https://gumroad.com/js/gumroad.js"></script>
 
   <style>
@@ -159,6 +160,40 @@
     button, a {
       touch-action: manipulation;
       font-family: inherit;
+    }
+
+    /* =========================================
+       ESTILO BASE NATIVO PARA EL BOTÓN GUMROAD
+       (Evita que aparezca como link azul sin estilos)
+       ========================================= */
+    .gumroad-button, 
+    a.gumroad-button {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 10px !important;
+      background-color: #e5e5e5 !important;
+      color: #111111 !important;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-size: 13.5px !important;
+      font-weight: 700 !important;
+      text-decoration: none !important;
+      padding: 10px 22px !important;
+      border-radius: 8px !important;
+      border: 1px solid #cccccc !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+      cursor: pointer !important;
+      white-space: nowrap !important;
+      transition: all 0.2s ease !important;
+      min-height: 40px !important;
+    }
+
+    .gumroad-button:hover, 
+    a.gumroad-button:hover {
+      background-color: #dcdcdc !important;
+      color: #000000 !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
     }
 
     /* =========================================
