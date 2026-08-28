@@ -2944,22 +2944,20 @@
        CONFIGURACIÓN DE ENLACE DE COMPRA (CENTRALIZADA)
        Cuando termines tus eBooks, solo pega tu enlace aquí:
        ========================================================= */
-    const CHECKOUT_URL = "#"; // Reemplaza "#" por tu URL de Gumroad/Hotmart cuando esté lista
+    const CHECKOUT_URL = "https://petnova.gumroad.com/l/stop-scratching";
 
-    function handleCheckoutClick(event, placement) {
-      if (CHECKOUT_URL === "#" || !CHECKOUT_URL) {
-        event.preventDefault();
-        // Si aún está en blanco, hace scroll suave a la sección del sistema explicativo
-        const target = document.getElementById('system');
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-        console.log(`[Petnova CTA] Clicked from: ${placement}. Checkout URL is currently set to placeholder.`);
-      } else {
-        // Redirige normalmente al link de pago
-        window.location.href = CHECKOUT_URL;
-      }
+function handleCheckoutClick(event, placement) {
+  if (CHECKOUT_URL === "#" || !CHECKOUT_URL) {
+    event.preventDefault();
+    const target = document.getElementById('system');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
     }
+  } else {
+    // Abrir en una pestaña nueva:
+    window.open(CHECKOUT_URL, '_blank');
+  }
+}
 
     function handleSubscribe(e) {
       e.preventDefault();
