@@ -227,6 +227,7 @@
     .meta-link svg {
       width: 14px;
       height: 14px;
+      flex-shrink: 0;
     }
 
     .navbar-pill {
@@ -2190,10 +2191,11 @@
     <!-- Header & Floating Navbar -->
     <header class="hero-header">
       <div class="top-meta-info">
-        <a href="#" class="meta-link js-protected-mail">
+        <a href="#" class="meta-link js-protected-mail" aria-label="Support Email">
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
+          <span class="mail-text">Support Email</span>
         </a>
         <div class="meta-link">
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -2378,7 +2380,7 @@
   </section>
 
   <!-- =========================================
-       SECCIÓN 3: CURRICULUM / INSIDE THE GUIDE
+       SECCIÓN 3: CURRICULUM & MODULES LIST
        ========================================= -->
   <section class="curriculum-section" id="curriculum">
     <div class="curriculum-container">
@@ -2892,7 +2894,7 @@
 
           <h3>4. Contact Support</h3>
           <p>
-            If you have questions regarding these terms, contact our support team at <a href="mailto:equipo@petnovagatos.com" style="color:#7b2917; font-weight:700;">equipo@petnovagatos.com</a> (Mon–Fri, 7:00 AM – 4:00 PM EST).
+            If you have questions regarding these terms, contact our support team at <a href="#" class="js-protected-mail" style="color:#7b2917; font-weight:700;">Support Team</a> (Mon–Fri, 7:00 AM – 4:00 PM EST).
           </p>
         </div>
 
@@ -2910,7 +2912,7 @@
           <ul>
             <li><strong>Email Newsletter Subscription:</strong> Your email address when voluntarily subscribing.</li>
             <li><strong>Digital Product Purchases:</strong> Your name and email provided at checkout.</li>
-            <li><strong>Customer Support Inquiries:</strong> Correspondence sent to <a href="mailto:equipo@petnovagatos.com" style="color:#7b2917; font-weight:700;">equipo@petnovagatos.com</a>.</li>
+            <li><strong>Customer Support Inquiries:</strong> Correspondence sent to <a href="#" class="js-protected-mail" style="color:#7b2917; font-weight:700;">Support Email</a>.</li>
           </ul>
 
           <h3>2. Zero Spam Policy (CAN-SPAM Compliance)</h3>
@@ -3209,6 +3211,7 @@
       }
     });
   </script>
+
   <!-- =========================================
        PETNOVA SECURITY GUARD & ANTI-CLONING
        ========================================= -->
@@ -3275,13 +3278,19 @@
         }
       });
 
-      /* 3. PROTECCIÓN DE EMAIL CONTRA BOTS DE SPAM */
+      /* 3. PROTECCIÓN DE EMAIL CONTRA BOTS DE SPAM (AUTO-HYDRATION) */
       window.addEventListener('DOMContentLoaded', function () {
-        const mail = 'equipo' + '@' + 'petnovagatos.com';
+        const user = 'equipo';
+        const domain = 'petnovagatos.com';
+        const mail = user + '@' + domain;
+
         document.querySelectorAll('.js-protected-mail').forEach(el => {
           if (el.tagName === 'A') {
             el.setAttribute('href', 'mailto:' + mail);
-            if (!el.textContent.trim() || el.textContent.includes('@')) {
+            const textSpan = el.querySelector('.mail-text');
+            if (textSpan) {
+              textSpan.textContent = mail;
+            } else if (!el.querySelector('svg')) {
               el.textContent = mail;
             }
           } else {
