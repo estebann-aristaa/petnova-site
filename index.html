@@ -86,6 +86,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
 
+  <!-- =========================================
+       5. GUMROAD NATIVE SCRIPT
+       ========================================= -->
+  <script src="https://gumroad.com/js/gumroad.js"></script>
+
   <style>
     /* =========================================
        RESET & BASE SETUP (ZERO-LEAK OVERFLOW)
@@ -314,29 +319,6 @@
       flex-shrink: 0;
     }
 
-    .nav-cta-action {
-      background: var(--primary-dark);
-      color: #ffffff;
-      text-decoration: none;
-      padding: 12px 26px;
-      border-radius: var(--radius-pill);
-      font-size: 13.5px;
-      font-weight: 800;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-height: 44px;
-      box-shadow: 0 4px 14px rgba(107, 31, 19, 0.25);
-    }
-
-    .nav-cta-action:hover {
-      background: #872818;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(107, 31, 19, 0.4);
-    }
-
     .hero-left-content {
       position: absolute;
       top: 22%;
@@ -416,89 +398,11 @@
       flex-shrink: 0;
     }
 
-    /* CRO Circular Hero CTA */
-    .hero-circle-btn-wrapper {
+    .hero-btn-zone {
       position: absolute;
       bottom: 40px;
       left: 64px;
       z-index: 25;
-    }
-
-    .hero-circle-pulse-ring {
-      position: absolute;
-      inset: -8px;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.75);
-      animation: heroPulseAnimation 2.4s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-      pointer-events: none;
-    }
-
-    @keyframes heroPulseAnimation {
-      0% { transform: scale(0.92); opacity: 0.9; }
-      50% { transform: scale(1.1); opacity: 0.35; }
-      100% { transform: scale(1.22); opacity: 0; }
-    }
-
-    .hero-circle-btn {
-      position: relative;
-      width: 168px;
-      height: 168px;
-      border-radius: 50%;
-      background: #ffffff;
-      color: #1a1a1a;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      text-decoration: none;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-      transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease;
-      cursor: pointer;
-      padding: 16px;
-      border: 3px solid rgba(255, 255, 255, 0.95);
-    }
-
-    .hero-circle-btn:hover {
-      transform: scale(1.05) rotate(-2deg);
-      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
-    }
-
-    .circle-btn-pill-tag {
-      font-size: 9.5px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      background-color: var(--primary-light);
-      color: var(--primary);
-      padding: 3px 10px;
-      border-radius: var(--radius-pill);
-      margin-bottom: 5px;
-      border: 1px solid #f0c8bd;
-    }
-
-    .circle-btn-headline {
-      font-size: 13.5px;
-      font-weight: 800;
-      line-height: 1.18;
-      color: #141414;
-      letter-spacing: -0.02em;
-    }
-
-    .circle-btn-price-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      margin-top: 5px;
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--primary);
-    }
-
-    .circle-btn-price-badge svg {
-      width: 12px;
-      height: 12px;
-      stroke-width: 2.5;
     }
 
     .hero-giant-typography {
@@ -691,10 +595,6 @@
       transform: scale(1.08);
     }
 
-    .system-card:hover .card-arrow-btn svg {
-      transform: translateX(3px);
-    }
-
     /* =========================================
        SECCIÓN 3: CURRICULUM & MODULES LIST
        ========================================= */
@@ -837,7 +737,6 @@
       line-height: 1.15;
       letter-spacing: -0.03em;
       color: #141414;
-      transition: color 0.2s ease;
     }
 
     .module-desc {
@@ -857,30 +756,8 @@
       font-weight: 700;
       border: none;
       white-space: nowrap;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      flex-shrink: 0;
       min-height: 40px;
-    }
-
-    .module-row.active .module-heading {
-      color: #7b2917;
-    }
-
-    .module-row.active .module-action-btn {
-      background-color: #6e2114;
-      color: #ffffff;
-      box-shadow: 0 4px 14px rgba(110, 33, 20, 0.24);
-    }
-
-    .module-row:hover .module-action-btn {
-      background-color: #6e2114;
-      color: #ffffff;
-      transform: translateX(3px);
     }
 
     /* =========================================
@@ -911,12 +788,6 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 24px;
-      transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.22);
     }
 
     .feature-card-bg {
@@ -927,11 +798,6 @@
       object-fit: cover;
       object-position: center center;
       z-index: 1;
-      transition: transform 0.6s ease;
-    }
-
-    .feature-card:hover .feature-card-bg {
-      transform: scale(1.03);
     }
 
     .card-watermark-num {
@@ -978,7 +844,6 @@
       color: #ffffff;
       font-size: 11.5px;
       font-weight: 700;
-      letter-spacing: 0.01em;
       width: fit-content;
     }
 
@@ -1000,36 +865,8 @@
       line-height: 1.18;
       letter-spacing: -0.03em;
       color: #ffffff;
-      max-width: 74%;
+      max-width: 60%;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .glass-action-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-      white-space: nowrap;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-      opacity: 0.95;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .glass-action-link:hover {
-      opacity: 1;
-      transform: translateX(3px);
-      background: rgba(255, 255, 255, 0.25);
-    }
-
-    .glass-action-link svg {
-      width: 14px;
-      height: 14px;
     }
 
     /* =========================================
@@ -1081,12 +918,6 @@
       justify-content: space-between;
       gap: 20px;
       box-shadow: 0 10px 25px rgba(110, 33, 20, 0.04);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-4px);
-      border-color: #b8624d;
     }
 
     .testi-header {
@@ -1345,11 +1176,6 @@
       padding: 8px;
       min-width: 40px;
       min-height: 40px;
-      transition: color 0.2s;
-    }
-
-    .subscribe-icon-btn:hover {
-      color: #ffffff;
     }
 
     .subscribe-desc {
@@ -1373,7 +1199,6 @@
       font-size: 12px;
       font-weight: 700;
       text-decoration: none;
-      transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -1383,11 +1208,6 @@
     .social-pill.active {
       background-color: #ffffff;
       color: #1a1a1a;
-    }
-
-    .social-pill.active:hover {
-      background-color: #f1eae5;
-      transform: translateY(-2px);
     }
 
     .contact-item {
@@ -1406,12 +1226,7 @@
       text-decoration: none;
       font-weight: 700;
       border-bottom: 1px dotted rgba(255, 255, 255, 0.4);
-      transition: border-color 0.2s ease;
       padding: 2px 0;
-    }
-
-    .contact-mail-link:hover {
-      border-color: #ffffff;
     }
 
     .footer-cta-card {
@@ -1428,39 +1243,6 @@
       font-size: 12.5px;
       line-height: 1.5;
       color: rgba(255, 255, 255, 0.8);
-    }
-
-    .footer-action-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background-color: #ffffff;
-      color: #7b2917;
-      font-size: 13.5px;
-      font-weight: 800;
-      padding: 12px 22px;
-      border-radius: var(--radius-pill);
-      text-decoration: none;
-      transition: all 0.25s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-      min-height: 44px;
-    }
-
-    .footer-action-btn:hover {
-      background-color: #faf5f2;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
-    }
-
-    .footer-action-btn svg {
-      width: 15px;
-      height: 15px;
-      transition: transform 0.2s ease;
-    }
-
-    .footer-action-btn:hover svg {
-      transform: translateX(3px);
     }
 
     .footer-badge-note {
@@ -1497,12 +1279,7 @@
       padding: 6px 0;
       text-decoration: underline;
       text-underline-offset: 3px;
-      transition: color 0.2s ease;
       min-height: 32px;
-    }
-
-    .legal-link-btn:hover {
-      color: #ffffff;
     }
 
     .back-to-top-btn {
@@ -1520,12 +1297,6 @@
       text-decoration: none;
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
       z-index: 100;
-      transition: transform 0.25s ease, background-color 0.2s ease;
-    }
-
-    .back-to-top-btn:hover {
-      transform: translateY(-4px);
-      background-color: #faf5f2;
     }
 
     .back-to-top-btn svg {
@@ -1549,7 +1320,7 @@
       padding: 16px;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     .info-modal-overlay.active {
@@ -1570,7 +1341,7 @@
       flex-direction: column;
       overflow: hidden;
       transform: scale(0.92) translateY(16px);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.35s ease;
       color: #1a1a1a;
     }
 
@@ -1596,7 +1367,6 @@
       border-radius: var(--radius-pill);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.02em;
       background-color: var(--primary-light);
       color: #7b2917;
       border: 1px solid #eec4b8;
@@ -1613,14 +1383,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.2s ease;
       flex-shrink: 0;
-    }
-
-    .info-modal-close-btn:hover {
-      background: #7b2917;
-      color: #ffffff;
-      transform: rotate(90deg);
     }
 
     .info-modal-close-btn svg {
@@ -1632,7 +1395,6 @@
       padding: 24px 28px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      overscroll-behavior: contain;
       font-size: 13.5px;
       line-height: 1.65;
       color: #4a4440;
@@ -1645,9 +1407,6 @@
       overflow: hidden;
       margin-bottom: 20px;
       background-color: #ede7e1;
-      position: relative;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      flex-shrink: 0;
     }
 
     .info-modal-media-img {
@@ -1662,7 +1421,6 @@
       font-weight: 800;
       color: #141414;
       line-height: 1.2;
-      letter-spacing: -0.025em;
       margin-bottom: 10px;
     }
 
@@ -1685,7 +1443,6 @@
       font-size: 11.5px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
       color: #7b2917;
       margin-bottom: 10px;
     }
@@ -1743,42 +1500,6 @@
       font-weight: 600;
     }
 
-    .info-modal-cta-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: #7b2917;
-      color: #ffffff;
-      border: none;
-      padding: 12px 24px;
-      border-radius: var(--radius-pill);
-      font-size: 13px;
-      font-weight: 800;
-      text-decoration: none;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.25s ease;
-      box-shadow: 0 6px 18px rgba(123, 41, 23, 0.25);
-      min-height: 44px;
-    }
-
-    .info-modal-cta-btn:hover {
-      background: #96351f;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(123, 41, 23, 0.35);
-    }
-
-    .info-modal-cta-btn svg {
-      width: 14px;
-      height: 14px;
-      transition: transform 0.2s ease;
-    }
-
-    .info-modal-cta-btn:hover svg {
-      transform: translateX(3px);
-    }
-
     /* =========================================
        LEGAL MODAL POP-UP
        ========================================= */
@@ -1795,7 +1516,7 @@
       padding: 16px;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     .legal-modal-overlay.active {
@@ -1815,13 +1536,7 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      transform: scale(0.94) translateY(10px);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       color: #222222;
-    }
-
-    .legal-modal-overlay.active .legal-modal-window {
-      transform: scale(1) translateY(0);
     }
 
     .legal-modal-header {
@@ -1853,15 +1568,12 @@
       font-weight: 700;
       color: #635750;
       cursor: pointer;
-      font-family: inherit;
-      transition: all 0.2s ease;
       min-height: 36px;
     }
 
     .legal-tab-btn.active {
       background: #7b2917;
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(123, 41, 23, 0.25);
     }
 
     .legal-modal-close-btn {
@@ -1875,14 +1587,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.2s ease;
       flex-shrink: 0;
-    }
-
-    .legal-modal-close-btn:hover {
-      background: #7b2917;
-      color: #ffffff;
-      transform: rotate(90deg);
     }
 
     .legal-modal-close-btn svg {
@@ -1893,23 +1598,9 @@
     .legal-modal-body {
       padding: 28px 30px;
       overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      overscroll-behavior: contain;
       font-size: 13.5px;
       line-height: 1.7;
       color: #4a4440;
-      scrollbar-width: thin;
-      scrollbar-color: #d4aba0 #ede7e1;
-    }
-
-    .legal-modal-body::-webkit-scrollbar {
-      width: 6px;
-      display: block;
-    }
-
-    .legal-modal-body::-webkit-scrollbar-thumb {
-      background: #d4aba0;
-      border-radius: var(--radius-pill);
     }
 
     .legal-content-panel {
@@ -1918,19 +1609,12 @@
 
     .legal-content-panel.active {
       display: block;
-      animation: legalFadeIn 0.3s ease;
-    }
-
-    @keyframes legalFadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .legal-modal-body h2 {
       font-size: 22px;
       font-weight: 800;
       color: #1a1a1a;
-      letter-spacing: -0.02em;
       margin-bottom: 8px;
     }
 
@@ -1982,13 +1666,7 @@
       font-size: 12.5px;
       font-weight: 800;
       cursor: pointer;
-      font-family: inherit;
-      transition: background-color 0.2s;
       min-height: 38px;
-    }
-
-    .legal-modal-confirm-btn:hover {
-      background: #96351f;
     }
 
     /* =========================================
@@ -1997,7 +1675,7 @@
     @media (max-width: 1024px) {
       .hero-header { padding: 16px 32px 0 32px; }
       .hero-left-content { left: 32px; }
-      .hero-circle-btn-wrapper { left: 32px; }
+      .hero-btn-zone { left: 32px; }
       .system-section, .curriculum-section, .dual-features-section, .testimonials-section, .site-footer {
         padding-left: 32px;
         padding-right: 32px;
@@ -2024,13 +1702,6 @@
       .brand-icon-box svg { width: 16px; height: 16px; }
       .brand-text { font-size: 16px; }
       .nav-menu-list { display: none; }
-
-      .nav-cta-action {
-        padding: 8px 16px;
-        font-size: 12px;
-        gap: 6px;
-        min-height: 36px;
-      }
 
       .hero-left-shade {
         background: linear-gradient(180deg, rgba(50, 14, 4, 0.82) 0%, rgba(50, 14, 4, 0.48) 50%, rgba(50, 14, 4, 0.88) 100%);
@@ -2065,31 +1736,9 @@
         display: none;
       }
 
-      .hero-circle-btn-wrapper {
+      .hero-btn-zone {
         left: 20px;
-        bottom: 22px;
-      }
-
-      .hero-circle-btn {
-        width: 126px;
-        height: 126px;
-        padding: 10px;
-      }
-
-      .circle-btn-pill-tag {
-        font-size: 8px;
-        padding: 2px 7px;
-        margin-bottom: 2px;
-      }
-
-      .circle-btn-headline {
-        font-size: 11px;
-        line-height: 1.15;
-      }
-
-      .circle-btn-price-badge {
-        font-size: 10px;
-        margin-top: 2px;
+        bottom: 25px;
       }
 
       .hero-giant-typography {
@@ -2099,7 +1748,6 @@
         opacity: 0.22;
       }
 
-      /* Mobile 3-Phase System */
       .system-section { padding: 60px 16px 70px 16px; }
       .system-top-pill { font-size: 10.5px; padding: 5px 14px; margin-bottom: 12px; }
       .system-heading { font-size: clamp(24px, 6.2vw, 30px); margin-bottom: 32px; }
@@ -2110,7 +1758,6 @@
       .card-title { font-size: 20px; }
       .card-desc { font-size: 12px; }
 
-      /* Mobile Curriculum Section */
       .curriculum-section { padding: 60px 16px 70px 16px; }
       .curriculum-header { margin-bottom: 36px; }
       .giant-watermark-title { font-size: clamp(54px, 14vw, 85px); margin-bottom: 10px; }
@@ -2130,7 +1777,6 @@
       .module-desc { font-size: 12px; }
       .module-action-btn { width: 100%; padding: 10px; font-size: 12px; }
 
-      /* Mobile Dual Features */
       .dual-features-section { padding: 0 16px 70px 16px; }
       .dual-features-container { grid-template-columns: 1fr; gap: 18px; }
       .feature-card { height: 390px; padding: 16px; border-radius: 22px; }
@@ -2139,7 +1785,6 @@
       .glass-content-row { flex-direction: column; align-items: flex-start; gap: 10px; }
       .glass-card-title { max-width: 100%; font-size: 17px; }
 
-      /* Mobile Testimonials Carousel */
       .testimonials-section { padding: 0 12px 60px 12px; }
       .testimonials-wrapper { border-radius: 28px; padding: 40px 0 50px 0; }
       .testimonials-track { padding: 0 16px; gap: 12px; }
@@ -2155,7 +1800,6 @@
       .testi-giant-watermark { font-size: clamp(48px, 13vw, 80px); }
       .peeking-cat-img { width: clamp(190px, 45vw, 250px); bottom: -6px; }
 
-      /* Mobile Footer */
       .site-footer { padding: 44px 16px 28px 16px; }
       .footer-top-row { flex-direction: column; align-items: flex-start; gap: 14px; padding-bottom: 20px; }
       .footer-slogan { font-size: 17px; }
@@ -2163,7 +1807,6 @@
       .footer-bottom-row { flex-direction: column-reverse; align-items: flex-start; gap: 12px; }
       .back-to-top-btn { bottom: 18px; right: 18px; width: 40px; height: 40px; }
 
-      /* Mobile Modals */
       .info-modal-overlay, .legal-modal-overlay { padding: 12px; }
       .info-modal-window, .legal-modal-window { max-height: 90vh; max-height: 90dvh; border-radius: 22px; }
       .info-modal-header, .legal-modal-header { padding: 12px 16px; }
@@ -2172,7 +1815,6 @@
       .info-modal-title { font-size: 18px; }
       .info-modal-footer { flex-direction: column; align-items: stretch; gap: 10px; padding: 12px 16px; }
       .info-modal-price-tag { text-align: center; }
-      .info-modal-cta-btn { width: 100%; }
 
       .legal-tabs-nav { width: 100%; justify-content: space-between; }
       .legal-tab-btn { flex: 1; text-align: center; padding: 7px 8px; font-size: 11px; }
@@ -2228,13 +1870,8 @@
         </ul>
 
         <div class="nav-actions-group">
-          <a href="#" class="nav-cta-action" onclick="handleCheckoutClick(event, 'navbar_pill')">
-            <span>Get Guide — $27 USD</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
+          <!-- BOTÓN NATIVO GUMROAD (NAVBAR) -->
+          <a class="gumroad-button" href="https://petnova.gumroad.com/l/stop-scratching?wanted=true">Get Guide — $27 USD</a>
         </div>
       </nav>
     </header>
@@ -2273,20 +1910,9 @@
       </ul>
     </div>
 
-    <!-- Bottom Left Circular CTA Button (Thumb Zone Friendly) -->
-    <div class="hero-circle-btn-wrapper">
-      <div class="hero-circle-pulse-ring"></div>
-      <a href="#" class="hero-circle-btn" aria-label="Get the 7-Day Guide for 27 dollars" onclick="handleCheckoutClick(event, 'hero_circle')">
-        <span class="circle-btn-pill-tag">Instant Access</span>
-        <span class="circle-btn-headline">Save Your<br>Furniture</span>
-        <span class="circle-btn-price-badge">
-          $27 USD
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </span>
-      </a>
+    <!-- BOTÓN NATIVO GUMROAD (HERO) -->
+    <div class="hero-btn-zone">
+      <a class="gumroad-button" href="https://petnova.gumroad.com/l/stop-scratching?wanted=true">Buy on Gumroad — $27 USD</a>
     </div>
 
     <!-- Bottom Right Giant Overlay -->
@@ -2422,7 +2048,7 @@
         </div>
 
         <!-- ROW 2 (Module 2) -->
-        <div class="module-row active" onclick="openModuleModal(2)" role="button" tabindex="0" aria-label="Module 2 details" onkeydown="if(event.key==='Enter') openModuleModal(2)">
+        <div class="module-row" onclick="openModuleModal(2)" role="button" tabindex="0" aria-label="Module 2 details" onkeydown="if(event.key==='Enter') openModuleModal(2)">
           <div class="module-left-wrap">
             <img src="guide-thumb.jpg" alt="Cat resting calmly near sofa" class="module-thumb-img" onerror="this.style.display='none'" />
             <div class="module-text-info">
@@ -2533,13 +2159,8 @@
             <h3 class="glass-card-title">
               Zero Screaming or Stress:<br>Pure Positive Behavioral Rewiring
             </h3>
-            <a href="#" class="glass-action-link" onclick="handleCheckoutClick(event, 'pillar_one')">
-              Get Guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <!-- BOTÓN GUMROAD PILLAR 1 -->
+            <a class="gumroad-button" href="https://petnova.gumroad.com/l/stop-scratching?wanted=true">Get Guide</a>
           </div>
         </div>
       </div>
@@ -2562,13 +2183,8 @@
             <h3 class="glass-card-title">
               Preserve Luxury Fabrics Without<br>Ugly Plastic Couch Protectors
             </h3>
-            <a href="#" class="glass-action-link" onclick="handleCheckoutClick(event, 'pillar_two')">
-              Get Guide
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <!-- BOTÓN GUMROAD PILLAR 2 -->
+            <a class="gumroad-button" href="https://petnova.gumroad.com/l/stop-scratching?wanted=true">Get Guide</a>
           </div>
         </div>
       </div>
@@ -2753,13 +2369,8 @@
             <p class="footer-cta-desc">
               Protect your luxury sofas in 7 days without stress, screaming, or declawing.
             </p>
-            <a href="#" class="footer-action-btn" onclick="handleCheckoutClick(event, 'footer_card')">
-              <span>Claim Guide ($27 USD)</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <!-- BOTÓN GUMROAD FOOTER -->
+            <a class="gumroad-button" href="https://petnova.gumroad.com/l/stop-scratching?wanted=true">Claim Guide ($27 USD)</a>
             <span class="footer-badge-note">🔒 256-Bit SSL Encrypted Checkout</span>
           </div>
         </div>
@@ -2827,13 +2438,8 @@
           <span class="info-modal-price-val">$27 USD</span>
           <span class="info-modal-price-sub">Instant 7-Day Digital Blueprint</span>
         </div>
-        <a href="#" class="info-modal-cta-btn" onclick="handleCheckoutClick(event, 'modal_cta')">
-          <span>Claim Full Guide</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
+        <!-- BOTÓN GUMROAD DENTRO DEL MODAL -->
+        <a class="gumroad-button" href="https://petnova.gumroad.com/l/stop-scratching?wanted=true" onclick="closeInfoModal()">Claim Full Guide</a>
       </div>
 
     </div>
@@ -2937,28 +2543,9 @@
   </div>
 
   <!-- =========================================
-       SCRIPTS (CONFIGURABLE CHECKOUT, MODALS, PARALLAX)
+       SCRIPTS (MODALS, PARALLAX, BEHAVIOR)
        ========================================= -->
   <script>
-    /* =========================================================
-       CONFIGURACIÓN DE ENLACE DE COMPRA (CENTRALIZADA)
-       Cuando termines tus eBooks, solo pega tu enlace aquí:
-       ========================================================= */
-    const CHECKOUT_URL = "https://petnova.gumroad.com/l/stop-scratching";
-
-function handleCheckoutClick(event, placement) {
-  if (CHECKOUT_URL === "#" || !CHECKOUT_URL) {
-    event.preventDefault();
-    const target = document.getElementById('system');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  } else {
-    // Abrir en una pestaña nueva:
-    window.open(CHECKOUT_URL, '_blank');
-  }
-}
-
     function handleSubscribe(e) {
       e.preventDefault();
       const emailInput = document.getElementById('subEmail');
@@ -3226,7 +2813,6 @@ function handleCheckoutClick(event, placement) {
       ];
 
       const currentHost = window.location.hostname.toLowerCase();
-      // Permite tu dominio oficial, localhost y tus enlaces de prueba en Vercel (.vercel.app)
       const isHostValid = ALLOWED_HOSTS.some(allowed => currentHost === allowed || currentHost.endsWith('.' + allowed)) || currentHost.endsWith('.vercel.app');
 
       if (!isHostValid && window.location.protocol !== 'file:') {
@@ -3246,21 +2832,18 @@ function handleCheckoutClick(event, placement) {
       }
 
       /* 2. PROTECCIÓN VISUAL Y DESACTIVACIÓN DE COPIA RÁPIDA */
-      // Bloquea arrastrar imágenes fuera de la web
       document.addEventListener('dragstart', function (e) {
         if (e.target.nodeName === 'IMG' || e.target.nodeName === 'A') {
           e.preventDefault();
         }
       }, false);
 
-      // Bloquea clic derecho sobre imágenes o secciones principales
       document.addEventListener('contextmenu', function (e) {
         if (e.target.nodeName === 'IMG' || e.target.closest('.hero-viewport') || e.target.closest('.feature-card')) {
           e.preventDefault();
         }
       }, false);
 
-      // Intercepta atajos de teclado de descarga e inspección (F12, Ctrl+U, Ctrl+S)
       window.addEventListener('keydown', function (e) {
         const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
         const ctrlOrCmd = isMac ? e.metaKey : e.ctrlKey;
