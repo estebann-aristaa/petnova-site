@@ -2460,102 +2460,122 @@
     </div>
   </div>
 
-  <!-- =========================================
-       LEGAL MODAL POP-UP (TERMS & PRIVACY)
-       ========================================= -->
-  <div class="legal-modal-overlay" id="legalModalOverlay" onclick="handleLegalOverlayClick(event)" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="legal-modal-window">
-      
-      <div class="legal-modal-header">
-        <div class="legal-tabs-nav">
-          <button type="button" class="legal-tab-btn active" id="tabBtnTerms" onclick="switchLegalTab('terms')">
-            Terms of Use
-          </button>
-          <button type="button" class="legal-tab-btn" id="tabBtnPrivacy" onclick="switchLegalTab('privacy')">
-            Privacy Policy
-          </button>
-        </div>
-
-        <button type="button" class="legal-modal-close-btn" onclick="closeLegalModal()" aria-label="Close modal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-
-      <div class="legal-modal-body">
-        
-        <!-- TERMS PANEL -->
-        <div class="legal-content-panel active" id="panelTerms">
-          <h2 id="modalTitle">Terms of Use</h2>
-          <div class="legal-last-updated">Last Updated: August 2026</div>
-
-          <p>
-            Welcome to <strong>Petnova</strong> (accessible via petnovagatos.com). By purchasing our digital products, downloading our educational guides, or subscribing to our email newsletters, you agree to be legally bound by the following Terms of Use.
-          </p>
-
-          <h3>1. Digital Products & Single-User License</h3>
-          <p>
-            All digital blueprints, eBooks, videos, and guides sold through Petnova are the intellectual property of Petnova. Your purchase of the <em>"7 Days to a Cat That Doesn't Scratch Your Furniture"</em> guide grants you a non-exclusive, non-transferable, single-user license for personal, non-commercial use only.
-          </p>
-          <p>
-            You may not redistribute, resell, share, reproduce, or upload any portion of this material to public file-sharing platforms or forums.
-          </p>
-
-          <h3>2. Educational & Behavioral Disclaimer</h3>
-          <p>
-            The advice, techniques, and routines presented in our materials are based on humane feline behavioral modification research and practical cat training methodologies. However, they are provided strictly for educational purposes and do not constitute clinical veterinary diagnosis, medical treatment, or individualized animal therapy.
-          </p>
-
-          <h3>3. Digital Delivery & Instant Access</h3>
-          <p>
-            All digital product purchases are fulfilled automatically. Access instructions and download links will be delivered electronically immediately upon completed transaction confirmation.
-          </p>
-
-          <h3>4. Contact Support</h3>
-          <p>
-            If you have questions regarding these terms, contact our support team at <a href="#" class="js-protected-mail" style="color:#7b2917; font-weight:700;">Support Team</a> (Mon–Fri, 7:00 AM – 4:00 PM EST).
-          </p>
-        </div>
-
-        <!-- PRIVACY PANEL -->
-        <div class="legal-content-panel" id="panelPrivacy">
-          <h2>Privacy Policy</h2>
-          <div class="legal-last-updated">Last Updated: August 2026</div>
-
-          <p>
-            At <strong>Petnova</strong>, we respect your personal privacy and are committed to protecting the information you share with us. This Privacy Policy outlines what information we collect, how it is used, and how we keep it secure.
-          </p>
-
-          <h3>1. Information We Collect</h3>
-          <p>We may collect personal data from you in the following scenarios:</p>
-          <ul>
-            <li><strong>Email Newsletter Subscription:</strong> Your email address when voluntarily subscribing.</li>
-            <li><strong>Digital Product Purchases:</strong> Your name and email provided at checkout.</li>
-            <li><strong>Customer Support Inquiries:</strong> Correspondence sent to <a href="#" class="js-protected-mail" style="color:#7b2917; font-weight:700;">Support Email</a>.</li>
-          </ul>
-
-          <h3>2. Zero Spam Policy (CAN-SPAM Compliance)</h3>
-          <p>
-            Every educational and promotional email sent by Petnova includes an automated, single-click <em>"Unsubscribe"</em> link at the bottom. You may remove yourself at any time with immediate effect.
-          </p>
-
-          <h3>3. No Sale of Personal Data</h3>
-          <p>
-            We <strong>never sell, rent, or trade</strong> your personal information to third parties.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="legal-modal-footer">
-        <span>Petnova Legal & Data Protection</span>
-        <button type="button" class="legal-modal-confirm-btn" onclick="closeLegalModal()">I Understand</button>
-      </div>
-
-    </div>
-  </div>
+  <div class="legal-content-panel active" id="panelTerms">
+  <h2 id="modalTitle">Terms of Use</h2>
+  <div class="legal-last-updated">Last Updated: August 30, 2026</div>
+ 
+  <p>
+    Welcome to <strong>Petnova</strong> (accessible via petnovagatos.com). By purchasing our digital products, downloading our educational guides, or subscribing to our email newsletters, you agree to be legally bound by the following Terms of Use. If you do not agree, please do not purchase or use our products.
+  </p>
+ 
+  <h3>1. Description of the Product</h3>
+  <p>
+    Petnova sells digital ebooks and guides intended for general educational and informational purposes only, covering topics such as feline behavior, habits, and general feeding guidance. Our products are <strong>not</strong> a substitute for professional veterinary advice, diagnosis, or treatment.
+  </p>
+ 
+  <h3>2. Not Veterinary Advice</h3>
+  <p>
+    The advice, techniques, and routines presented in our materials are based on general feline behavioral research and common practices. They are provided strictly for educational purposes and do not constitute clinical veterinary diagnosis, medical treatment, or individualized animal therapy. If your cat shows signs of illness, injury, unusual behavior, or distress, consult a licensed veterinarian immediately. Never delay professional veterinary care because of something you read in our materials.
+  </p>
+ 
+  <h3>3. Digital Products & Single-User License</h3>
+  <p>
+    All digital blueprints, eBooks, videos, and guides sold through Petnova are the intellectual property of Petnova. Your purchase grants you a non-exclusive, non-transferable, single-user license for personal, non-commercial use only.
+  </p>
+  <p>You may not:</p>
+  <ul>
+    <li>Resell, redistribute, share, or upload any portion of the material to public file-sharing platforms, forums, or third parties;</li>
+    <li>Copy, reproduce, or publish the content, in whole or in part, on any other website or publication;</li>
+    <li>Modify or create derivative works based on the product;</li>
+    <li>Use the product for any commercial purpose without our prior written consent.</li>
+  </ul>
+ 
+  <h3>4. Digital Delivery & Refund Policy</h3>
+  <p>
+    All digital product purchases are fulfilled automatically, with access instructions and download links delivered electronically immediately upon completed transaction confirmation.
+  </p>
+  <p>
+    Because our products are digital goods delivered instantly, all sales are considered final once the product has been downloaded or accessed. We accept refund requests only if made within <strong>7 days</strong> of purchase and before the file has been downloaded. Once downloaded, the product is considered delivered and consumed, and is no longer eligible for a refund, except where required by applicable law.
+  </p>
+ 
+  <h3>5. Limitation of Liability</h3>
+  <p>
+    To the fullest extent permitted by law, Petnova and its owners shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of, or inability to use, our products — including any decisions you make regarding your cat's care, behavior, or diet, or any outcomes resulting from applying the information provided. Our products are provided "as is," without warranties of any kind, express or implied.
+  </p>
+ 
+  <h3>6. Acceptance of Terms</h3>
+  <p>
+    By purchasing or downloading any Petnova product, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use.
+  </p>
+ 
+  <h3>7. Governing Law</h3>
+  <p>
+    These Terms are governed by the laws of the United States, without regard to conflict of law principles.
+  </p>
+ 
+  <h3>8. Contact Support</h3>
+  <p>
+    If you have questions regarding these terms, contact our support team at <a href="#" class="js-protected-mail" style="color:#7b2917; font-weight:700;">Support Team</a> (Mon–Fri, 7:00 AM – 4:00 PM EST).
+  </p>
+</div>
+ 
+ 
+<div class="legal-content-panel" id="panelPrivacy">
+  <h2>Privacy Policy</h2>
+  <div class="legal-last-updated">Last Updated: August 30, 2026</div>
+ 
+  <p>
+    At <strong>Petnova</strong>, we respect your personal privacy and are committed to protecting the information you share with us. This Privacy Policy outlines what information we collect, how it is used, and how we keep it secure.
+  </p>
+ 
+  <h3>1. Information We Collect</h3>
+  <p>We may collect personal data from you in the following scenarios:</p>
+  <ul>
+    <li><strong>Email Newsletter Subscription:</strong> Your email address when voluntarily subscribing.</li>
+    <li><strong>Digital Product Purchases:</strong> Your name and email provided at checkout.</li>
+    <li><strong>Customer Support Inquiries:</strong> Correspondence sent to <a href="#" class="js-protected-mail" style="color:#7b2917; font-weight:700;">Support Email</a>.</li>
+  </ul>
+ 
+  <h3>2. How We Use Your Information</h3>
+  <p>We use the information we collect to:</p>
+  <ul>
+    <li>Deliver the digital products you purchase;</li>
+    <li>Send you the newsletter and related educational content, if you subscribed;</li>
+    <li>Respond to your support requests;</li>
+    <li>Improve our products and communications.</li>
+  </ul>
+ 
+  <h3>3. No Sale of Personal Data</h3>
+  <p>
+    We <strong>never sell, rent, or trade</strong> your personal information to third parties.
+  </p>
+ 
+  <h3>4. Zero Spam Policy (CAN-SPAM Compliance)</h3>
+  <p>
+    Every promotional or educational email sent by Petnova includes an automated, single-click <em>"Unsubscribe"</em> link at the bottom. You may remove yourself from our list at any time, with immediate effect. We use MailerLite as our email marketing platform to manage and send these communications.
+  </p>
+ 
+  <h3>5. Our Physical Address</h3>
+  <p>
+    As required by U.S. law (CAN-SPAM Act), our physical mailing address is:<br>
+    Petnova — CRA 8A #153-56, Bogotá, Colombia
+  </p>
+ 
+  <h3>6. Children's Privacy</h3>
+  <p>
+    Our products and services are not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. If we become aware that we have inadvertently collected data from a child under 13, we will delete it promptly.
+  </p>
+ 
+  <h3>7. Data Retention & Deletion</h3>
+  <p>
+    We retain your personal information for as long as necessary to fulfill the purposes described in this policy, or as required by law. You may request access to, correction of, or deletion of your personal data at any time by contacting us at <a href="#" class="js-protected-mail" style="color:#7b2917; font-weight:700;">Support Email</a>. We will process your request within a reasonable timeframe.
+  </p>
+ 
+  <h3>8. Contact Us</h3>
+  <p>
+    If you have any questions about this Privacy Policy, contact us at <a href="#" class="js-protected-mail" style="color:#7b2917; font-weight:700;">Support Email</a> or at our postal address listed above.
+  </p>
+</div>
 
   <!-- =========================================
        SCRIPTS (MODALS, PARALLAX, BEHAVIOR)
